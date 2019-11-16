@@ -1,18 +1,21 @@
-import repo from './viewRepository';
-
-export default class viewServices{
-    private repo : repo;
-    constructor(repo:repo){
+import Repo from './viewRepository';
+const repo = new Repo();
+export default class viewServices {
+    private repo: Repo;
+    constructor() {
         this.repo = repo;
     }
-    getSharenote = async(postID:string) => {return await this.repo.viewShareNote(postID);}
-    getSharenoteall = async() => {return await this.repo.viewShareNoteall();}
-    getShareevent = async(postID:string) => {return await this.repo.viewShareevent(postID);}
-    getShareeventall = async() => {return await this.repo.viewShareeventall();}
-    getReviewsubject = async(postID:string) => {return await this.repo.viewReviewsubject(postID);}
-    getReviewsubjectall = async() => {return await this.repo.viewReviewsubjectall();}
-    getReviewtutor = async(postID:string) => {return await this.repo.viewReviewtutor(postID);}
-    getReviewtutorall = async() => {return await this.repo.viewReviewtutorall();}
-    getReviewbook = async(postID:string) => {return await this.repo.viewShareNote(postID);}
-    getReviewbookall = async() => {return await this.repo.viewReviewbookall();}
+    getSharenote = async (postID: string,ID: string) => { const result = await this.repo.viewShareNote(postID);}
+    getShareNoteAll = async () => { return await this.repo.viewShareNoteall(); }
+    getShareEvent = async (postID: string) => { return await this.repo.viewShareevent(postID); }
+    getShareEventAll = async () => { return await this.repo.viewShareeventall(); }
+    getReviewSubject = async (postID: string) => { return await this.repo.viewReviewsubject(postID); }
+    getReviewSubjectAll = async () => { return await this.repo.viewReviewsubjectall(); }
+    getReviewTutor = async (postID: string) => { return await this.repo.viewReviewtutor(postID); }
+    getReviewTutorAll = async () => { return await this.repo.viewReviewtutorall(); }
+    getReviewBook = async (postID: string) => { return await this.repo.viewShareNote(postID); }
+    getReviewBookAll = async () => { return await this.repo.viewReviewbookall(); }
+    
+    checkOwner = (userID, ID) =>{
+    }
 }
