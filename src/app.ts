@@ -30,7 +30,7 @@ if (app.get('env') === 'DEV') {
 //Router
 import routing from './routing'
 
-app.use('/shareed',routing)
+app.use('/shareed',routing);
 
 //Server
 
