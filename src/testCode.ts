@@ -32,12 +32,20 @@ if (app.get('env') === 'DEV') {
 //Test Code
 
 import database from '../server/database';
+import Routing from './routing';
 
 const db = new database();
+const routing = new Routing();
 
-const result: any = db.query('SELECT * FROM reviewbook WHERE ReviewBookID = a1000000001',[]);
+async function name() {
+    const result = await db.query([],[]);
+    console.log(result[0].ReviewBookID);
+}
 
-console.log(result);
+app.use('/shareed',routing);
+
+
+
 //
 
 //Server

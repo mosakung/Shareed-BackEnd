@@ -10,7 +10,7 @@
     "start-dev": "npm run build && cross-env NODE_ENV=DEV node dist/app",
     "start-debug": "npm run build && cross-env NODE_ENV=DEV DEBUG=* node dist/app",
     "realtime": "cross-env NODE_ENV=DEV DEBUG=app:startup nodemon dist/app",
-    "test-code": "npm run build && cross-env NODE_ENV=DEV node dist/testCode" 
+    "test-code": "npm run build && cross-env NODE_ENV=DEV node dist/src/testCode" 
   },
   "repository": {
     "type": "git",
