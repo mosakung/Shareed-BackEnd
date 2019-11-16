@@ -1,22 +1,24 @@
-//Import Package npm
+//Import Module
 import express from 'express';
-import bodyParser from 'body-parser'
 import Joi from 'joi';
 import responseTime from 'response-time';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import config from 'config'
 
+//Require Module
+const startupDebugger = require('debug')('app:startup');
+const dbDebugger = require('debug')('app:db');
+
 //Set Class
 const app = express();
-
-app.use(express.json);
-app.use(bodyParser.json());
 
 //PROCESS_ENV
 console.log(`NODE_ENV: ${process.env.NODE_ENV}` + ` || app: ${app.get('env')}`);
 
 //APP USE
+app.use(express.json());
+
 app.use(helmet());
 
 if (app.get('env') === 'DEV') {
@@ -27,19 +29,26 @@ if (app.get('env') === 'DEV') {
     app.use(morgan('tiny'));
 }
 
-//Router
-import routing from './routing'
+//Test Code
+
+import database from '../server/database';
+import Routing from './routing';
+
+const db = new database();
+const routing = new Routing();
+
+async function name() {
+    const result = await db.query([],[]);
+    console.log(result[0].ReviewBookID);
+}
 
 app.use('/shareed',routing);
 
+
+
+//
+
 //Server
-
-const server = app.listen(3000, () => {
-    console.log(
-        "  App is running at localhost:3000 in %s mode",
-        app.get("env")
-    );
-    console.log("Press CTRL-C to Terminate server\n");
-})
-
-export default {app, server};
+app.listen(3000, () => {
+    console.log('Start server at port 3000.');
+});
