@@ -1,14 +1,14 @@
 import express from 'express';
 
 //Import router feature
-import routerShareNote from './router/ShareNote-Router';
+import routerShareNote from './routers/ShareNote-Router';
 
-const routerMain = express('Router');
+const routing = express('Router');
 
-routerMain.get('/Say', (req, res) => {
+routing.get('/Say', (req, res) => {
     res.send('Hi');
 })
 
-routerMain.use('/share-note',routerShareNote);
+routing.use('/share-note',routerShareNote);
 
-export default routerMain;
+export default routing;
