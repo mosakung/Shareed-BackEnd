@@ -1,0 +1,1 @@
+export const SQL_getShareNoteAll = '';
