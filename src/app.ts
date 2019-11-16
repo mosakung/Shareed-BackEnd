@@ -30,9 +30,9 @@ if (app.get('env') === 'DEV') {
 }
 
 //Router
-import router from './router'
+import routing from './routing'
 
-app.use('/shareed',router)
+app.use('/shareed',routing)
 
 //Server
 
