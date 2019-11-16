@@ -29,6 +29,7 @@
     "joi": "^14.3.1",
     "mogodb": "0.0.1-security",
     "morgan": "^1.9.1",
+    "mysql": "^2.17.1",
     "nodemon": "^1.19.4",
     "response-time": "^2.3.2",
     "typescript": "^3.7.2"
