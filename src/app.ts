@@ -34,10 +34,9 @@ app.use('/shareed',routing)
 
 //Server
 
-const server = app.listen(app.get("port"), () => {
+const server = app.listen(3000, () => {
     console.log(
-        "  App is running at localhost:%d in %s mode",
-        app.get("port"),
+        "  App is running at localhost:3000 in %s mode",
         app.get("env")
     );
     console.log("Press CTRL-C to Terminate server\n");
