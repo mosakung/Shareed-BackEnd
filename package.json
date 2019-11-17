@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
-    "start": "npm run build && cross-env NODE_ENV=PRD node dist/app",
-    "start-dev": "npm run build && cross-env NODE_ENV=DEV node dist/app",
-    "start-debug": "npm run build && cross-env NODE_ENV=DEV DEBUG=* node dist/app",
-    "realtime": "cross-env NODE_ENV=DEV DEBUG=app:startup nodemon dist/app",
+    "start": "npm run build && cross-env NODE_ENV=PRD node dist/src/app",
+    "start-dev": "npm run build && cross-env NODE_ENV=DEV node dist/src/app",
+    "start-debug": "npm run build && cross-env NODE_ENV=DEV DEBUG=* node dist/src/app",
+    "realtime": "cross-env NODE_ENV=DEV DEBUG=app:startup nodemon dist/src/app",
     "test-code": "npm run build && cross-env NODE_ENV=DEV node dist/src/testCode" 
   },
   "repository": {
