@@ -1,6 +1,6 @@
 import express from 'express';
 
-const routerReviewTutor = express('Router');
+const routerReviewTutor = express.Router();
 
 routerReviewTutor.get('/', (req: any, res: any) => {
     //fetch All share note
