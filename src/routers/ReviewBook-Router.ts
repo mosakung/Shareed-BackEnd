@@ -1,14 +1,13 @@
 import express from 'express';
+import Binding from '../binding';
 
-const routerReviewBook = express('Router');
+const routerReviewBook = express.Router();
 
-routerReviewBook.get('/', (req: any, res: any) => {
-    //fetch All share note
-})
+const binding : Binding = new Binding();
 
-routerReviewBook.get('/:id/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
+routerReviewBook.get('/', binding.getViewControllers().getReviewBook);
+
+routerReviewBook.get('/:id/:userId', routerReviewBook.get('/', binding.getViewControllers().getReviewBookID));
 
 routerReviewBook.post('/', (req: any, res: any) => {
     //create share note

@@ -1,6 +1,9 @@
 import express from 'express';
+import Binding from '../binding';
 
-const routerShareNote = express('Router');
+const routerShareNote = express.Router();
+
+const binding : Binding = new Binding();
 
 routerShareNote.get('/', (req: any, res: any) => {
     //fetch All share note
