@@ -12,7 +12,7 @@ import {
     getShareevent
 } from './sqlraw';
 
-export default class viewRepository {
+export default class ViewRepository {
     private db: database;
     constructor(db: database) {
         this.db = db;
