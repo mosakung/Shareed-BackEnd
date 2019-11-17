@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import viewService from './viewServices';
 
-class viewControllers {
+export default class ViewControllers {
     private service: viewService;
 
     constructor(service: viewService) {
@@ -24,7 +24,7 @@ class viewControllers {
 
     getShareNoteID = async (req: Request, res: Response) => {
         const postID = req.params.id;
-        const userID = req.params.userid;
+        const userID = req.params.userId;
         try {
             const result = await this.service.getShareNote(postID);
             const owner = await this.service.checkOwner(result[0].UserID, userID);
@@ -55,7 +55,7 @@ class viewControllers {
 
     getShareEventID = async (req: Request, res: Response) => {
         const postID = req.params.id;
-        const userID = req.params.userid;
+        const userID = req.params.userId;
         try {
             const result = await this.service.getShareEvent(postID);
             const owner = await this.service.checkOwner(result[0].UserID, userID);
@@ -86,7 +86,7 @@ class viewControllers {
 
     getReviewSubjectID = async (req: Request, res: Response) => {
         const postID = req.params.id;
-        const userID = req.params.userid;
+        const userID = req.params.userId;
         try {
             const result = await this.service.getReviewSubject(postID);
             const owner = await this.service.checkOwner(result[0].UserID, userID);
@@ -117,7 +117,7 @@ class viewControllers {
 
     getReviewTutorID = async (req: Request, res: Response) => {
         const postID = req.params.id;
-        const userID = req.params.userid;
+        const userID = req.params.userId;
         try {
             const result = await this.service.getReviewTutor(postID);
             const owner = await this.service.checkOwner(result[0].UserID, userID);
@@ -148,14 +148,14 @@ class viewControllers {
 
     getReviewBookID = async (req: Request, res: Response) => {
         const postID = req.params.id;
-        const userID = req.params.userid;
+        const userID = req.params.userId;
         try {
             const result = await this.service.getReviewBook(postID);
-            const owner = await this.service.checkOwner(result[0].UserID, userID);
-            if (!result && !owner) {
+            //const owner = await this.service.checkOwner(result[0].UserID, userID);
+            /*if (!result && !owner) {
                 res.status(251).send();
-            }
-            res.status(250).send(result, owner);
+            }*/
+            res.status(250).send(result);
         }
         catch (err) {
             console.error('Error:', err.message);
