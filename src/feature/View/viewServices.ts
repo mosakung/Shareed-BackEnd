@@ -39,7 +39,7 @@ export default class ViewServices {
         catch (err) { console.error('Error Services', err.message); }
     }
     getReviewBook = async (postID: string) => {
-        try { return await this.repo.viewShareNote(postID); }
+        try { return await this.repo.viewReviewBook(postID); }
         catch (err) { console.error('Error Services', err.message); }
     }
     getReviewBookAll = async () => {
