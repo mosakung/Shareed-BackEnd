@@ -50,5 +50,9 @@ app.use('/shareed',routing);
 
 //Server
 app.listen(3000, () => {
-    console.log('Start server at port 3000.');
-});
+    console.log(
+      "  App is running at localhost:3000 in %s mode",
+      app.get("env")
+    );
+    console.log("  Press CTRL-C to stop\n");
+  });
