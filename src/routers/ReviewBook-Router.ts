@@ -7,7 +7,7 @@ const binding : Binding = new Binding();
 
 routerReviewBook.get('/', binding.getViewControllers().getReviewBook);
 
-routerReviewBook.get('/:id/:userId', routerReviewBook.get('/', binding.getViewControllers().getReviewBookID));
+routerReviewBook.get('/:id/:userId', binding.getViewControllers().getReviewBookID);
 
 routerReviewBook.post('/', (req: any, res: any) => {
     //create share note
