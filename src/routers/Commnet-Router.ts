@@ -2,19 +2,19 @@ import express from 'express';
 
 const routerComment = express('Router');
 
-routerComment.get('/:post-id/:user-id', (req: any, res: any) => {
+routerComment.get('/:postId/:userId', (req: any, res: any) => {
     //fetch share note by id
 })
 
-routerComment.post('/:post-id', (req: any, res: any) => {
+routerComment.post('/:postId', (req: any, res: any) => {
     //create share note
 })
 
-routerComment.put('/:postid/:comment-id', (req: any, res: any) => {
+routerComment.put('/:postId/:commentId', (req: any, res: any) => {
     //update share note
 })
 
-routerComment.post('/:postid/:comment-id', (req: any, res: any) => {
+routerComment.post('/:postId/:commentId', (req: any, res: any) => {
     //delete share note
 })
 

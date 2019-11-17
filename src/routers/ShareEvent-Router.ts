@@ -6,7 +6,7 @@ routerShareEvent.get('/', (req: any, res: any) => {
     //fetch All share note
 })
 
-routerShareEvent.get('/:id/:user-id', (req: any, res: any) => {
+routerShareEvent.get('/:id/:userId', (req: any, res: any) => {
     //fetch share note by id
 })
 

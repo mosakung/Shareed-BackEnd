@@ -6,7 +6,7 @@ routerShareNote.get('/', (req: any, res: any) => {
     //fetch All share note
 })
 
-routerShareNote.get('/:id/:user-id', (req: any, res: any) => {
+routerShareNote.get('/:id/:userId', (req: any, res: any) => {
     //fetch share note by id
 })
 
