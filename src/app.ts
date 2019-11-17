@@ -13,9 +13,6 @@ const app = express();
 app.use(express.json);
 app.use(bodyParser.json());
 
-//PROCESS_ENV
-console.log(`NODE_ENV: ${process.env.NODE_ENV}` + ` || app: ${app.get('env')}`);
-
 //APP USE
 app.use(helmet());
 
@@ -32,9 +29,17 @@ import routing from './routing'
 
 app.use('/shareed',routing);
 
+app.get('/hi', (req, res) => {
+    res.send('hello');
+})
+
 //Server
 
-const server = app.listen(3000, () => {
+app.listen(3000, () => {
+    console.log('Start server at port 3000.');
+});
+
+/*const server = app.listen(3000, () => {
     console.log(
         "  App is running at localhost:3000 in %s mode",
         app.get("env")
@@ -42,4 +47,4 @@ const server = app.listen(3000, () => {
     console.log("Press CTRL-C to Terminate server\n");
 })
 
-export default {app, server};
+export default {app, server};*/
