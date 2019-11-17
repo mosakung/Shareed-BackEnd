@@ -6,7 +6,7 @@ routerFAQ.get('/', (req: any, res: any) => {
     //fetch All share note
 })
 
-routerFAQ.get('/:id/:user-id', (req: any, res: any) => {
+routerFAQ.get('/:id/:userId', (req: any, res: any) => {
     //fetch share note by id
 })
 

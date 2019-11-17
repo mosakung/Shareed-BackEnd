@@ -6,7 +6,7 @@ routerReviewTutor.get('/', (req: any, res: any) => {
     //fetch All share note
 })
 
-routerReviewTutor.get('/:id/:user-id', (req: any, res: any) => {
+routerReviewTutor.get('/:id/:userId', (req: any, res: any) => {
     //fetch share note by id
 })
 

@@ -6,7 +6,7 @@ routerReviewBook.get('/', (req: any, res: any) => {
     //fetch All share note
 })
 
-routerReviewBook.get('/:id/:user-id', (req: any, res: any) => {
+routerReviewBook.get('/:id/:userId', (req: any, res: any) => {
     //fetch share note by id
 })
 
