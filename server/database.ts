@@ -20,13 +20,11 @@ export default class database {
 
     query(sql,agrs) {
         return new Promise((resolve, reject) => {
-            setTimeout(() => {
                 this.connection.query(sql,agrs, (err, result) => {
                     if (err)
                         return reject(err);
                     resolve(result);
                 });
-            }, 10000);
         });
     }
 

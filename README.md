@@ -8,7 +8,7 @@ Project Shareed
 
 ## How to run
 
-`npm start`
+`npm run start` but for windows
 
 you can check the api work by using GET `localhost:3000/ping`
 
