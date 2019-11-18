@@ -6,6 +6,7 @@ export default class SqlDelete {
     private sqlDeleteReviewBook : string;
     private sqlDeleteFaq : string;
     private sqlDeleteComment : string;
+    private sqlDeleteOnwer : string
 
     constructor() {
         this.sqlDeleteShareNote = '';
@@ -15,6 +16,7 @@ export default class SqlDelete {
         this.sqlDeleteReviewBook = '';
         this.sqlDeleteFaq = '';
         this.sqlDeleteComment = '';
+        this.sqlDeleteOnwer = '';
     }
 
     getSqlShareNote() {
@@ -43,5 +45,9 @@ export default class SqlDelete {
 
     getSqlComment() {
         return this.sqlDeleteComment;
+    }
+
+    getSqlOwner() {
+        return this.sqlDeleteOnwer;
     }
 }
