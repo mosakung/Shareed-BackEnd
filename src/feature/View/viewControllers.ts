@@ -151,11 +151,16 @@ export default class ViewControllers {
         const userID = req.params.userId;
         try {
             const result = await this.service.getReviewBook(postID);
-            //const owner = await this.service.checkOwner(result[0].UserID, userID);
-            /*if (!result && !owner) {
+            if (!result) {
                 res.status(251).send();
-            }*/
-            res.status(250).send(result);
+            }
+            else if (result == ''){
+                res.status(300).send('not found in database');
+            }
+            else{
+                const owner = await this.service.checkOwner(result[0].UserID, userID);
+                res.status(250).send(result);
+            }
         }
         catch (err) {
             console.error('Error:', err.message);

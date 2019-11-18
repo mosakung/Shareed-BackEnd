@@ -1,6 +1,6 @@
 import express from 'express';
 
-const routerComment = express('Router');
+const routerComment = express.Router();
 
 routerComment.get('/:postId/:userId', (req: any, res: any) => {
     //fetch share note by id

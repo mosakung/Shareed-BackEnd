@@ -1,6 +1,6 @@
 import express from 'express';
 
-const routerShareEvent = express('Router');
+const routerShareEvent = express.Router();
 
 routerShareEvent.get('/', (req: any, res: any) => {
     //fetch All share note
