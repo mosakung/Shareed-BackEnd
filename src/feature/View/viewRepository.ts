@@ -66,5 +66,10 @@ export default class ViewRepository {
         try { return await this.db.query(getAllReviewbook, []); }
         catch (err) { console.error('Error', err.message); }
     }
+
+    getContentInformation = async () => {
+        try { return await this.db.query(); }
+        catch (err) { console.error('Error', err.message); }
+    }
 }
 
