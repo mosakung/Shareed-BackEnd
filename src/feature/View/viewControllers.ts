@@ -162,7 +162,7 @@ export default class ViewControllers {
             if (!result) {
                 res.status(251).send();
             }
-            else if (result.length == 0){
+            else if (result == ''){
                 res.status(300).send('not found in database');
             }
             else {res.status(250).send(result);}

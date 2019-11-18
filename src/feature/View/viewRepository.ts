@@ -14,10 +14,12 @@ import {
 } from './viewSqlRaw';
 
 export default class ViewRepository {
+    
     private db: database;
     constructor(db: database) {
         this.db = db;
     }
+
     viewShareNote = async (postID: string) => {
         try { return await this.db.query(getSharenote, [postID]); }
         catch (err) { console.error('Error', err.message); }

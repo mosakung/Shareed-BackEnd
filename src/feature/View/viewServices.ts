@@ -1,5 +1,5 @@
 import Repo from './viewRepository';
-import Parser from '';
+import Parser from './viewParser';
 
 export default class ViewServices {
 
@@ -16,7 +16,7 @@ export default class ViewServices {
             if (result != '') {
                 const owner = await this.checkOwner(result[0].userID, userID);
                 const content = await this.repo.getContentInformation(postID);
-                return await this.parser.form(result, owner, content);
+                //return await this.parser.form(result, owner, content);
             }
             else return result;
         }
@@ -54,8 +54,11 @@ export default class ViewServices {
         try {
             const result = await this.repo.viewReviewBook(postID);
             if (result != '') {
-                const owner = await this.checkOwner(result[0].userID, userID);
-                return await this.parser(result, owner);
+                //const owner = await this.checkOwner(result[0].userID, userID);
+                const content = await this.repo.getContentInformation(postID);
+                //return await this.parser(result, owner);
+                console.log(content);
+                return content;
             }
             else return result;
         }
