@@ -15,7 +15,8 @@ export default class ViewServices {
             const result = await this.repo.viewShareNote(postID);
             if (result != '') {
                 const owner = await this.checkOwner(result[0].userID, userID);
-                return await this.parser.form(result, owner);
+                const content = await this.repo.getContentInformation(postID);
+                return await this.parser.form(result, owner, content);
             }
             else return result;
         }
