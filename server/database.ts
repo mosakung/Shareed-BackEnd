@@ -7,7 +7,7 @@ export default class database {
             host: 'localhost',
             user: 'root',
             password: '',
-            database: 'SharedED'
+            database: 'ShareED'
         });
         this.connection.connect((err=> {
           if(err){

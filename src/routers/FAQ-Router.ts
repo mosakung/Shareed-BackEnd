@@ -1,6 +1,6 @@
 import express from 'express';
 
-const routerFAQ = express('Router');
+const routerFAQ = express.Router();
 
 routerFAQ.get('/', (req: any, res: any) => {
     //fetch All share note
