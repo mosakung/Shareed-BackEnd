@@ -6,7 +6,6 @@ import ViewControllers from './feature/View/viewControllers';
 import ViewRepository from './feature/View/viewRepository';
 import ViewServices from './feature/View/viewServices';
 
-
 export default class Binding {
     private db:database;
 
