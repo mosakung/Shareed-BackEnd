@@ -26,12 +26,14 @@ export default class ViewControllers {
         const postID = req.params.id;
         const userID = req.params.userId;
         try {
-            const result = await this.service.getShareNote(postID);
-            const owner = await this.service.checkOwner(result[0].UserID, userID);
-            if (!result && !owner) {
+            const result = await this.service.getShareNote(postID,userID);
+            if (!result) {
                 res.status(251).send();
             }
-            res.status(250).send(result, owner);
+            else if (result == ''){
+                res.status(300).send('not found in database');
+            }
+            else res.status(250).send(result);        
         }
         catch (err) {
             console.error('Error:', err.message);
@@ -57,12 +59,14 @@ export default class ViewControllers {
         const postID = req.params.id;
         const userID = req.params.userId;
         try {
-            const result = await this.service.getShareEvent(postID);
-            const owner = await this.service.checkOwner(result[0].UserID, userID);
-            if (!result && !owner) {
+            const result = await this.service.getShareEvent(postID,userID);
+            if (!result) {
                 res.status(251).send();
             }
-            res.status(250).send(result, owner);
+            else if (result == ''){
+                res.status(300).send('not found in database');
+            }
+            else res.status(250).send(result);       
         }
         catch (err) {
             console.error('Error:', err.message);
@@ -88,12 +92,14 @@ export default class ViewControllers {
         const postID = req.params.id;
         const userID = req.params.userId;
         try {
-            const result = await this.service.getReviewSubject(postID);
-            const owner = await this.service.checkOwner(result[0].UserID, userID);
-            if (!result && !owner) {
+            const result = await this.service.getReviewSubject(postID,userID);
+            if (!result) {
                 res.status(251).send();
             }
-            res.status(250).send(result, owner);
+            else if (result == ''){
+                res.status(300).send('not found in database');
+            }
+            else res.status(250).send(result);
         }
         catch (err) {
             console.error('Error:', err.message);
@@ -119,12 +125,14 @@ export default class ViewControllers {
         const postID = req.params.id;
         const userID = req.params.userId;
         try {
-            const result = await this.service.getReviewTutor(postID);
-            const owner = await this.service.checkOwner(result[0].UserID, userID);
-            if (!result && !owner) {
+            const result = await this.service.getReviewTutor(postID,userID);
+            if (!result) {
                 res.status(251).send();
             }
-            res.status(250).send(result, owner);
+            else if (result == ''){
+                res.status(300).send('not found in database');
+            }
+            else res.status(250).send(result);
         }
         catch (err) {
             console.error('Error:', err.message);
@@ -150,17 +158,14 @@ export default class ViewControllers {
         const postID = req.params.id;
         const userID = req.params.userId;
         try {
-            const result = await this.service.getReviewBook(postID);
+            const result = await this.service.getReviewBook(postID,userID);
             if (!result) {
                 res.status(251).send();
             }
             else if (result == ''){
                 res.status(300).send('not found in database');
             }
-            else{
-                const owner = await this.service.checkOwner(result[0].UserID, userID);
-                res.status(250).send(result);
-            }
+            else {res.status(250).send(result);}
         }
         catch (err) {
             console.error('Error:', err.message);

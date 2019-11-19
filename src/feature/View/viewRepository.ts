@@ -9,15 +9,18 @@ import {
     getReviewsubject,
     getReviewtutor,
     getReviewbook,
-    getShareevent
-} from './sqlraw';
+    getShareevent,
+    getContent
+} from './viewSqlRaw';
 
 export default class ViewRepository {
+    
     private db: database;
     constructor(db: database) {
         this.db = db;
     }
-    viewShareNote = async (postID: any) => {
+
+    viewShareNote = async (postID: string) => {
         try { return await this.db.query(getSharenote, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }
@@ -27,7 +30,7 @@ export default class ViewRepository {
         catch (err) { console.error('Error', err.message); }
     }
 
-    viewShareEvent = async (postID: any) => {
+    viewShareEvent = async (postID: string) => {
         try { return await this.db.query(getShareevent, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }
@@ -37,7 +40,7 @@ export default class ViewRepository {
         catch (err) { console.error('Error', err.message); }
     }
 
-    viewReviewSubject = async (postID: any) => {
+    viewReviewSubject = async (postID: string) => {
         try { return await this.db.query(getReviewsubject, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }
@@ -47,7 +50,7 @@ export default class ViewRepository {
         catch (err) { console.error('Error', err.message); }
     }
 
-    viewReviewTutor = async (postID: any) => {
+    viewReviewTutor = async (postID: string) => {
         try { return await this.db.query(getReviewtutor, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }
@@ -57,13 +60,18 @@ export default class ViewRepository {
         catch (err) { console.error('Error', err.message); }
     }
 
-    viewReviewBook = async (postID: any) => {
+    viewReviewBook = async (postID: string) => {
         try { return await this.db.query(getReviewbook, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }
 
     viewReviewBookAll = async () => {
         try { return await this.db.query(getAllReviewbook, []); }
+        catch (err) { console.error('Error', err.message); }
+    }
+
+    getContentInformation = async (postID: string) => {
+        try { return await this.db.query(getContent, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }
 }
