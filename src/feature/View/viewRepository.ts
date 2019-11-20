@@ -70,7 +70,7 @@ export default class ViewRepository {
         catch (err) { console.error('Error', err.message); }
     }
 
-    getContentInformation = async (postID: string) => {
+    getContentInformation = async (typePost:string,postID:string) => {
         try { return await this.db.query(getContent, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }

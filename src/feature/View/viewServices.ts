@@ -15,7 +15,7 @@ export default class ViewServices {
             const result = await this.repo.viewShareNote(postID);
             if (result != '') {
                 const owner = await this.checkOwner(result[0].userID, userID);
-                const content = await this.repo.getContentInformation(postID);
+                //const content = await this.repo.getContentInformation(postID);
                 //return await this.parser.form(result, owner, content);
             }
             else return result;
@@ -50,20 +50,22 @@ export default class ViewServices {
         try { return await this.repo.viewReviewTutorAll(); }
         catch (err) { console.error('Error Services', err.message); }
     }
+
     getReviewBook = async (postID: string, userID: string) => {
         try {
             const result = await this.repo.viewReviewBook(postID);
             if (result != '') {
-                //const owner = await this.checkOwner(result[0].userID, userID);
-                const content = await this.repo.getContentInformation(postID);
-                //return await this.parser(result, owner);
-                console.log(content);
+                const owner = await this.checkOwner(result[0].userID, userID);
+                const content = await this.repo.getContentInformation('ReviewBookID',postID);
+                const test = this.parser.parserReviewBook(result,owner,content);
+                console.log(test);
                 return content;
             }
             else return result;
         }
         catch (err) { console.error('Error Services', err.message); }
     }
+
     getReviewBookAll = async () => {
         try { return await this.repo.viewReviewBookAll(); }
         catch (err) { console.error('Error Services', err.message); }
@@ -73,4 +75,5 @@ export default class ViewServices {
         if (postID == userID) return true;
         else return false;
     }
+
 }

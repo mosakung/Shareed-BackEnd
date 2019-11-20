@@ -8,4 +8,4 @@ export const getReviewsubject = 'select * from `reviewsubject` where ReviewSubje
 export const getReviewtutor = 'select * from `reviewtutor` where ShareEventID = ?';
 export const getShareevent = 'select * from `shareevent` where ShareEventID = ?';
 export const getSharenote = 'select * from `sharenote` where ShareNoteID = ?';
-export const getContent = 'select * from `picture` where PostID = ?';
+export const getContent = 'SELECT * FROM `picture` WHERE ReviewBookID = ?';
