@@ -66,9 +66,9 @@ export default class DeleteRepository {
         }
     }
 
-    deleteOwner = async (postId:string) => {
+    deleteOwner = async (postId:string, postType: string) => {
         try {
-            return await this.db.query(this.sql.getSqlOwner(), [postId]);
+            return await this.db.query(this.sql.getSqlOwner(postType), [postId]);
         } catch (err) {
             console.error('Error', err.message);
         }

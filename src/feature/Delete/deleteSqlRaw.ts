@@ -1,18 +1,18 @@
 export default class SqlDelete {
-    private sqlDeleteShareNote : string;
-    private sqlDeleteShareEvent : string;
-    private sqlDeleteReviewSubject : string;
-    private sqlDeleteReviewTutor : string;
-    private sqlDeleteReviewBook : string;
-    private sqlDeleteFaq : string;
-    private sqlDeleteComment : string;
-    private sqlDeleteOnwerShareNote : string
-    private sqlDeleteOnwerShareEvent : string
-    private sqlDeleteOnwerReviewSubject : string
-    private sqlDeleteOnwerReviewTutor : string
-    private sqlDeleteOnwerReviewBook : string
-    private sqlDeleteOnwerFaq : string
-    private sqlDeleteOnwerCommnet : string
+    private sqlDeleteShareNote: string;
+    private sqlDeleteShareEvent: string;
+    private sqlDeleteReviewSubject: string;
+    private sqlDeleteReviewTutor: string;
+    private sqlDeleteReviewBook: string;
+    private sqlDeleteFaq: string;
+    private sqlDeleteComment: string;
+    private sqlDeleteOnwerShareNote: string
+    private sqlDeleteOnwerShareEvent: string
+    private sqlDeleteOnwerReviewSubject: string
+    private sqlDeleteOnwerReviewTutor: string
+    private sqlDeleteOnwerReviewBook: string
+    private sqlDeleteOnwerFaq: string
+    private sqlDeleteOnwerCommnet: string
 
     constructor() {
         this.sqlDeleteShareNote = '';
@@ -22,11 +22,11 @@ export default class SqlDelete {
         this.sqlDeleteReviewBook = '';
         this.sqlDeleteFaq = '';
         this.sqlDeleteComment = '';
-        this.sqlDeleteOnwerShareNote = 'SELECT UserID as userId';
-        this.sqlDeleteOnwerShareEvent = '';
-        this.sqlDeleteOnwerReviewSubject = '';
-        this.sqlDeleteOnwerReviewTutor = '';
-        this.sqlDeleteOnwerReviewBook = '';
+        this.sqlDeleteOnwerShareNote = 'SELECT UserID as userId FROM `sharenote` WHERE ShareNoteID = ?';
+        this.sqlDeleteOnwerShareEvent = 'SELECT UserID as userId FROM `shareevent` WHERE ShareEventID = ?';
+        this.sqlDeleteOnwerReviewSubject = 'SELECT UserID as userId FROM `reviewsubject` WHERE ReviewSubjectID = ?';
+        this.sqlDeleteOnwerReviewTutor = 'SELECT UserID as userId FROM `reviewtutor` WHERE ReviewTutorID = ?';
+        this.sqlDeleteOnwerReviewBook = 'SELECT UserID as userId FROM `reviewbook` WHERE ReviewBookID = ?';
         this.sqlDeleteOnwerFaq = '';
         this.sqlDeleteOnwerCommnet = '';
     }
@@ -59,7 +59,20 @@ export default class SqlDelete {
         return this.sqlDeleteComment;
     }
 
-    getSqlOwner() {
-        return this.sqlDeleteOnwer;
+    getSqlOwner(postType: string) {
+        if (postType === "a") {
+            return this.sqlDeleteOnwerReviewBook;
+        } else if (postType === "b") {
+            return this.sqlDeleteOnwerReviewSubject;
+        } else if (postType === "c") {
+            return this.sqlDeleteOnwerReviewTutor;
+        } else if (postType === "d") {
+            return this.sqlDeleteOnwerShareEvent;
+        } else if (postType === "e") {
+            return this.sqlDeleteOnwerShareNote;
+        } else {
+            throw ("SQL error post not found owner ID");
+            return 0;
+        }
     }
 }

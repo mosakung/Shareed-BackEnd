@@ -9,8 +9,8 @@ export default class DeleteServices {
 
     deleteShareNote = async (postId: string, userId: string) => {
         try {
-            let owner: {} = await this.repo.deleteOwner(postId);
-            console.log(owner);
+            let postType: string = postId.substring(0,1);
+            let owner: {} = await this.repo.deleteOwner(postId, postType);
 
             if((<any>owner[0]).UserID == userId) {
                 return await this.repo.deleteShareNote(postId);
@@ -18,6 +18,22 @@ export default class DeleteServices {
                 return 'DeleteFail';
             }
 
+        } catch (err) {
+            console.error('Error', err.message);
+        }
+    }
+
+    deleteReviewBook = async (postId: string, userId: string) => {
+        try {
+            let postType: string = postId.substring(0,1);
+            let owner: {} = await this.repo.deleteOwner(postId, postType);
+            console.log(owner);
+
+            if((<any>owner[0]).UserID = userId) {
+                return await this.repo.deleteReviewBook(postId);
+            } else {
+                return 'DeleteFail';
+            }
         } catch (err) {
             console.error('Error', err.message);
         }
