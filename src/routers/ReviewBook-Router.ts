@@ -17,7 +17,7 @@ routerReviewBook.put('/:id', (req: any, res: any) => {
     //update share note
 })
 
-routerReviewBook.post('/:id', (req: any, res: any) => {
+routerReviewBook.post('/:id/:userId', (req: any, res: any) => {
     //delete share note
 })
 
