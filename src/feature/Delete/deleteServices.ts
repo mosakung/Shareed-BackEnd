@@ -27,7 +27,7 @@ export default class DeleteServices {
         try {
             let postType: string = postId.substring(0,1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
-            console.log(owner);
+            console.log("| owner: " + owner + " |");
 
             if((<any>owner[0]).UserID = userId) {
                 return await this.repo.deleteReviewBook(postId);
