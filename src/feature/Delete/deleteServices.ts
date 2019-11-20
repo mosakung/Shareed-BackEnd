@@ -10,8 +10,9 @@ export default class DeleteServices {
     deleteShareNote = async (postId: string, userId: string) => {
         try {
             let owner: {} = await this.repo.deleteOwner(postId);
+            console.log(owner);
 
-            if(owner[0].UserID == userId) {
+            if((<any>owner[0]).UserID == userId) {
                 return await this.repo.deleteShareNote(postId);
             } else {
                 return 'DeleteFail';

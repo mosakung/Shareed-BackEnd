@@ -6,7 +6,13 @@ export default class SqlDelete {
     private sqlDeleteReviewBook : string;
     private sqlDeleteFaq : string;
     private sqlDeleteComment : string;
-    private sqlDeleteOnwer : string
+    private sqlDeleteOnwerShareNote : string
+    private sqlDeleteOnwerShareEvent : string
+    private sqlDeleteOnwerReviewSubject : string
+    private sqlDeleteOnwerReviewTutor : string
+    private sqlDeleteOnwerReviewBook : string
+    private sqlDeleteOnwerFaq : string
+    private sqlDeleteOnwerCommnet : string
 
     constructor() {
         this.sqlDeleteShareNote = '';
@@ -16,7 +22,13 @@ export default class SqlDelete {
         this.sqlDeleteReviewBook = '';
         this.sqlDeleteFaq = '';
         this.sqlDeleteComment = '';
-        this.sqlDeleteOnwer = '';
+        this.sqlDeleteOnwerShareNote = 'SELECT UserID as userId';
+        this.sqlDeleteOnwerShareEvent = '';
+        this.sqlDeleteOnwerReviewSubject = '';
+        this.sqlDeleteOnwerReviewTutor = '';
+        this.sqlDeleteOnwerReviewBook = '';
+        this.sqlDeleteOnwerFaq = '';
+        this.sqlDeleteOnwerCommnet = '';
     }
 
     getSqlShareNote() {
