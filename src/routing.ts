@@ -15,6 +15,19 @@ routing.get('/Say', (req, res) => {
     res.send('Hi');
 })
 
+import database from '../server/database';
+const db : database = new database;
+
+
+routing.get('/test', (req, res) => {
+    let first : string = 'ReviewBookID'
+    let postId : string = 'a1000000001'
+    db.query('select * from `reviewbook` where ? = ?',[first, postId]).then(function(result) {
+        console.log("result",result);
+    });
+    res.status(100).send();
+})
+
 routing.use('/comment',routerComment);
 
 routing.use('/faq',routerFAQ);

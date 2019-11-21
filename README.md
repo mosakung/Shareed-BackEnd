@@ -21,6 +21,18 @@ you can check the api work by using GET `localhost:3000/ping`
   **Server not respone** | respone status `251`
   
   **Error catch** | respone status `500`
+
+### Database Post ID
+
+  **Review Book** | a-number
+
+  **Review Subject** | b-number
+  
+  **Review Tutor** | c-number
+
+  **Share event** | d-number
+
+  **Share Note** | e-number
   
 ### Authenication `disabled`
 
