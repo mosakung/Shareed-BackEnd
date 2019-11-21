@@ -85,7 +85,7 @@ export default class ViewRepository {
     }
 
     getContentReviewSubject = async (postID:string) => {
-        try { return await this.db.query(getAllReviewsubject, [postID]); }
+        try { return await this.db.query(getContentReviewSubject, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }
 
