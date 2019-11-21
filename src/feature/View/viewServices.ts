@@ -5,9 +5,10 @@ export default class ViewServices {
 
     private repo: Repo;
     private parser: Parser;
-    constructor(repo: Repo) {
+
+    constructor(repo: Repo, parser: Parser) {
         this.repo = repo;
-        this.parser = this.parser;
+        this.parser = parser;
     }
 
     getShareNote = async (postID: string, userID: string) => {
@@ -56,7 +57,7 @@ export default class ViewServices {
             const result = await this.repo.viewReviewBook(postID);
             if (result != '') {
                 const owner = await this.checkOwner(result[0].userID, userID);
-                const content = await this.repo.getContentInformation('ReviewBookID',postID);
+                const content = await this.repo.getContentReviewBook(postID);
                 const test = this.parser.parserReviewBook(result,owner,content);
                 console.log(test);
                 return content;
