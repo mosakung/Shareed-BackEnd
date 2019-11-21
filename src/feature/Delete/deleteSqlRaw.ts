@@ -72,11 +72,13 @@ export default class SqlDelete {
             return this.sqlDeleteOnwerShareNote;
         } else if (postType === "f") {
             return this.sqlDeleteOnwerFaq;
-        } else if (postType === "g") {
-            return this.sqlDeleteOnwerCommnet;
         } else {
             throw ("SQL error post not found owner ID");
             return 0;
         }
+    }
+
+    getSqlOwnerComment() {
+        return this.sqlDeleteOnwerCommnet;
     }
 }
