@@ -17,6 +17,12 @@ routerReviewBook.put('/:id', (req: any, res: any) => {
     //update share note
 })
 
+<<<<<<< HEAD
 routerReviewBook.delete('/:id/:userId', binding.getDeleteControllers().deleteReviewBook);
+=======
+routerReviewBook.post('/:id/:userId', (req: any, res: any) => {
+    //delete share note
+})
+>>>>>>> router
 
 export default routerReviewBook;
