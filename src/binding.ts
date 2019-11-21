@@ -35,5 +35,9 @@ export default class Binding {
         return this.viewControllers;
     }
 
+    getDeleteControllers() {
+        return this.deleteControllers;
+    }
+
     
 }

@@ -33,6 +33,8 @@ you can check the api work by using GET `localhost:3000/ping`
   **Share event** | d-number
 
   **Share Note** | e-number
+
+  **FAQ** | f-number
   
 ### Authenication `disabled`
 
