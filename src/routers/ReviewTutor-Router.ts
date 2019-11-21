@@ -1,6 +1,9 @@
 import express from 'express';
+import Binding from '../binding';
 
 const routerReviewTutor = express.Router();
+
+const binding : Binding = new Binding();
 
 routerReviewTutor.get('/', (req: any, res: any) => {
     //fetch All share note
@@ -18,8 +21,6 @@ routerReviewTutor.put('/:id', (req: any, res: any) => {
     //update share note
 })
 
-routerReviewTutor.post('/:id', (req: any, res: any) => {
-    //delete share note
-})
+routerReviewTutor.post('/:id', binding.getDeleteControllers().deleteReviewTutor);
 
 export default routerReviewTutor;
