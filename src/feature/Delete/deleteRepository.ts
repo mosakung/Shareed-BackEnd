@@ -74,4 +74,12 @@ export default class DeleteRepository {
         }
     }
 
+    deleteOwnerComment = async (postId:string) => {
+        try {
+            return await this.db.query(this.sql.getSqlOwnerComment(), [postId]);
+        } catch (err) {
+            console.error('Error', err.message);
+        }
+    }
+
 }

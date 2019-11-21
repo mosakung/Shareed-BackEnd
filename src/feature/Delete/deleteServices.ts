@@ -103,8 +103,7 @@ export default class DeleteServices {
 
     deleteComment = async (postId: string, userId: string) => {
         try {
-            let postType: string = postId.substring(0, 1);
-            let owner: {} = await this.repo.deleteOwner(postId, postType);
+            let owner: {} = await this.repo.deleteOwnerComment(postId);
 
             if ((<any>owner[0]).userId = userId) {
                 return await this.repo.deleteComment(postId);
