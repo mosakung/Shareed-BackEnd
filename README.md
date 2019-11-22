@@ -316,7 +316,7 @@ you can check the api work by using GET `localhost:3000/ping`
     
   - requirement
   
-    **parameter**: `Main Picture` | `Title Name` | `Subject ID` | `Subject Name` | `Teach By` | `Section` | `Condition` | `Tag` |  `Description` | `Picture`\
+    **parameter**: `Title Name` | `Subject ID` | `Subject Name` | `Teach By` | `Section` | `Condition` | `Tag` |  `Description` | `Picture`\
     **respone body**: -
   
 </details>
