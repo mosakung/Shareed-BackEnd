@@ -10,7 +10,8 @@ export default class ViewControllers {
 
     getShareNote = async (req: Request, res: Response) => {
         try {
-            const result = await this.service.getShareNoteAll();
+            const postID = req.params.postID;
+            const result = await this.service.getShareNoteAll(postID);
             if (!result) {
                 res.status(251).send();
             }
@@ -42,7 +43,8 @@ export default class ViewControllers {
 
     getShareEvent = async (req: Request, res: Response) => {
         try {
-            const result = await this.service.getShareEventAll();
+            const postID = req.params.postID;
+            const result = await this.service.getShareEventAll(postID);
             if (!result) {
                 res.status(251).send();
             }
@@ -74,7 +76,8 @@ export default class ViewControllers {
 
     getReviewSubject = async (req: Request, res: Response) => {
         try {
-            const result = await this.service.getReviewSubjectAll();
+            const postID = req.params.postID;
+            const result = await this.service.getReviewSubjectAll(postID);
             if (!result) {
                 res.status(251).send();
             }
@@ -106,7 +109,8 @@ export default class ViewControllers {
 
     getReviewTutor = async (req: Request, res: Response) => {
         try {
-            const result = await this.service.getReviewTutorAll();
+            const postID = req.params.postID;
+            const result = await this.service.getReviewTutorAll(postID);
             if (!result) {
                 res.status(251).send();
             }
@@ -138,7 +142,8 @@ export default class ViewControllers {
 
     getReviewBook = async (req: Request, res: Response) => {
         try {
-            const result = await this.service.getReviewBookAll();
+            const postID = req.params.postID;
+            const result = await this.service.getReviewBookAll(postID);
             if (!result) {
                 res.status(251).send();
             }
@@ -168,6 +173,38 @@ export default class ViewControllers {
         }
     }
 
+    getFaq = async (req: Request, res: Response) => {
+        try {
+            const postID = req.params.postID;
+            const result = await this.service.getFaqAll(postID);
+            if (!result) {
+                res.status(251).send();
+            }
+            res.status(250).send(result);
+        }
+        catch (err) {
+            console.error('Error:', err.message);
+            res.status(500).send();
+        }
+    }
+
+    getFaqID = async (req: Request, res: Response) => {
+        const { postID, userID } = req.params;
+        try {
+            const result = await this.service.getFaq(postID,userID);
+            if (!result) {
+                res.status(251).send();
+            }
+            else if (result == ''){
+                res.status(300).send('not found in database');
+            }
+            else {res.status(250).send(result);}
+        }
+        catch (err) {
+            console.error('Error:', err.message);
+            res.status(500).send();
+        }
+    }
     
 }
 

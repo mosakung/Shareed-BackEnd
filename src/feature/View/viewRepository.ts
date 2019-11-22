@@ -1,102 +1,89 @@
-import database from '../../../server/database';
-import {
-    getAllReviewbook,
-    getAllReviewsubject,
-    getAllReviewtutor,
-    getAllShareevent,
-    getAllSharenote,
-    getSharenote,
-    getReviewsubject,
-    getReviewtutor,
-    getReviewbook,
-    getShareevent,
-    getContentReviewBook,
-    getContentReviewSubject,
-    getContentReviewTutor,
-    getContentShareEvent,
-    getContentShareNote
-} from './viewSqlRaw';
+import Database from '../../../server/database';
+import Sql from './viewSqlRaw';
+import { type } from 'os';
 
 export default class ViewRepository {
-    
-    private db: database;
-    constructor(db: database) {
+
+    private db: Database;
+    private sql: Sql
+    constructor(db: Database, sql: Sql) {
         this.db = db;
+        this.sql = sql;
     }
 
-    viewShareNote = async (postID: string) => {
-        try { return await this.db.query(getSharenote, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    viewShareNote = async (postID: string, typePost: string) => {
+        try { return await this.db.query(this.sql.getQueryPost(typePost), [postID]); }
+        catch (err) { throw (err.message); }
     }
 
-    viewShareNoteAll = async () => {
-        try { return await this.db.query(getAllSharenote, []); }
-        catch (err) { console.error('Error', err.message); }
+    viewShareNoteAll = async (typePost: string) => {
+        try { return await this.db.query(this.sql.getAllQueryPost(typePost), []); }
+        catch (err) { throw (err.message); }
     }
 
-    viewShareEvent = async (postID: string) => {
-        try { return await this.db.query(getShareevent, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    viewShareEvent = async (postID: string, typepost: string) => {
+        try { return await this.db.query(this.sql.getQueryPost(typepost), [postID]); }
+        catch (err) { throw (err.message); }
     }
 
-    viewShareEventAll = async () => {
-        try { return await this.db.query(getAllShareevent, []); }
-        catch (err) { console.error('Error', err.message); }
+    viewShareEventAll = async (typePost: string) => {
+        try { return await this.db.query(this.sql.getAllQueryPost(typePost), []); }
+        catch (err) { throw (err.message); }
     }
 
-    viewReviewSubject = async (postID: string) => {
-        try { return await this.db.query(getReviewsubject, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    viewReviewSubject = async (postID: string, typePost: string) => {
+        try { return await this.db.query(this.sql.getQueryPost(typePost), [postID]); }
+        catch (err) { throw (err.message); }
     }
 
-    viewReviewSubjectAll = async () => {
-        try { return await this.db.query(getAllReviewsubject, []); }
-        catch (err) { console.error('Error', err.message); }
+    viewReviewSubjectAll = async (typePost: string) => {
+        try { return await this.db.query(this.sql.getAllQueryPost(typePost), []); }
+        catch (err) { throw (err.message); }
     }
 
-    viewReviewTutor = async (postID: string) => {
-        try { return await this.db.query(getReviewtutor, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    viewReviewTutor = async (postID: string, typepost: string) => {
+        try { return await this.db.query(this.sql.getQueryPost(typepost), [postID]); }
+        catch (err) { throw (err.message); }
     }
 
-    viewReviewTutorAll = async () => {
-        try { return await this.db.query(getAllReviewtutor, []); }
-        catch (err) { console.error('Error', err.message); }
+    viewReviewTutorAll = async (typePost: string) => {
+        try { return await this.db.query(this.sql.getAllQueryPost(typePost), []); }
+        catch (err) { throw (err.message); }
     }
 
-    viewReviewBook = async (postID: string) => {
-        try { return await this.db.query(getReviewbook, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    viewReviewBook = async (postID: string, typePost: string) => {
+        try { return await this.db.query(this.sql.getQueryPost(typePost), [postID]); }
+        catch (err) { throw (err.message); }
     }
 
-    viewReviewBookAll = async () => {
-        try { return await this.db.query(getAllReviewbook, []); }
-        catch (err) { console.error('Error', err.message); }
+    viewReviewBookAll = async (typePost: string) => {
+        try { return await this.db.query(this.sql.getAllQueryPost(typePost), []); }
+        catch (err) { throw (err.message); }
     }
 
-    getContentShareNote = async (postID:string) => {
-        try { return await this.db.query(getContentShareNote, [postID]); }
-        catch (err) { console.error('Error', err.message); }
-    }
-    
-    getContentShareEvent = async (postID:string) => {
-        try { return await this.db.query(getContentShareEvent, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    viewFaq = async (postID: string, typePost: string) => {
+        try { return await this.db.query(this.sql.getQueryPost(typePost), [postID]); }
+        catch (err) { throw (err.message); }
     }
 
-    getContentReviewSubject = async (postID:string) => {
-        try { return await this.db.query(getContentReviewSubject, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    viewFaqAll = async (typePost: string) => {
+        try { return await this.db.query(this.sql.getAllQueryPost(typePost), []); }
+        catch (err) { throw (err.message); }
     }
 
-    getContentReviewTutor = async (postID:string) => {
-        try { return await this.db.query(getContentReviewTutor, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    getPostContent = async (postID: string) => {
+        try { return await this.db.query(this.sql.getPostContent(), [postID]); }
+        catch (err) { throw (err.message); }
     }
 
-    getContentReviewBook = async (postID:string) => {
-        try { return await this.db.query(getContentReviewBook, [postID]); }
-        catch (err) { console.error('Error', err.message); }
+    getPostTag = async (postID: string) => {
+        try { return await this.db.query(this.sql.getPostTag(), [postID]); }
+        catch (err) { throw (err.message); }
+    }
+
+    getComment = async (postID: string) => {
+        try { return await this.db.query(this.sql.getPostComment(), [postID]); }
+        catch (err) { throw (err.message); }
     }
 }
 
