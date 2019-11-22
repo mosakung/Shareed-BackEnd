@@ -299,7 +299,7 @@ you can check the api work by using GET `localhost:3000/ping`
   - requirement
   
     **parameter**: -\
-    **respone body**: `Main Picture` | `Title Name` | `Post Date`
+    **respone body**: `Subject ID` | `Title Name` | `Post Date`
   
 </details>
 <details>
