@@ -1,6 +1,9 @@
 import express from 'express';
+import Binding from '../binding';
 
 const routerFAQ = express.Router();
+
+const binding : Binding = new Binding();
 
 routerFAQ.get('/', (req: any, res: any) => {
     //fetch All share note
@@ -18,8 +21,6 @@ routerFAQ.put('/:id', (req: any, res: any) => {
     //update share note
 })
 
-routerFAQ.post('/:id', (req: any, res: any) => {
-    //delete share note
-})
+routerFAQ.post('/:id', binding.getDeleteControllers().deleteFaq);
 
 export default routerFAQ;

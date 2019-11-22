@@ -9,22 +9,23 @@ export default class database {
             password: '',
             database: 'ShareED'
         });
-        this.connection.connect((err=> {
-          if(err){
-              console.error('Error to connect db',err);
-                throw(err);
-          }
-          console.log('connect to db....'); 
+        this.connection.connect((err => {
+            if (err) {
+                console.error('Error to connect db', err);
+                throw (err);
+            } else {
+                console.log('connect to db....');
+            }
         }));
     }
 
-    query(sql,agrs) {
+    query(sql, agrs) {
         return new Promise((resolve, reject) => {
-                this.connection.query(sql,agrs, (err, result) => {
-                    if (err)
-                        return reject(err);
-                    resolve(result);
-                });
+            this.connection.query(sql, agrs, (err, result) => {
+                if (err)
+                    return reject(err);
+                resolve(result);
+            });
         });
     }
 

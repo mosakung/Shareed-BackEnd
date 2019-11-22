@@ -5,62 +5,78 @@ export default class DeleteRepository {
     private db: database;
     private sql: Sqldelete;
 
-    constructor(db: database, sql:Sqldelete) {
+    constructor(db: database, sql: Sqldelete) {
         this.db = db;
         this.sql = sql;
     }
 
-    deleteShareNote = async (postId: string, userId: string) => {
+    deleteShareNote = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlShareNote(), []);
+            return await this.db.query(this.sql.getSqlShareNote(), [postId]);
         } catch (err) {
             console.error('Error', err.message);
         }
     }
 
-    deleteShareEvent = async (postId: string, userId: string) => {
+    deleteShareEvent = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlShareEvent(), []);
+            return await this.db.query(this.sql.getSqlShareEvent(), [postId]);
         } catch (err) {
             console.error('Error', err.message);
         }
     }
 
-    deleteReviewSubject = async (postId: string, userId: string) => {
+    deleteReviewSubject = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlReviewSubject(), []);
+            return await this.db.query(this.sql.getSqlReviewSubject(), [postId]);
         } catch (err) {
             console.error('Error', err.message);
         }
     }
 
-    deleteReviewTutor = async (postId: string, userId: string) => {
+    deleteReviewTutor = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlReviewTutor(), []);
+            return await this.db.query(this.sql.getSqlReviewTutor(), [postId]);
         } catch (err) {
             console.error('Error', err.message);
         }
     }
 
-    deleteReviewBook = async (postId: string, userId: string) => {
+    deleteReviewBook = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlReviewBook(), []);
+            return await this.db.query(this.sql.getSqlReviewBook(), [postId]);
         } catch (err) {
             console.error('Error', err.message);
         }
     }
 
-    deleteFaq = async (postId: string, userId: string) => {
+    deleteFaq = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlFaq(), []);
+            return await this.db.query(this.sql.getSqlFaq(), [postId]);
         } catch (err) {
             console.error('Error', err.message);
         }
     }
 
-    deleteComment = async (postId: string, userId: string) => {
+    deleteComment = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlComment(), []);
+            return await this.db.query(this.sql.getSqlComment(), [postId]);
+        } catch (err) {
+            console.error('Error', err.message);
+        }
+    }
+
+    deleteOwner = async (postId:string, postType: string) => {
+        try {
+            return await this.db.query(this.sql.getSqlOwner(postType), [postId]);
+        } catch (err) {
+            console.error('Error', err.message);
+        }
+    }
+
+    deleteOwnerComment = async (postId:string) => {
+        try {
+            return await this.db.query(this.sql.getSqlOwnerComment(), [postId]);
         } catch (err) {
             console.error('Error', err.message);
         }
