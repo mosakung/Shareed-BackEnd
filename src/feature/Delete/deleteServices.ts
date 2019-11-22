@@ -76,7 +76,7 @@ export default class DeleteServices {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
 
-            if ((<any>owner[0]).userId = userId) {
+            if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteReviewBook(postId);
             } else {
                 return 'DeleteFail';
@@ -91,7 +91,7 @@ export default class DeleteServices {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
 
-            if ((<any>owner[0]).userId = userId) {
+            if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteFaq(postId);
             } else {
                 return 'DeleteFail';
@@ -105,7 +105,7 @@ export default class DeleteServices {
         try {
             let owner: {} = await this.repo.deleteOwnerComment(postId);
 
-            if ((<any>owner[0]).userId = userId) {
+            if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteComment(postId);
             } else {
                 return 'DeleteFail';
