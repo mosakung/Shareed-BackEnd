@@ -23,7 +23,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
             res.status(500).send();
         }
     }
@@ -43,7 +43,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
             res.status(500).send();
         }
     }
@@ -63,7 +63,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
             res.status(500).send();
         }
     }
@@ -83,7 +83,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
             res.status(500).send();
         }
     }
@@ -103,7 +103,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
             res.status(500).send();
         }
     }
@@ -123,7 +123,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
             res.status(500).send();
         }
     }
@@ -143,7 +143,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
             res.status(500).send();
         }
     }
