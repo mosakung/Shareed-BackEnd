@@ -10,7 +10,11 @@ import {
     getReviewtutor,
     getReviewbook,
     getShareevent,
-    getContent
+    getContentReviewBook,
+    getContentReviewSubject,
+    getContentReviewTutor,
+    getContentShareEvent,
+    getContentShareNote
 } from './viewSqlRaw';
 
 export default class ViewRepository {
@@ -70,8 +74,28 @@ export default class ViewRepository {
         catch (err) { console.error('Error', err.message); }
     }
 
-    getContentInformation = async (postID: string) => {
-        try { return await this.db.query(getContent, [postID]); }
+    getContentShareNote = async (postID:string) => {
+        try { return await this.db.query(getContentShareNote, [postID]); }
+        catch (err) { console.error('Error', err.message); }
+    }
+    
+    getContentShareEvent = async (postID:string) => {
+        try { return await this.db.query(getContentShareEvent, [postID]); }
+        catch (err) { console.error('Error', err.message); }
+    }
+
+    getContentReviewSubject = async (postID:string) => {
+        try { return await this.db.query(getContentReviewSubject, [postID]); }
+        catch (err) { console.error('Error', err.message); }
+    }
+
+    getContentReviewTutor = async (postID:string) => {
+        try { return await this.db.query(getContentReviewTutor, [postID]); }
+        catch (err) { console.error('Error', err.message); }
+    }
+
+    getContentReviewBook = async (postID:string) => {
+        try { return await this.db.query(getContentReviewBook, [postID]); }
         catch (err) { console.error('Error', err.message); }
     }
 }

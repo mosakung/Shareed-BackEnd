@@ -5,6 +5,7 @@ import database from '../server/database';
 import ViewControllers from './feature/View/viewControllers';
 import ViewRepository from './feature/View/viewRepository';
 import ViewServices from './feature/View/viewServices';
+import ViewParser from './feature/View/viewParser';
 
 import DeleteControllers from './feature/Delete/deleteControllers';
 import DeleteRepository from './feature/Delete/deleteRepository';

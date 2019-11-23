@@ -23,8 +23,7 @@ export default class ViewControllers {
     }
 
     getShareNoteID = async (req: Request, res: Response) => {
-        const postID = req.params.id;
-        const userID = req.params.userId;
+        const { postID, userID } = req.params;
         try {
             const result = await this.service.getShareNote(postID,userID);
             if (!result) {
@@ -56,8 +55,7 @@ export default class ViewControllers {
     }
 
     getShareEventID = async (req: Request, res: Response) => {
-        const postID = req.params.id;
-        const userID = req.params.userId;
+        const { postID, userID } = req.params;
         try {
             const result = await this.service.getShareEvent(postID,userID);
             if (!result) {
@@ -89,8 +87,7 @@ export default class ViewControllers {
     }
 
     getReviewSubjectID = async (req: Request, res: Response) => {
-        const postID = req.params.id;
-        const userID = req.params.userId;
+        const { postID, userID } = req.params;
         try {
             const result = await this.service.getReviewSubject(postID,userID);
             if (!result) {
@@ -122,8 +119,7 @@ export default class ViewControllers {
     }
 
     getReviewTutorID = async (req: Request, res: Response) => {
-        const postID = req.params.id;
-        const userID = req.params.userId;
+        const { postID, userID } = req.params;
         try {
             const result = await this.service.getReviewTutor(postID,userID);
             if (!result) {
@@ -155,8 +151,7 @@ export default class ViewControllers {
     }
 
     getReviewBookID = async (req: Request, res: Response) => {
-        const postID = req.params.id;
-        const userID = req.params.userId;
+        const { postID, userID } = req.params;
         try {
             const result = await this.service.getReviewBook(postID,userID);
             if (!result) {
@@ -172,5 +167,7 @@ export default class ViewControllers {
             res.status(500).send();
         }
     }
+
+    
 }
 
