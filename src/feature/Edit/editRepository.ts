@@ -26,9 +26,9 @@ export default class EditRepository {
         }
     }
 
-    fetchPicture = async (pictureId: string) => {
+    fetchPicture = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlPicture('fetch'),[pictureId]);
+            return await this.db.query(this.sql.getSqlPicture('fetch'),[postId]);
         } catch (err) {
             throw (err.message);
         }

@@ -32,7 +32,7 @@ export default class SqlEdit {
         this.sqlEditOnwerReviewBook = 'SELECT UserID as userId FROM `reviewbook` WHERE `ReviewBookID` = ?';
         this.sqlEditOnwerFaq = 'SELECT UserID as userId FROM `faq` WHERE `FAQID` = ?';
         this.sqlEditOnwerCommnet = 'SELECT UserID as userId FROM `comment_detail` WHERE `CommentID` = ?';
-        this.sqlFetchPicture = 'SELECT `Picture` as picture FROM `picture` WHERE `PictureID` = ?';
+        this.sqlFetchPicture = 'SELECT `Picture` as picture FROM `picture` WHERE `PostID` = ?';
         this.sqlEditPicture = 'UPDATE `picture` SET `Picture` = ? WHERE `PictureID` = ?';
         this.sqlDeletePicture = 'DELETE FROM `picture` WHERE `PictureID` = ?';
     }
