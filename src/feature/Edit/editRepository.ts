@@ -28,15 +28,31 @@ export default class EditRepository {
 
     fetchPicture = async (postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlPicture('fetch'),[postId]);
+            return await this.db.query(this.sql.getSqlPicture('fetch'), [postId]);
         } catch (err) {
             throw (err.message);
         }
     }
 
-    editPicture = async (pictureId: string, newPicture: string ) => {
+    fetchAllPicture = async () => {
         try {
-            return await this.db.query(this.sql.getSqlPicture('edit'),[pictureId, newPicture])
+            return await this.db.query(this.sql.getSqlPicture('fetchall'),[]);
+        } catch (err) {
+            throw (err.message);
+        }
+    }
+
+    createPicture = async (pictureId: string, pictureName: string, postId: string) => {
+        try {
+            return await this.db.query(this.sql.getSqlPicture('create'), [pictureId, pictureName, postId]);
+        } catch (err) {
+            throw (err.message);
+        }
+    }
+
+    editPicture = async (pictureId: string, newPicture: string) => {
+        try {
+            return await this.db.query(this.sql.getSqlPicture('edit'), [pictureId, newPicture])
         } catch (err) {
             throw (err.message);
         }
@@ -44,7 +60,7 @@ export default class EditRepository {
 
     deletePicture = async (pictureId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlPicture('delete'),[pictureId]);
+            return await this.db.query(this.sql.getSqlPicture('delete'), [pictureId]);
         } catch (err) {
             throw (err.message);
         }

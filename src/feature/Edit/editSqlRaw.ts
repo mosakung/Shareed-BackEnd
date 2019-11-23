@@ -14,6 +14,8 @@ export default class SqlEdit {
     private sqlEditOnwerFaq: string;
     private sqlEditOnwerCommnet: string;
     private sqlFetchPicture: string;
+    private sqlFetchAllPicture: string;
+    private sqlCreatePicture: string;
     private sqlEditPicture: string;
     private sqlDeletePicture: string;
 
@@ -32,7 +34,9 @@ export default class SqlEdit {
         this.sqlEditOnwerReviewBook = 'SELECT UserID as userId FROM `reviewbook` WHERE `ReviewBookID` = ?';
         this.sqlEditOnwerFaq = 'SELECT UserID as userId FROM `faq` WHERE `FAQID` = ?';
         this.sqlEditOnwerCommnet = 'SELECT UserID as userId FROM `comment_detail` WHERE `CommentID` = ?';
-        this.sqlFetchPicture = 'SELECT `Picture` as picture FROM `picture` WHERE `PostID` = ?';
+        this.sqlFetchPicture = 'SELECT `Picture` as picture, `PictureID` as id FROM `picture` WHERE `PostID` = ?';
+        this.sqlFetchAllPicture = 'SELECT `PictureID as id FROM `picture`';
+        this.sqlCreatePicture = 'INSERT INTO `picture`(`PictureID`, `Picture`, `PostID`) VALUES (?,?,?)';
         this.sqlEditPicture = 'UPDATE `picture` SET `Picture` = ? WHERE `PictureID` = ?';
         this.sqlDeletePicture = 'DELETE FROM `picture` WHERE `PictureID` = ?';
     }
@@ -67,6 +71,8 @@ export default class SqlEdit {
 
     getSqlPicture(typeMode: string) {
         if (typeMode === 'fetch') return this.sqlFetchPicture;
+        else if (typeMode === 'fetchall') return this.sqlFetchAllPicture;
+        else if (typeMode === 'create') return this.sqlCreatePicture;
         else if (typeMode === 'edit') return this.sqlEditPicture;
         else if (typeMode === 'delete') return this.sqlDeletePicture;
         else return '';
