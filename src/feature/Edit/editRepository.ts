@@ -18,7 +18,7 @@ export default class EditRepository {
         }
     }
 
-    editOwner = async (postId: string, postType: string) => {
+    fetchOwner = async (postId: string, postType: string) => {
         try {
             return await this.db.query(this.sql.getSqlOwner(postType), [postId]);
         } catch (err) {
@@ -26,7 +26,27 @@ export default class EditRepository {
         }
     }
 
-    editPicture = async () => {
-        
+    fetchPicture = async (pictureId: string) => {
+        try {
+            return await this.db.query(this.sql.getSqlPicture('fetch'),[pictureId]);
+        } catch (err) {
+            throw (err.message);
+        }
+    }
+
+    editPicture = async (pictureId: string, newPicture: string ) => {
+        try {
+            return await this.db.query(this.sql.getSqlPicture('edit'),[pictureId, newPicture])
+        } catch (err) {
+            throw (err.message);
+        }
+    }
+
+    deletePicture = async (pictureId: string) => {
+        try {
+            return await this.db.query(this.sql.getSqlPicture('delete'),[pictureId]);
+        } catch (err) {
+            throw (err.message);
+        }
     }
 }

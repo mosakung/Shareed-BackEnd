@@ -14,12 +14,13 @@ import SqlDelete from './feature/Delete/deleteSqlRaw';
 const databaseOut:database = new database();
 
 export default class Binding {
-    private db:database = databaseOut;
+    private db:database;
 
     private viewControllers: ViewControllers;
     private deleteControllers: DeleteControllers;
 
     constructor () {
+        this.db = databaseOut;
 
         const viewRepository: ViewRepository = new ViewRepository(this.db);
         const viewServices: ViewServices = new ViewServices(viewRepository);
