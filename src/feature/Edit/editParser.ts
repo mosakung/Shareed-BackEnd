@@ -41,7 +41,7 @@ export default class EditPaser {
     async checkSchemaReviewBook(body: object) {
         try {
             const result = Joi.validate(body, this.schemaReviewBook.getSchema(), (err, value) => {
-                if (err) throw (err.message);
+                if (err) throw new Error (err.message);
             });
         } catch (err) {
             throw (err.message);
