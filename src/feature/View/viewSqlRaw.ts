@@ -27,7 +27,7 @@ export default class viewSqlRaw {
         this.getFaq = "select * from `faq`";
         this.getReviewBook = "select * from `reviewbook` where ReviewBookID = ?";
         this.getReviewSubject = "select * from `reviewsubject` where ReviewSubjectID = ?";
-        this.getReviewTutor = "select * from `reviewtutor` where Reviewtutor = ?";
+        this.getReviewTutor = "select * from `reviewtutor` where ReviewtutorID = ?";
         this.getShareEvent = "select * from `shareevent` where ShareEventID = ?";
         this.getShareNote = "select * from `sharenote` where ShareNoteID = ?";
         this.getFaq = "select * from `faq` where FAQID = ?";

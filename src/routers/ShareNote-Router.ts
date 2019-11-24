@@ -7,7 +7,7 @@ const binding : Binding = new Binding();
 
 routerShareNote.get('/:page',  binding.getViewControllers().getShareNote)
 
-routerShareNote.get('/:id/:userId',  binding.getViewControllers().getShareNoteID)
+routerShareNote.get('/:postID/:userID',  binding.getViewControllers().getShareNoteID)
 
 routerShareNote.post('/', (req: any, res: any) => {
     //create share note

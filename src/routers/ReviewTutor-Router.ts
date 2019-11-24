@@ -7,7 +7,7 @@ const binding : Binding = new Binding();
 
 routerReviewTutor.get('/:page', binding.getViewControllers().getReviewTutor)
 
-routerReviewTutor.get('/:id/:userId',  binding.getViewControllers().getReviewTutorID)
+routerReviewTutor.get('/:postID/:userID',  binding.getViewControllers().getReviewTutorID)
 
 routerReviewTutor.post('/', (req: any, res: any) => {
     //create share note

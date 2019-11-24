@@ -7,7 +7,7 @@ const binding : Binding = new Binding();
 
 routerFAQ.get('/:page', binding.getViewControllers().getFaq)
 
-routerFAQ.get('/:id/:userId',  binding.getViewControllers().getFaqID)
+routerFAQ.get('/:postID/:userID',  binding.getViewControllers().getFaqID)
 
 routerFAQ.post('/', (req: any, res: any) => {
     //create share note
