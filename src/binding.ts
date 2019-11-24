@@ -6,6 +6,7 @@ import ViewControllers from './feature/View/viewControllers';
 import ViewRepository from './feature/View/viewRepository';
 import ViewServices from './feature/View/viewServices';
 import ViewParser from './feature/View/viewParser';
+import ViewSql from './feature/View/viewSqlRaw';
 
 import DeleteControllers from './feature/Delete/deleteControllers';
 import DeleteRepository from './feature/Delete/deleteRepository';
@@ -22,8 +23,9 @@ export default class Binding {
 
     constructor () {
 
+        const viewSql : ViewSql = new ViewSql();
         const viewParser: ViewParser = new ViewParser();
-        const viewRepository: ViewRepository = new ViewRepository(this.db);
+        const viewRepository: ViewRepository = new ViewRepository(this.db,viewSql);
         const viewServices: ViewServices = new ViewServices(viewRepository,viewParser);
         this.viewControllers = new ViewControllers(viewServices);
 

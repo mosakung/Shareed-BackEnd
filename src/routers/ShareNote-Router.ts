@@ -5,13 +5,9 @@ const routerShareNote = express.Router();
 
 const binding : Binding = new Binding();
 
-routerShareNote.get('/', (req: any, res: any) => {
-    //fetch All share note
-})
+routerShareNote.get('/:page',  binding.getViewControllers().getShareNote)
 
-routerShareNote.get('/:id/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
+routerShareNote.get('/:id/:userId',  binding.getViewControllers().getShareNoteID)
 
 routerShareNote.post('/', (req: any, res: any) => {
     //create share note

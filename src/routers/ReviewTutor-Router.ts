@@ -5,13 +5,9 @@ const routerReviewTutor = express.Router();
 
 const binding : Binding = new Binding();
 
-routerReviewTutor.get('/', (req: any, res: any) => {
-    //fetch All share note
-})
+routerReviewTutor.get('/:page', binding.getViewControllers().getReviewTutor)
 
-routerReviewTutor.get('/:id/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
+routerReviewTutor.get('/:id/:userId',  binding.getViewControllers().getReviewTutorID)
 
 routerReviewTutor.post('/', (req: any, res: any) => {
     //create share note

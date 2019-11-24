@@ -5,7 +5,7 @@ const routerReviewBook = express.Router();
 
 const binding : Binding = new Binding();
 
-routerReviewBook.get('/', binding.getViewControllers().getReviewBook);
+routerReviewBook.get('/:page', binding.getViewControllers().getReviewBook);
 
 routerReviewBook.get('/:postID/:userID', binding.getViewControllers().getReviewBookID);
 
