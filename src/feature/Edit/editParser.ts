@@ -38,5 +38,21 @@ export default class EditPaser {
         this.schemaPicture = schemaPicture;
     }
 
-    async 
+    async checkSchemaReviewBook(body: object) {
+        try {
+            const result = Joi.validate(body, this.schemaReviewBook.getSchema(), (err, value) => {
+                if (err) throw (err.message);
+            });
+        } catch (err) {
+            throw (err.message);
+        }
+    }
+
+    async paserReviewBook(newBody: object) {
+        try {
+            
+        } catch (err) {
+            throw (err.message);
+        }
+    }
 }

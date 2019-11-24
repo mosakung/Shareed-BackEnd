@@ -64,15 +64,16 @@ export default class EditService {
             let owner: {} = await this.repo.fetchOwner(postId, postType);
 
             if (<any>owner[0].userId == userId) {
+                await this.paser.checkSchemaReviewBook(body);
+
                 let originalPicture: Object = await this.repo.fetchPicture(postId);
                 console.log(originalPicture);
                 console.log(Object.keys(originalPicture).length);
-
             } else {
-                return 'editFail'
+                return 'onwer not match'
             }
         } catch (err) {
-
+            throw (err.message);
         }
     }
 }

@@ -17,7 +17,7 @@ export default class EditControllers {
 
             if (!editReviewBook) {
                 res.status(251).send();
-            } else if (editReviewBook === "editFail") {
+            } else if (editReviewBook === "onwer not match") {
                 res.status(300).send();
             } else {
                 res.status(250).json({
