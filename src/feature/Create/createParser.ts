@@ -1,99 +1,101 @@
-export default class createParser{
+export default class createParser {
 
-    parserShareNote = (data: Object) => {
+    parserShareNote = (data: Object, userID: string) => {
         return {
-            shareNoteId: data[0].shareNoteID,
-            cover: data[0].Cover,
-            subjectName: data[0].Subject_Name,
-            section: data[0].Section,
-            instructorName: data[0].Instructor_Name,
-            semeter: data[0].Semeter,
-            title: data[0].Title,
-            userId: data[0].UserID,
+            shareNoteId: data[0].shareNoteId,
+            cover: data[0].cover,
+            subjectName: data[0].subjectName,
+            section: data[0].section,
+            instructorName: data[0].instructorName,
+            semeter: data[0].semeter,
+            title: data[0].title,
+            userId: userID
         }
     }
 
-    parserShareEvent = (data: Object)=>{
+    parserShareEvent = (data: Object, userID: string) => {
         return {
-            shareEventId: data[0].ShareEventID,
-            cover: data[0].Cover,
-            register: data[0].Register,
-            location: data[0].Location,
-            condition: data[0].Condi,
-            describe: data[0].Describ,
-            title: data[0].Title,
-            userId: data[0].UserID,
+            shareEventId: data[0].shareEventId,
+            cover: data[0].cover,
+            register: data[0].register,
+            location: data[0].location,
+            condition: data[0].condition,
+            describe: data[0].describe,
+            title: data[0].title,
+            userId: userID
         }
     }
 
-    parserReviewSubject = (data: Object)=>{
+    parserReviewSubject = (data: Object, userID: string) => {
         return {
-            reviewSubjectId: data[0].ReviewSubjectID,
-            subjectId: data[0].SubjectID,
-            subjectName: data[0].SubjectName,
-            instructorName: data[0].Instructor_Name,
-            description: data[0].Des,
-            title: data[0].Title,
-            section: data[0].Section,
-            userId: data[0].UserID,
+            reviewSubjectId: data[0].reviewSubjectId,
+            subjectId: data[0].subjectId,
+            subjectName: data[0].subjectName,
+            instructorName: data[0].instructorName,
+            description: data[0].description,
+            title: data[0].title,
+            section: data[0].section,
+            userId: userID
         }
     }
 
-    parserReviewTutor = (data: Object)=>{
+    parserReviewTutor = (data: Object, userID: string) => {
         return {
-            reviewTutorId: data[0].ReviewTutorID,
-            tutorName: data[0].TutorName,
-            academy: data[0].Academy,
-            subjectTeacher: data[0].Subject_Teach,
-            description: data[0].Des,
-            contact: data[0].ContactLink,
-            title: data[0].Title,
-            userId: data[0].UserID,
+            reviewTutorId: data[0].reviewTutorId,
+            tutorName: data[0].tutorName,
+            academy: data[0].academy,
+            subjectTeacher: data[0].subjectTeacher,
+            description: data[0].description,
+            contact: data[0].contactLink,
+            title: data[0].title,
+            userId: userID
         }
     }
 
-    parserReviewBook = (data: Object) => {
+    parserReviewBook = (data: Object, userID) => {
         return {
-            reviewBookId: data[0].ReviewBookID,
-            cover: data[0].Cover,
-            title: data[0].Title,
-            writtenBy: data[0].WrittenBy,
-            edition: data[0].Edition,
-            link: data[0].Link,
-            description: data[0].Des,
-            bookName: data[0].BookName,
-            userId: data[0].UserID,
+            reviewBookId: data[0].reviewBookId,
+            cover: data[0].cover,
+            title: data[0].title,
+            writtenBy: data[0].writtenBy,
+            edition: data[0].edition,
+            link: data[0].link,
+            description: data[0].description,
+            bookName: data[0].bookName,
+            userId: userID
         }
     }
 
-    parserFaq = (data: Object)=> {
-        return{
-            faqId: data[0].FAQID,
+    parserFaq = (data: Object, userID: string) => {
+        return {
+            faqId: data[0].faqId,
             title: data[0].title,
             description: data[0].description,
-            userId: data[0].UserID,
+            userId: userID
         }
     }
 
-    parserTagPost = (data: Object)=>{
-        return {
-            tagDetail: data,
-            PostId: data
+    parserTagPost = (data: any, postId: string) => {
+        const tagall = new Array();
+        for (let i = 0; i < data.tag.length; i++) {
+            tagall.push([data.tag[i].TagDetail, postId]);
         }
+        return tagall;
     }
 
-    parserContent = (data: Object)=> {
-        return {
-            picture: data,
-            postId: data
+    parserContent = (data: any, postId: string) => {
+        const contentAll = new Array();
+        for (let i = 0; i < data.content.length; i++) {
+            contentAll.push([data.content[i].Picture, postId]);
         }
+        return contentAll;
     }
 
-    parserComment = (data: Object)=>{
+    parserComment = (data: any, postId: string, userID: string) => {
         return {
-            details: data,
-            postId: data,
-            userId: data
+            details: data.Detail,
+            postId: postId,
+            userId: userID
         }
     }
 }

@@ -12,16 +12,15 @@ export default class createControllers {
     createShareNote = async (req: Request, res: Response) => {
         try {
             const result = await this.services.createShareNote(req.body);
-            if (!result) { res.status(251).send(); }
-            else if (result === 'fail to create') {
-                res.status(300).send("error to create post");
-            }
-            else {
-                res.status(250).send('create complete');
-            }
+            if(!result) {res.status(300).send('');}
+            res.status(250).send('create complete');
         }
-        catch (err) { throw new Error(err.message); }
+        catch (err) {
+            console.error(err.mesage);
+            res.status(251).send();
+        }
     }
+
 
 
 }
