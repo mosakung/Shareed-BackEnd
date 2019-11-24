@@ -1,29 +1,5 @@
 export default class viewParser {
 
-    getContent = (contentData: any) => {
-        var contentAll = new Array();
-        for (var i = 0; i < Object.keys(contentData).length; i++) {
-            contentAll.push(contentData[i]);
-        }
-        return contentAll;
-    }
-
-    getTag = (tagPost: object) =>{
-        var tagAll = new Array();
-        for( var i = 0 ; i < Object.keys(tagPost).length; i++){
-            tagAll.push(tagPost[i]);
-        }
-        return tagAll;
-    }
-
-    getComment = (comment: object) =>{
-        var commentAll = new Array();
-        for( var i = 0 ; i < Object.keys(comment).length; i++){
-            commentAll.push(comment[i]);
-        }
-        return commentAll;
-    }
-
     parserShareNote = (data: any, owner: boolean, contentData: any, tagPost ,comment) => {
         return {
             shareNoteId: data[0].shareNoteID,
@@ -35,9 +11,9 @@ export default class viewParser {
             title: data[0].Title,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
-            content: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            content: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
@@ -53,9 +29,9 @@ export default class viewParser {
             title: data[0].Title,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
-            content: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            content: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
@@ -71,9 +47,9 @@ export default class viewParser {
             section: data[0].Section,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
-            content: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            content: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
@@ -89,9 +65,9 @@ export default class viewParser {
             title: data[0].Title,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
-            contect: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            contect: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
@@ -108,9 +84,9 @@ export default class viewParser {
             bookName: data[0].BookName,
             userId: data[0].UserID,
             dateTime: data[0].date_time,
-            content: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            content: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
@@ -122,8 +98,8 @@ export default class viewParser {
             description: data[0].description,
             userId: data[0].UserID,
             dateTime: data[0].date_Time,
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }

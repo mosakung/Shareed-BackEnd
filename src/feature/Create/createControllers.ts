@@ -20,7 +20,7 @@ export default class createControllers {
                 res.status(250).send('create complete');
             }
         }
-        catch (err) { throw ('Error' + err); }
+        catch (err) { throw new Error(err.message); }
     }
 
 
