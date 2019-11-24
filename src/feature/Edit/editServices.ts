@@ -136,9 +136,13 @@ export default class EditService {
                 let tagReviewBook: {} = await this.paser.split(body, 'tag');
                 let pictureReviewBook: {} = await this.paser.split(body, 'picture');
 
-                await this.joi.validate(bodyReviewBook, 'reviewbook');
-                await this.joi.validate(tagReviewBook, 'tag');
-                await this.joi.validate(pictureReviewBook, 'picture');
+                
+               console.log(true); 
+               
+                console.log(await this.joi.validate(bodyReviewBook, 'reviewbook'));
+                console.log(await this.joi.validate(tagReviewBook, 'tag'));
+                console.log( await this.joi.validate(pictureReviewBook, 'picture'));
+
 
                 let originalPicture: Object = await this.repo.fetchPicture(postId);
                 let originalTag: {} = await this.repo.fetchTag(postId);
