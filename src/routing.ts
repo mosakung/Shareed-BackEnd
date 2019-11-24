@@ -9,7 +9,7 @@ import routerReviewTutor from './routers/ReviewTutor-Router';
 import routerShareEvent from './routers/ShareEvent-Router';
 import routerShareNote from './routers/ShareNote-Router';
 
-const routing = express('Router');
+const routing = express.Router();
 
 routing.get('/Say', (req, res) => {
     res.send('Hi');

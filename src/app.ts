@@ -1,22 +1,14 @@
-//Import Package npm
 import express from 'express';
-import bodyParser from 'body-parser'
-import Joi from 'joi';
 import responseTime from 'response-time';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import config from 'config'
 
 //Set Class
 const app = express();
 
-app.use(express.json);
-app.use(bodyParser.json());
-
-//PROCESS_ENV
-console.log(`NODE_ENV: ${process.env.NODE_ENV}` + ` || app: ${app.get('env')}`);
-
 //APP USE
+app.use(express.json());
+
 app.use(helmet());
 
 if (app.get('env') === 'DEV') {
@@ -27,19 +19,14 @@ if (app.get('env') === 'DEV') {
     app.use(morgan('tiny'));
 }
 
-//Router
-import routing from './routing'
+import routing from './routing';
 
-app.use('/shareed',routing);
+app.use('/shareed', routing);
 
-//Server
-
-const server = app.listen(3000, () => {
+app.listen(3000, () => {
     console.log(
         "  App is running at localhost:3000 in %s mode",
         app.get("env")
     );
-    console.log("Press CTRL-C to Terminate server\n");
-})
-
-export default {app, server};
+    console.log("  Press CTRL-C to stop\n");
+});

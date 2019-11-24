@@ -1,14 +1,13 @@
 import express from 'express';
+import Binding from '../binding';
 
-const routerFAQ = express('Router');
+const routerFAQ = express.Router();
 
-routerFAQ.get('/', (req: any, res: any) => {
-    //fetch All share note
-})
+const binding : Binding = new Binding();
 
-routerFAQ.get('/:id/:user-id', (req: any, res: any) => {
-    //fetch share note by id
-})
+routerFAQ.get('/:page', binding.getViewControllers().getFaq)
+
+routerFAQ.get('/:id/:userId',  binding.getViewControllers().getFaqID)
 
 routerFAQ.post('/', (req: any, res: any) => {
     //create share note
@@ -18,8 +17,6 @@ routerFAQ.put('/:id', (req: any, res: any) => {
     //update share note
 })
 
-routerFAQ.post('/:id', (req: any, res: any) => {
-    //delete share note
-})
+routerFAQ.post('/:id', binding.getDeleteControllers().deleteFaq);
 
 export default routerFAQ;
