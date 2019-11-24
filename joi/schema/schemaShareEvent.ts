@@ -4,7 +4,7 @@ export default class SchemaShareEvent {
     private schema: Object;
 
     constructor() {
-        this.schema = Joi.Object().keys({
+        this.schema = Joi.object({
             ShareEventID: Joi.string().min(0).max(20),
             Cover: Joi.string().min(0).max(50),
             Resgister: Joi.string().min(0).max(50),
