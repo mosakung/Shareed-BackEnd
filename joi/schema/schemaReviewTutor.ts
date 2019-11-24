@@ -4,7 +4,7 @@ export default class SchemaReviewTutor {
     private schema: Object;
 
     constructor() {
-        this.schema = Joi.Object().keys({
+        this.schema = Joi.object({
             ReviewTutorID: Joi.string().min(0).max(20),
             TutorName: Joi.string().min(0).max(50),
             Academy: Joi.string().min(0).max(50),

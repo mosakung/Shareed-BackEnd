@@ -5,7 +5,7 @@ export default class SchemaFaq {
     private mediumtext: number = 16777215;
 
     constructor() {
-        this.schema = Joi.Object().keys({
+        this.schema = Joi.object({
             FAQID: Joi.string().min(0).max(20),
             title: Joi.string().min(0).max(50),
             description: Joi.string().min(0).max(this.mediumtext),
