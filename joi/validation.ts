@@ -29,7 +29,7 @@ export default class Validation {
         this.schemaPicture = new SchemaPicture();
     }
 
-    async validate(body: object, nameSchema: string) : Promise<object | void> {
+    async validate(body: object, nameSchema: string) : Promise<any> {
         return Joi.validate(body, await this.getSchema(nameSchema), (err, value) => {
             if (err) throw new Error('validate schema not match');
             else return value;
