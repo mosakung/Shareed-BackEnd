@@ -14,7 +14,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlEdit(typePost), [body, postId])
         } catch (err) {
-            throw (err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -22,7 +22,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlOwner(postType), [postId]);
         } catch (err) {
-            throw (err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -30,23 +30,15 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlPicture('fetch'), [postId]);
         } catch (err) {
-            throw (err.message);
+            throw new Error(err.message);
         }
     }
 
-    fetchAllPicture = async () => {
+    createPicture = async (pictureName: string, postId: string) => {
         try {
-            return await this.db.query(this.sql.getSqlPicture('fetchall'),[]);
+            return await this.db.query(this.sql.getSqlPicture('create'), [pictureName, postId]);
         } catch (err) {
-            throw (err.message);
-        }
-    }
-
-    createPicture = async (pictureId: string, pictureName: string, postId: string) => {
-        try {
-            return await this.db.query(this.sql.getSqlPicture('create'), [pictureId, pictureName, postId]);
-        } catch (err) {
-            throw (err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -54,7 +46,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlPicture('edit'), [pictureId, newPicture])
         } catch (err) {
-            throw (err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -62,7 +54,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlPicture('delete'), [pictureId]);
         } catch (err) {
-            throw (err.message);
+            throw new Error(err.message);
         }
     }
 }

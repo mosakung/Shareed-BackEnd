@@ -17,16 +17,14 @@ export default class EditControllers {
 
             if (!editReviewBook) {
                 res.status(251).send();
-            } else if (editReviewBook === "onwer not match") {
-                res.status(300).send();
-            } else {
+            }else {
                 res.status(250).json({
                     editReviewBook
                 });
             }
 
         } catch (err) {
-            throw (err.message);
+            throw new Error(err.message);
             res.status(500).send();
         }
     }

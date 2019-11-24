@@ -13,51 +13,40 @@ export default class EditService {
         this.joi = joi;
     }
 
-    async findNewPictureId(): Promise<string> {
-        let allPictureId = await this.repo.fetchAllPicture();
-        let lengthFetch = Object.keys(allPictureId).length;
-        let maximumId: number = -1;
-
-        for (let i: number = 0; i < lengthFetch; i++) {
-            let pictureId: number = +((<any>allPictureId[i]).id);
-
-            if (isNaN(pictureId)) throw ('function: findMaximumPictureId | class: EditService | error: string to number is NaN');
-            else if (pictureId > maximumId) maximumId = pictureId;
-        }
-
-        return (maximumId + 1).toString();
-    }
-
     async comparePicture(originalPicture: Object, newPicture: Object, postId: string) {
-        let lengthOriginal: number = Object.keys(originalPicture).length;
-        let lengthNew: number = Object.keys(newPicture).length;
+        try {
+            let lengthOriginal: number = Object.keys(originalPicture).length;
+            let lengthNew: number = Object.keys(newPicture).length;
 
-        if (lengthOriginal > lengthNew) {
-            for (let i: number = 0; i < lengthNew; i++) {
-                if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
-                    await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+            if (lengthOriginal > lengthNew) {
+                for (let i: number = 0; i < lengthNew; i++) {
+                    if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
+                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+                    }
                 }
-            }
-            for (let i: number = lengthNew; i < lengthOriginal; i++) {
-                await this.repo.deletePicture((<any>originalPicture[i]).id);
-            }
-        } else if (lengthOriginal === lengthNew) {
-            for (let i: number = 0; i < lengthOriginal; i++) {
-                if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
-                    await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+                for (let i: number = lengthNew; i < lengthOriginal; i++) {
+                    await this.repo.deletePicture((<any>originalPicture[i]).id);
                 }
-            }
-        } else if (lengthOriginal < lengthNew) {
-            for (let i: number = 0; i < lengthOriginal; i++) {
-                if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
-                    await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+            } else if (lengthOriginal === lengthNew) {
+                for (let i: number = 0; i < lengthOriginal; i++) {
+                    if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
+                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+                    }
                 }
+            } else if (lengthOriginal < lengthNew) {
+                for (let i: number = 0; i < lengthOriginal; i++) {
+                    if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
+                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+                    }
+                }
+                for (let i: number = lengthOriginal; i < lengthNew; i++) {
+                    await this.repo.createPicture((<any>newPicture[i]).picture, postId);
+                }
+            } else {
+                throw new Error('comparePicture if else error');
             }
-            for (let i: number = lengthOriginal; i < lengthNew; i++) {
-                await this.repo.createPicture(await this.findNewPictureId(), (<any>newPicture[i]).picture, postId);
-            }
-        } else {
-            throw new Error('comparePicture if else error');
+        } catch (err) {
+            throw new Error(err.message);
         }
     }
 
@@ -67,15 +56,21 @@ export default class EditService {
             let owner: {} = await this.repo.fetchOwner(postId, postType);
 
             if (<any>owner[0].userId == userId) {
-                await this.joi.validate(body, 'reviewbook');
+
+
+                //await this.joi.validate(body, 'reviewbook');
+                //await this.joi.validate(tag, 'tag');
+                //await this.joi.validate(picture, 'picture');
 
 
 
                 let originalPicture: Object = await this.repo.fetchPicture(postId);
                 console.log(originalPicture);
                 console.log(Object.keys(originalPicture).length);
+
+                return 1;
             } else {
-                return 'onwer not match'
+                throw new Error('onwer not match');
             }
         } catch (err) {
             throw new Error(err.message);
