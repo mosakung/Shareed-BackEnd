@@ -1,4 +1,4 @@
-import Joi from '@hapi/joi';
+import Joi from 'joi';
 import SchemaComment from './schema/schemaComment';
 import SchemaFaq from './schema/schemaFaq';
 import SchemaPicture from './schema/schemaPicture';
