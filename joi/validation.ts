@@ -7,6 +7,7 @@ import SchemaReviewSubject from './schema/schemaReviewSubject';
 import SchemaReviewTutor from './schema/schemaReviewTutor';
 import SchemaShareEvent from './schema/schemaShareEvent';
 import SchemaShareNote from './schema/schemaShareNote';
+import SchemaTag from './schema/schemaTag';
 
 export default class Validation {
     private schemaComment: SchemaComment;
@@ -17,6 +18,7 @@ export default class Validation {
     private schemaReviewTutor: SchemaReviewTutor;
     private schemaShareEvent: SchemaShareEvent;
     private schemaShareNote: SchemaShareNote;
+    private schemaTag: SchemaTag;
 
     constructor() {
         this.schemaShareNote = new SchemaShareNote();
@@ -27,6 +29,7 @@ export default class Validation {
         this.schemaFaq = new SchemaFaq();
         this.schemaComment = new SchemaComment();
         this.schemaPicture = new SchemaPicture();
+        this.schemaTag = new SchemaTag();
     }
 
     async validate(body: object, nameSchema: string) : Promise<any> {
@@ -45,6 +48,7 @@ export default class Validation {
         else if (nameSchema === 'faq') return this.schemaFaq.getSchema();
         else if (nameSchema === 'comment') return this.schemaComment.getSchema();
         else if (nameSchema === 'picture') return this.schemaPicture.getSchema();
+        else if (nameSchema === 'tag') return this.schemaTag.getSchema();
         else throw new Error('not found this schema');
     }
 }
