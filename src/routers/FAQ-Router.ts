@@ -5,13 +5,9 @@ const routerFAQ = express.Router();
 
 const binding : Binding = new Binding();
 
-routerFAQ.get('/', (req: any, res: any) => {
-    //fetch All share note
-})
+routerFAQ.get('/:page', binding.getViewControllers().getFaq)
 
-routerFAQ.get('/:id/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
+routerFAQ.get('/:id/:userId',  binding.getViewControllers().getFaqID)
 
 routerFAQ.post('/', (req: any, res: any) => {
     //create share note

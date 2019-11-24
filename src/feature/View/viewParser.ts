@@ -128,4 +128,12 @@ export default class viewParser {
         }
     }
 
+    parserPostAll = (data:any , page: number) : object => {
+        return {
+            data: data,
+            pageAll: Math.ceil(page[0].countId/5)
+        }
+    }
+
+    
 }

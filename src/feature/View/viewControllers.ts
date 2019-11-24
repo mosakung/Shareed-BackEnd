@@ -142,8 +142,8 @@ export default class ViewControllers {
 
     getReviewBook = async (req: Request, res: Response) => {
         try {
-            const postID = req.params.postID;
-            const result = await this.service.getReviewBookAll(postID);
+            const page = req.params.page;
+            const result = await this.service.getReviewBookAll(page);
             if (!result) {
                 res.status(251).send();
             }

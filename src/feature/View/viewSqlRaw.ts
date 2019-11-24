@@ -19,11 +19,11 @@ export default class viewSqlRaw {
 
 
     constructor() {
-        this.getAllReviewBook = "select Cover,Title,date_time from `reviewbook`";
-        this.getAllReviewSubject = "select SubjectID,Title,Date_Time from `reviewsubject";
-        this.getAllReviewTutor = "select Cover,Title,date_time from `reviewtutor";
-        this.getAllShareEvent = "select Cover,Title,Data_Time from `shareevent`";
-        this.getAllShareNote = "select Cover,Subject_Name,Date_Time from `sharenote`";
+        this.getAllReviewBook = "select Cover,Title,date_time from `reviewbook` ORDER BY ReviewBookID LIMIT ?,?";
+        this.getAllReviewSubject = "select SubjectID,Title,Date_Time from `reviewsubject ORDER BY ReviewSubjectID LIMIT ?,?";
+        this.getAllReviewTutor = "select Cover,Title,date_time from `reviewtutor ORDER BY ReviewTutorID LIMIT ?,?";
+        this.getAllShareEvent = "select Cover,Title,Data_Time from `shareevent` ORDER BY ShareEventID LIMIT ?,?";
+        this.getAllShareNote = "select Cover,Subject_Name,Date_Time from `sharenote` ORDER BY ShareNoteID LIMIT ?,?";
         this.getFaq = "select * from `faq`";
         this.getReviewBook = "select * from `reviewbook` where ReviewBookID = ?";
         this.getReviewSubject = "select * from `reviewsubject` where ReviewSubjectID = ?";
