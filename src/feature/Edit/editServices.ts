@@ -1,13 +1,16 @@
 import EditRepository from './editRepository';
 import EditPaser from './editParser';
+import Validation from '../../../joi/validation';
 
 export default class EditService {
     private repo: EditRepository;
     private paser: EditPaser;
+    private joi: Validation;
 
-    constructor(repo: EditRepository, paser: EditPaser) {
+    constructor(repo: EditRepository, paser: EditPaser, joi: Validation) {
         this.repo = repo;
         this.paser = paser;
+        this.joi = joi;
     }
 
     async findNewPictureId(): Promise<string> {
@@ -54,7 +57,7 @@ export default class EditService {
                 await this.repo.createPicture(await this.findNewPictureId(), (<any>newPicture[i]).picture, postId);
             }
         } else {
-            throw ('comparePicture if else error');
+            throw new Error('comparePicture if else error');
         }
     }
 
@@ -64,7 +67,9 @@ export default class EditService {
             let owner: {} = await this.repo.fetchOwner(postId, postType);
 
             if (<any>owner[0].userId == userId) {
-                await this.paser.checkSchemaReviewBook(body);
+                await this.joi.validate(body, 'reviewbook');
+
+
 
                 let originalPicture: Object = await this.repo.fetchPicture(postId);
                 console.log(originalPicture);
@@ -73,7 +78,7 @@ export default class EditService {
                 return 'onwer not match'
             }
         } catch (err) {
-            throw (err.message);
+            throw new Error(err.message);
         }
     }
 }
