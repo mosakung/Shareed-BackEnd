@@ -4,7 +4,7 @@ export default class SchemaTag {
     private schema: Object;
 
     constructor() {
-        this.schema = Joi.Object().keys({
+        this.schema = Joi.object({
             TagDetail: Joi.string().min(0).max(200),
             PostID: Joi.string().min(0).max(20)
         })
