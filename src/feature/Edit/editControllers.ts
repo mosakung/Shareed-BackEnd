@@ -19,12 +19,13 @@ export default class EditControllers {
                 res.status(251).send();
             }else {
                 res.status(250).json({
-                    editReviewBook
+                    editReviewBook,
+                    body
                 });
             }
 
         } catch (err) {
-            throw new Error(err.message);
+            console.error(err.message);
             res.status(500).send();
         }
     }

@@ -43,7 +43,7 @@ export default class EditService {
                     await this.repo.createPicture((<any>newPicture[i]).Picture, postId);
                 }
             } else {
-                throw new Error('compare picture if else error | edit service');
+                throw new Error('compare picture if else error | comparePicture | edit service');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -78,14 +78,14 @@ export default class EditService {
                 for (let i: number = lengthOriginal; i < lengthNew; i++) {
                     await this.repo.createTag(postId, (<any>newTag[i]).TagDetail);
                 }
-            } else throw new Error('compare tag if else error | edit service')
+            } else throw new Error('compare tag if else error | compareTag | edit service')
 
         } catch (err) {
             throw new Error(err.message);
         }
     }
 
-    async editShareNote (postId: string, userId: string, body: any) {
+    async editShareNote(postId: string, userId: string, body: any) {
         try {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.fetchOwner(postId, postType);
@@ -96,8 +96,12 @@ export default class EditService {
                 let pictureShareNote: {} = await this.paser.split(body, 'picture');
 
                 await this.joi.validate(bodyShareNote, 'sharenote');
-                await this.joi.validate(tagShareNote, 'tag');
-                await this.joi.validate(pictureShareNote, 'picture');
+                for (let i: number = 0; i < Object.keys(tagShareNote).length; i++) {
+                    await this.joi.validate(tagShareNote[i], 'tag');
+                }
+                for (let i: number = 0; i < Object.keys(pictureShareNote).length; i++) {
+                    await this.joi.validate(pictureShareNote[i], 'picture');
+                }
 
                 let originalPicture: Object = await this.repo.fetchPicture(postId);
                 let originalTag: {} = await this.repo.fetchTag(postId);
@@ -119,7 +123,142 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | edit service');
+                throw new Error('onwer not match | editShareNote | edit service');
+            }
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    }
+
+    async editShareEvent(postId: string, userId: string, body: any) {
+        try {
+            let postType: string = postId.substring(0, 1);
+            let owner: {} = await this.repo.fetchOwner(postId, postType);
+
+            if (<any>owner[0].userId == userId) {
+                let bodyShareEvent: {} = await this.paser.split(body, 'shareevent');
+                let tagShareEvent: {} = await this.paser.split(body, 'tag');
+                let pictureShareEvent: {} = await this.paser.split(body, 'picture');
+
+                await this.joi.validate(bodyShareEvent, 'sharenote');
+                for (let i: number = 0; i < Object.keys(tagShareEvent).length; i++) {
+                    await this.joi.validate(tagShareEvent[i], 'tag');
+                }
+                for (let i: number = 0; i < Object.keys(pictureShareEvent).length; i++) {
+                    await this.joi.validate(pictureShareEvent[i], 'picture');
+                }
+
+                let originalPicture: Object = await this.repo.fetchPicture(postId);
+                let originalTag: {} = await this.repo.fetchTag(postId);
+
+                await this.comparePicture(originalPicture, pictureShareEvent, postId);
+                await this.compareTag(originalTag, tagShareEvent, postId);
+
+                let parameterToSql: Array<any> = [
+                    (<any>bodyShareEvent).Cover,
+                    (<any>bodyShareEvent).Resgister,
+                    (<any>bodyShareEvent).Location,
+                    (<any>bodyShareEvent).Condi,
+                    (<any>bodyShareEvent).Describ,
+                    (<any>bodyShareEvent).Title,
+                    postId
+                ]
+
+                await this.repo.editPost(postType, parameterToSql);
+
+                return true;
+            } else {
+                throw new Error('onwer not match | editShareEvent | edit service');
+            }
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    }
+
+    editReviewSubject = async (postId: string, userId: string, body: any) => {
+        try {
+            let postType: string = postId.substring(0, 1);
+            let owner: {} = await this.repo.fetchOwner(postId, postType);
+
+            if (<any>owner[0].userId == userId) {
+                let bodyReviewSubject: {} = await this.paser.split(body, 'reviewsubject');
+                let tagReviewSubject: {} = await this.paser.split(body, 'tag');
+                let pictureReviewSubject: {} = await this.paser.split(body, 'picture');
+
+                await this.joi.validate(bodyReviewSubject, 'reviewbook');
+                for (let i: number = 0; i < Object.keys(tagReviewSubject).length; i++) {
+                    await this.joi.validate(tagReviewSubject[i], 'tag');
+                }
+                for (let i: number = 0; i < Object.keys(pictureReviewSubject).length; i++) {
+                    await this.joi.validate(pictureReviewSubject[i], 'picture');
+                }
+
+                let originalPicture: Object = await this.repo.fetchPicture(postId);
+                let originalTag: {} = await this.repo.fetchTag(postId);
+
+                await this.comparePicture(originalPicture, pictureReviewSubject, postId);
+                await this.compareTag(originalTag, tagReviewSubject, postId);
+
+                let parameterToSql: Array<any> = [
+                    (<any>bodyReviewSubject).SubjectID,
+                    (<any>bodyReviewSubject).SubjectName,
+                    (<any>bodyReviewSubject).Instructor_Name,
+                    (<any>bodyReviewSubject).Des,
+                    (<any>bodyReviewSubject).Title,
+                    (<any>bodyReviewSubject).Section,
+                    postId
+                ]
+
+                await this.repo.editPost(postType, parameterToSql);
+
+                return true;
+            } else {
+                throw new Error('onwer not match | editReviewSubject | edit service');
+            }
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    }
+
+    editReviewTutor = async (postId: string, userId: string, body: any) => {
+        try {
+            let postType: string = postId.substring(0, 1);
+            let owner: {} = await this.repo.fetchOwner(postId, postType);
+
+            if (<any>owner[0].userId == userId) {
+                let bodyReviewTutor: {} = await this.paser.split(body, 'reviewtutor');
+                let tagReviewTutor: {} = await this.paser.split(body, 'tag');
+                let pictureReviewTutor: {} = await this.paser.split(body, 'picture');
+
+                await this.joi.validate(bodyReviewTutor, 'reviewbook');
+                for (let i: number = 0; i < Object.keys(tagReviewTutor).length; i++) {
+                    await this.joi.validate(tagReviewTutor[i], 'tag');
+                }
+                for (let i: number = 0; i < Object.keys(pictureReviewTutor).length; i++) {
+                    await this.joi.validate(pictureReviewTutor[i], 'picture');
+                }
+
+                let originalPicture: Object = await this.repo.fetchPicture(postId);
+                let originalTag: {} = await this.repo.fetchTag(postId);
+
+                await this.comparePicture(originalPicture, pictureReviewTutor, postId);
+                await this.compareTag(originalTag, tagReviewTutor, postId);
+
+                let parameterToSql: Array<any> = [
+                    (<any>bodyReviewTutor).TutorName,
+                    (<any>bodyReviewTutor).Academy,
+                    (<any>bodyReviewTutor).Subject_Teach,
+                    (<any>bodyReviewTutor).Des,
+                    (<any>bodyReviewTutor).ContactLink,
+                    (<any>bodyReviewTutor).Title,
+                    postId
+                ]
+
+                await this.repo.editPost(postType, parameterToSql);
+
+                return true;
+            } else {
+                throw new Error('onwer not match | editReviewTutor | edit service');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -136,13 +275,13 @@ export default class EditService {
                 let tagReviewBook: {} = await this.paser.split(body, 'tag');
                 let pictureReviewBook: {} = await this.paser.split(body, 'picture');
 
-                
-               console.log(true); 
-               
-                console.log(await this.joi.validate(bodyReviewBook, 'reviewbook'));
-                console.log(await this.joi.validate(tagReviewBook, 'tag'));
-                console.log( await this.joi.validate(pictureReviewBook, 'picture'));
-
+                await this.joi.validate(bodyReviewBook, 'reviewbook');
+                for (let i: number = 0; i < Object.keys(tagReviewBook).length; i++) {
+                    await this.joi.validate(tagReviewBook[i], 'tag');
+                }
+                for (let i: number = 0; i < Object.keys(pictureReviewBook).length; i++) {
+                    await this.joi.validate(pictureReviewBook[i], 'picture');
+                }
 
                 let originalPicture: Object = await this.repo.fetchPicture(postId);
                 let originalTag: {} = await this.repo.fetchTag(postId);
@@ -165,12 +304,77 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | edit service');
+                throw new Error('onwer not match | editReviewBook | edit service');
             }
         } catch (err) {
             throw new Error(err.message);
         }
     }
 
+    editFaq = async (postId: string, userId: string, body: any) => {
+        try {
+            let postType: string = postId.substring(0, 1);
+            let owner: {} = await this.repo.fetchOwner(postId, postType);
+
+            if (<any>owner[0].userId == userId) {
+                let bodyFaq: {} = await this.paser.split(body, 'faq');
+                let tagFaq: {} = await this.paser.split(body, 'tag');
+                let pictureFaq: {} = await this.paser.split(body, 'picture');
+
+                await this.joi.validate(bodyFaq, 'reviewbook');
+                for (let i: number = 0; i < Object.keys(tagFaq).length; i++) {
+                    await this.joi.validate(tagFaq[i], 'tag');
+                }
+                for (let i: number = 0; i < Object.keys(pictureFaq).length; i++) {
+                    await this.joi.validate(pictureFaq[i], 'picture');
+                }
+
+                let originalPicture: Object = await this.repo.fetchPicture(postId);
+                let originalTag: {} = await this.repo.fetchTag(postId);
+
+                await this.comparePicture(originalPicture, pictureFaq, postId);
+                await this.compareTag(originalTag, tagFaq, postId);
+
+                let parameterToSql: Array<any> = [
+                    (<any>bodyFaq).title,
+                    (<any>bodyFaq).description,
+                    postId
+                ]
+
+                await this.repo.editPost(postType, parameterToSql);
+
+                return true;
+            } else {
+                throw new Error('onwer not match | editFaq | edit service');
+            }
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    }
+
+    async editComment(postId: string, userId: string, body: any) {
+        try {
+            let owner: {} = await this.repo.fetchOwnerComment(postId);
+
+            if (<any>owner[0].userId == userId) {
+                let bodyComment: {} = await this.paser.split(body, 'comment');
+
+                await this.joi.validate(bodyComment, 'comment');
+
+                let parameterToSql: Array<any> = [
+                    (<any>bodyComment).Detail,
+                    postId
+                ]
+
+                await this.repo.editComment(parameterToSql);
+
+                return true;
+            } else {
+                throw new Error('onwer not match | editComment | edit service');
+            }
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    }
 
 }
