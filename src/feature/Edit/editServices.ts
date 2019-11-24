@@ -43,8 +43,16 @@ export default class EditService {
                     await this.repo.createPicture((<any>newPicture[i]).picture, postId);
                 }
             } else {
-                throw new Error('comparePicture if else error');
+                throw new Error('comparePicture if else error | edit service');
             }
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    }
+
+    async compareTag(originalTag: Object, newTag: Object, postId: string) {
+        try {
+            
         } catch (err) {
             throw new Error(err.message);
         }
@@ -70,7 +78,7 @@ export default class EditService {
 
                 return 1;
             } else {
-                throw new Error('onwer not match');
+                throw new Error('onwer not match | edit service');
             }
         } catch (err) {
             throw new Error(err.message);

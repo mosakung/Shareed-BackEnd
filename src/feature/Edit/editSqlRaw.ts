@@ -17,6 +17,10 @@ export default class SqlEdit {
     private sqlCreatePicture: string;
     private sqlEditPicture: string;
     private sqlDeletePicture: string;
+    private sqlFetchTag: string;
+    private sqlCreateTag: string;
+    private sqlEditTag: string;
+    private sqlDeleteTag: string;
 
     constructor() {
         this.sqlEditShareNote = 'UPDATE `sharenote` SET `Cover` = ?, `Subject_Name` = ?, `Section` = ?, `Instructor_Name` = ?, `Semeter` = ?, `Title` = ? WHERE `ShareNoteID` = ?';

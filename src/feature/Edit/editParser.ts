@@ -1,10 +1,10 @@
 export default class EditPaser {
 
-    constructor() {}
+    constructor() { }
 
-    async split(newBody: object, require:string) : Promise<object> {
+    async split(newBody: object, require: string): Promise<object> {
         try {
-            if(require === 'sharenote') {
+            if (require === 'sharenote') {
                 return {
                     Cover: (<any>newBody).Cover,
                     Subject_Name: (<any>newBody).Subject_Name,
@@ -61,11 +61,25 @@ export default class EditPaser {
                     Detail: (<any>newBody).Detail
                 }
             } else if (require === 'tag') {
-                return {
-                    
-                }
-            } else if (require === 'picture') {
+                let objectArray: Array<object> = [];
+                let tag: Array<object> = (<any>newBody).tag;
 
+                for (let i: number = 0; i < Object.keys(tag).length; i++) {
+                    objectArray.push({
+                        TagDetail: (<any>tag[i]).TagDetail
+                    });
+                }
+                return objectArray;
+            } else if (require === 'picture') {
+                let objectArray: Array<object> = [];
+                let picture: Array<object> = (<any>newBody).content;
+
+                for (let i: number = 0; i < Object.keys(picture).length; i++) {
+                    objectArray.push({
+                        TagDetail: (<any>picture[i]).Picture
+                    });
+                }
+                return objectArray;
             } else {
                 throw new Error('require split not found this mode | EditPaser');
             }
