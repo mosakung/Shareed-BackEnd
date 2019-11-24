@@ -34,7 +34,7 @@ export default class Validation {
 
     async validate(body: object, nameSchema: string) : Promise<any> {
         return Joi.validate(body, await this.getSchema(nameSchema), (err, value) => {
-            if (err) throw new Error('validate schema not match');
+            if (err) throw new Error(err.message);
             else return value;
         });
     }
