@@ -90,6 +90,5 @@ export default class ViewRepository {
         catch (err) { console.error(err.message); }
     }
 
-    getPageCo
 }
 
