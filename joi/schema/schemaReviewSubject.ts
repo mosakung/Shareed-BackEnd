@@ -4,7 +4,7 @@ export default class SchemaReviewSubject {
     private schema: Object;
 
     constructor() {
-        this.schema = Joi.object({
+        this.schema = Joi.object().keys({
             ReviewSubjectID: Joi.string().min(0).max(20),
             SubjectID: Joi.string().min(0).max(20),
             SubjectName: Joi.string().min(0).max(100),
