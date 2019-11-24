@@ -10,48 +10,48 @@ export default class createRepository{
         this.sql = sql;
     }
 
-    createShareNote = async (postID:string ,typePost: string) => {
-        try { return await this.db.query(this.sql.createPost('e'), []); }
+    createShareNote = async (data:object) => {
+        try { return await this.db.query(this.sql.createPost('e'), [data]); }
         catch (err) { console.error(err.message); }
     }
 
-    createShareEvent = async (postID: string, typepost: string) => {
-        try { return await this.db.query(this.sql.createPost('d'), [postID]); }
+    createShareEvent = async (data:object) => {
+        try { return await this.db.query(this.sql.createPost('d'), [data]); }
         catch (err) { console.error(err.message); }
     }
 
-    createReviewSubject = async (postID: string, typePost: string) => {
-        try { return await this.db.query(this.sql.createPost('b'), [postID]); }
+    createReviewSubject = async (data:object) => {
+        try { return await this.db.query(this.sql.createPost('b'), [data]); }
         catch (err) { console.error(err.message); }
     }
 
-    createReviewTutor = async (postID: string, typepost: string) => {
-        try { return await this.db.query(this.sql.createPost('c'), [postID]); }
+    createReviewTutor = async (data:object) => {
+        try { return await this.db.query(this.sql.createPost('c'), [data]); }
         catch (err) { console.error(err.message); }
     }
 
-    createReviewBook = async (postID: string, typePost: string) => {
-        try { return await this.db.query(this.sql.createPost('a'), [postID]); }
+    createReviewBook = async (data:object) => {
+        try { return await this.db.query(this.sql.createPost('a'), [data]); }
         catch (err) { console.error(err.message); }
     }
 
-    createFaq = async (postID: string, typePost: string) => {
-        try { return await this.db.query(this.sql.createPost('f'), [postID]); }
+    createFaq = async (data:object) => {
+        try { return await this.db.query(this.sql.createPost('f'), [data]); }
         catch (err) { console.error(err.message); }
     }
 
-    getPostContent = async (postID: string) => {
-        try { return await this.db.query(this.sql.createContentPicture(), [postID]); }
+    createPostContent = async (data:object) => {
+        try { return await this.db.query(this.sql.createContentPicture(), [data]); }
         catch (err) { console.error(err.message); }
     }
 
-    getPostTag = async (postID: string) => {
-        try { return await this.db.query(this.sql.createTag(), [postID]); }
+    createPostTag = async (data:object) => {
+        try { return await this.db.query(this.sql.createTag(), [data]); }
         catch (err) { console.error(err.message); }
     }
 
-    getComment = async (postID: string) => {
-        try { return await this.db.query(this.sql.createCommnentPost(), [postID]); }
+    createComment = async (data:object) => {
+        try { return await this.db.query(this.sql.createCommnentPost(), [data]); }
         catch (err) { console.error(err.message); }
     }
 }

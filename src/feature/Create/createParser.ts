@@ -1,6 +1,6 @@
-export default class viewParser {
+export default class createParser{
 
-    parserShareNote = async (data: any, owner: boolean, contentData: any, tagPost ,comment) : Promise<Object> => {
+    parserShareNote = (data: Object) => {
         return {
             shareNoteId: data[0].shareNoteID,
             cover: data[0].Cover,
@@ -10,15 +10,10 @@ export default class viewParser {
             semeter: data[0].Semeter,
             title: data[0].Title,
             userId: data[0].UserID,
-            dateTime: data[0].Date_Time,
-            content: contentData,
-            tag: tagPost,
-            comment: comment,
-            isOwner: owner
         }
     }
 
-    parserShareEvent = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
+    parserShareEvent = (data: Object)=>{
         return {
             shareEventId: data[0].ShareEventID,
             cover: data[0].Cover,
@@ -28,15 +23,10 @@ export default class viewParser {
             describe: data[0].Describ,
             title: data[0].Title,
             userId: data[0].UserID,
-            dateTime: data[0].Date_Time,
-            content: contentData,
-            tag: tagPost,
-            comment: comment,
-            isOwner: owner
         }
     }
 
-    parserReviewSubject = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
+    parserReviewSubject = (data: Object)=>{
         return {
             reviewSubjectId: data[0].ReviewSubjectID,
             subjectId: data[0].SubjectID,
@@ -46,15 +36,10 @@ export default class viewParser {
             title: data[0].Title,
             section: data[0].Section,
             userId: data[0].UserID,
-            dateTime: data[0].Date_Time,
-            content: contentData,
-            tag: tagPost,
-            comment: comment,
-            isOwner: owner
         }
     }
 
-    parserReviewTutor = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
+    parserReviewTutor = (data: Object)=>{
         return {
             reviewTutorId: data[0].ReviewTutorID,
             tutorName: data[0].TutorName,
@@ -64,15 +49,10 @@ export default class viewParser {
             contact: data[0].ContactLink,
             title: data[0].Title,
             userId: data[0].UserID,
-            dateTime: data[0].Date_Time,
-            contect: contentData,
-            tag: tagPost,
-            comment: comment,
-            isOwner: owner
         }
     }
 
-    parserReviewBook = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> => {
+    parserReviewBook = (data: Object) => {
         return {
             reviewBookId: data[0].ReviewBookID,
             cover: data[0].Cover,
@@ -83,33 +63,37 @@ export default class viewParser {
             description: data[0].Des,
             bookName: data[0].BookName,
             userId: data[0].UserID,
-            dateTime: data[0].date_time,
-            content: contentData,
-            tag: tagPost,
-            comment: comment,
-            isOwner: owner
         }
     }
 
-    parserFaq = async (data: any, owner: boolean, tagPost,comment): Promise<object> => {
+    parserFaq = (data: Object)=> {
         return{
             faqId: data[0].FAQID,
             title: data[0].title,
             description: data[0].description,
             userId: data[0].UserID,
-            dateTime: data[0].date_Time,
-            tag: tagPost,
-            comment: comment,
-            isOwner: owner
         }
     }
 
-    parserPostAll = async (data:any , page: number) : Promise<Object> => {
+    parserTagPost = (data: Object)=>{
         return {
-            data: data,
-            pageAll: Math.ceil(page[0].countId/5)
+            tagDetail: data,
+            PostId: data
         }
     }
 
-    
+    parserContent = (data: Object)=> {
+        return {
+            picture: data,
+            postId: data
+        }
+    }
+
+    parserComment = (data: Object)=>{
+        return {
+            details: data,
+            postId: data,
+            userId: data
+        }
+    }
 }
