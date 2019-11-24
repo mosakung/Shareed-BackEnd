@@ -2,7 +2,7 @@ export default class EditPaser {
 
     constructor() { }
 
-    async split(newBody: object, require: string): Promise<object> {
+    async split(newBody: Object, require: string): Promise<Object> {
         try {
             if (require === 'sharenote') {
                 return {
@@ -76,7 +76,7 @@ export default class EditPaser {
 
                 for (let i: number = 0; i < Object.keys(picture).length; i++) {
                     objectArray.push({
-                        TagDetail: (<any>picture[i]).Picture
+                        Picture: (<any>picture[i]).Picture
                     });
                 }
                 return objectArray;

@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export default class SqlEdit {
     private sqlEditShareNote: string;
     private sqlEditShareEvent: string;
@@ -26,8 +28,8 @@ export default class SqlEdit {
         this.sqlEditShareNote = 'UPDATE `sharenote` SET `Cover` = ?, `Subject_Name` = ?, `Section` = ?, `Instructor_Name` = ?, `Semeter` = ?, `Title` = ? WHERE `ShareNoteID` = ?';
         this.sqlEditShareEvent = 'UPDATE `shareevent` SET `Cover` = ?, `Register` =?, `Location` = ?, `Condi` = ?, `Describ` = ?, `Title` = ? WHERE `ShareEventID` = ?';
         this.sqlEditReviewSubject = 'UPDATE `reviewsubject` SET `SubjectID` = ?, `SubjectName` = ?, `Instructor_Name` = ?, `Des` = ?, `Title` = ?, `Section` = ? WHERE `ReviewSubjectID` = ?';
-        this.sqlEditReviewTutor = 'UPDATE `reviewtutor` SET `TutorName` = ?, `Academy` = ?, `Subject_Teach` = ?, `Des` = ?, `ContactLink` = ?, `Title` = ? WHERE `ReviewTutor` = ?';
-        this.sqlEditReviewBook = 'UPDATE `reviewbook` SET `Cover` = ?, `Title` = ?, `WrittenBy` = ?, `Edition` = ?, `Link` = ?, `Des` = ?, `BookName` = ? WHERE `ReviewBook` = ?';
+        this.sqlEditReviewTutor = 'UPDATE `reviewtutor` SET `TutorName` = ?, `Academy` = ?, `Subject_Teach` = ?, `Des` = ?, `ContactLink` = ?, `Title` = ? WHERE `ReviewTutorID` = ?';
+        this.sqlEditReviewBook = 'UPDATE `reviewbook` SET `Cover` = ?, `Title` = ?, `WrittenBy` = ?, `Edition` = ?, `Link` = ?, `Des` = ?, `BookName` = ? WHERE `ReviewBookID` = ?';
         this.sqlEditFaq = 'UPDATE `faq` SET `title` = ?, `description` = ? WHERE `FAQID` = ?';
         this.sqlEditComment = 'UPDATE `comment_detail` SET `Detail` = ? WHERE `CommentID` = ?';
         this.sqlEditOnwerShareNote = 'SELECT UserID as userId FROM `sharenote` WHERE `ShareNoteID` = ?';
@@ -41,6 +43,10 @@ export default class SqlEdit {
         this.sqlCreatePicture = 'INSERT INTO `picture`(`Picture`, `PostID`) VALUES (?,?)';
         this.sqlEditPicture = 'UPDATE `picture` SET `Picture` = ? WHERE `PictureID` = ?';
         this.sqlDeletePicture = 'DELETE FROM `picture` WHERE `PictureID` = ?';
+        this.sqlFetchTag = 'SELECT `TagID`, `TagDetail` FROM `tagpost` WHERE `PostID` = ?';
+        this.sqlCreateTag = 'INSERT INTO `tagpost`(`TagDetail`, `PostID`) VALUE (?,?)';
+        this.sqlEditTag = 'UPDATE `tagpost` SET `TagDetail` = ? WHERE `TagID` = ?';
+        this.sqlDeleteTag = 'DELETE FROM `tagpost` WHERE `TagID` = ?';
     }
 
     getSqlEdit(postType: string) {
@@ -50,7 +56,7 @@ export default class SqlEdit {
         else if (postType === "d") return this.sqlEditShareEvent;
         else if (postType === "e") return this.sqlEditShareNote;
         else if (postType === "f") return this.sqlEditFaq;
-        else throw ("SQL error post not found owner ID");
+        else throw new Error("post type not found (" + postType + ") | getSqlEdit | editSqlRaw");
     }
 
     getSqlComment() {
@@ -64,7 +70,7 @@ export default class SqlEdit {
         else if (postType === "d") return this.sqlEditOnwerShareEvent;
         else if (postType === "e") return this.sqlEditOnwerShareNote;
         else if (postType === "f") return this.sqlEditOnwerFaq;
-        else throw ("SQL error post not found owner ID");
+        else throw new Error("post type not found (" + postType + ") | getSqlOwner | editSqlRaw");
     }
 
     getSqlOwnerComment() {
@@ -76,6 +82,14 @@ export default class SqlEdit {
         else if (typeMode === 'create') return this.sqlCreatePicture;
         else if (typeMode === 'edit') return this.sqlEditPicture;
         else if (typeMode === 'delete') return this.sqlDeletePicture;
-        else return '';
+        else throw new Error('mode not found (' + typeMode + ') | getSqlPicture | editSqlRaw');
+    }
+
+    getSqlTag(typeMode: string) {
+        if (typeMode === 'fetch') return this.sqlFetchTag;
+        else if (typeMode === 'create') return this.sqlCreateTag;
+        else if (typeMode === 'edit') return this.sqlEditTag;
+        else if (typeMode === 'delete') return this.sqlDeleteTag;
+        else throw new Error('mode not found (' + typeMode + ') | getSqlTag | editSqlRaw');
     }
 }

@@ -20,8 +20,8 @@ export default class EditService {
 
             if (lengthOriginal > lengthNew) {
                 for (let i: number = 0; i < lengthNew; i++) {
-                    if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
-                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+                    if ((<any>originalPicture[i]).picture != (<any>newPicture[i]).Picture) {
+                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).Picture);
                     }
                 }
                 for (let i: number = lengthNew; i < lengthOriginal; i++) {
@@ -29,21 +29,21 @@ export default class EditService {
                 }
             } else if (lengthOriginal === lengthNew) {
                 for (let i: number = 0; i < lengthOriginal; i++) {
-                    if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
-                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+                    if ((<any>originalPicture[i]).picture != (<any>newPicture[i]).Picture) {
+                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).Picture);
                     }
                 }
             } else if (lengthOriginal < lengthNew) {
                 for (let i: number = 0; i < lengthOriginal; i++) {
-                    if ((<any>originalPicture[i]).picture != (<any>newPicture).picture) {
-                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).picture);
+                    if ((<any>originalPicture[i]).picture != (<any>newPicture[i]).Picture) {
+                        await this.repo.editPicture((<any>originalPicture[i]).id, (<any>newPicture[i]).Picture);
                     }
                 }
                 for (let i: number = lengthOriginal; i < lengthNew; i++) {
-                    await this.repo.createPicture((<any>newPicture[i]).picture, postId);
+                    await this.repo.createPicture((<any>newPicture[i]).Picture, postId);
                 }
             } else {
-                throw new Error('comparePicture if else error | edit service');
+                throw new Error('compare picture if else error | edit service');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -52,7 +52,34 @@ export default class EditService {
 
     async compareTag(originalTag: Object, newTag: Object, postId: string) {
         try {
-            
+            let lengthOriginal: number = Object.keys(originalTag).length;
+            let lengthNew: number = Object.keys(newTag).length;
+
+            if (lengthOriginal > lengthNew) {
+                for (let i: number = 0; i < lengthNew; i++) {
+                    if ((<any>originalTag[i]).TagDetail != (<any>newTag[i]).TagDetail) {
+                        await this.repo.editTag((<any>newTag[i]).TagDetail, (<any>originalTag[i]).TagID);
+                    }
+                }
+                for (let i: number = lengthNew; i < lengthOriginal; i++) {
+                    await this.repo.deleteTag((<any>originalTag[i]).TagID);
+                }
+            } else if (lengthOriginal === lengthNew) {
+                for (let i: number = 0; i < lengthOriginal; i++) {
+                    if ((<any>originalTag[i]).TagDetail != (<any>newTag[i]).TagDetail)
+                        await this.repo.editTag((<any>newTag[i]).TagDetail, (<any>originalTag[i]).TagID)
+                }
+            } else if (lengthOriginal < lengthNew) {
+                for (let i: number = 0; i < lengthOriginal; i++) {
+                    if ((<any>originalTag[i]).TagDetail != (<any>newTag[i]).TagDetail) {
+                        await this.repo.editTag((<any>newTag[i]).TagDetail, (<any>originalTag[i]).TagID);
+                    }
+                }
+                for (let i: number = lengthOriginal; i < lengthNew; i++) {
+                    await this.repo.createTag(postId, (<any>newTag[i]).TagDetail);
+                }
+            } else throw new Error('compare tag if else error | edit service')
+
         } catch (err) {
             throw new Error(err.message);
         }
@@ -64,18 +91,33 @@ export default class EditService {
             let owner: {} = await this.repo.fetchOwner(postId, postType);
 
             if (<any>owner[0].userId == userId) {
+                let bodyReviewBook : {} = await this.paser.split(body, 'reviewbook');
+                let tagReviewBook : {} = await this.paser.split(body, 'tag');
+                let pictureReviewBook : {} = await this.paser.split(body, 'picture');
 
-
-                //await this.joi.validate(body, 'reviewbook');
-                //await this.joi.validate(tag, 'tag');
-                //await this.joi.validate(picture, 'picture');
-
-
+                await this.joi.validate(bodyReviewBook, 'reviewbook');
+                await this.joi.validate(tagReviewBook, 'tag');
+                await this.joi.validate(pictureReviewBook, 'picture');
 
                 let originalPicture: Object = await this.repo.fetchPicture(postId);
-                console.log(originalPicture);
-                console.log(Object.keys(originalPicture).length);
+                let originalTag: {} = await this.repo.fetchTag(postId);
 
+                await this.comparePicture(originalPicture, pictureReviewBook, postId);
+                await this.compareTag(originalTag, tagReviewBook, postId);
+                
+                let parameterToSql : Array<any> = [
+                    (<any>bodyReviewBook).Cover, 
+                    (<any>bodyReviewBook).Title, 
+                    (<any>bodyReviewBook).WrittenBy, 
+                    (<any>bodyReviewBook).Edition, 
+                    (<any>bodyReviewBook).Link, 
+                    (<any>bodyReviewBook).Des, 
+                    (<any>bodyReviewBook).BookName,
+                    postId
+                ]
+
+                await this.repo.editPost(postType, parameterToSql);
+                
                 return 1;
             } else {
                 throw new Error('onwer not match | edit service');
