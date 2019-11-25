@@ -9,9 +9,7 @@
     "start": "npm run build && cross-env NODE_ENV=PRD node dist/src/app",
     "start-dev": "npm run build && cross-env NODE_ENV=DEV node dist/src/app",
     "start-debug": "npm run build && cross-env NODE_ENV=DEV DEBUG=* node dist/src/app",
-    "realtime": "cross-env NODE_ENV=DEV nodemon dist/src/app",
-    "build-test": "tsc src/testCode",
-    "test-code": "npm run build-test  && cross-env NODE_ENV=DEV node src/testCode"
+    "realtime": "cross-env NODE_ENV=DEV nodemon dist/src/app"
   },
   "repository": {
     "type": "git",

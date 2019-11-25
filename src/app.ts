@@ -26,7 +26,7 @@ app.use('/shareed', routing);
 
 app.listen(3000, () => {
     console.log(chalk.magenta(
-        "  App is running at localhost:3000 in %s mode",
+        "  App is running at localhost:3000 in mode",
         app.get("env"))
     );
     console.log(chalk.magenta("  Press CTRL-C to stop\n"));
