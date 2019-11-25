@@ -73,7 +73,7 @@ export default class SqlDelete {
         } else if (postType === "f") {
             return this.sqlDeleteOnwerFaq;
         } else {
-            throw ("SQL error post not found owner ID");
+            throw new Error("get SQL check owner this (" + postType + ") not found | function: getSqlOwner | file name: deleteSqlRaw");
             return 0;
         }
     }

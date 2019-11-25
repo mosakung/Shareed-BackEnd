@@ -14,8 +14,6 @@ export default class DeleteControllers {
             const deleteShareNote = await this.service.deleteShareNote(id, userId);
 
             if (!deleteShareNote) {
-                res.status(251).send();
-            } else if (deleteShareNote === "DeleteFail") {
                 res.status(300).send();
             } else {
                 res.status(250).json({
@@ -23,7 +21,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            throw(err.message);
+            console.error(err);
             res.status(500).send();
         }
     }
@@ -34,8 +32,6 @@ export default class DeleteControllers {
             const deleteShareEvent = await this.service.deleteShareEvent(id, userId);
 
             if (!deleteShareEvent) {
-                res.status(251).send();
-            } else if (deleteShareEvent === "DeleteFail") {
                 res.status(300).send();
             } else {
                 res.status(250).json({
@@ -43,7 +39,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            throw(err.message);
+            console.error(err);
             res.status(500).send();
         }
     }
@@ -54,8 +50,6 @@ export default class DeleteControllers {
             const deleteReviewSubject = await this.service.deleteReviewSubject(id, userId);
 
             if (!deleteReviewSubject) {
-                res.status(251).send();
-            } else if (deleteReviewSubject === "DeleteFail") {
                 res.status(300).send();
             } else {
                 res.status(250).json({
@@ -63,7 +57,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            throw(err.message);
+            console.error(err);
             res.status(500).send();
         }
     }
@@ -74,8 +68,6 @@ export default class DeleteControllers {
             const deleteReviewTutor = await this.service.deleteReviewTutor(id, userId);
 
             if (!deleteReviewTutor) {
-                res.status(251).send();
-            } else if (deleteReviewTutor === "DeleteFail") {
                 res.status(300).send();
             } else {
                 res.status(250).json({
@@ -83,7 +75,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            throw(err.message);
+            console.error(err);
             res.status(500).send();
         }
     }
@@ -94,8 +86,6 @@ export default class DeleteControllers {
             const deleteReviewBook = await this.service.deleteReviewBook(id, userId);
 
             if (!deleteReviewBook) {
-                res.status(251).send();
-            } else if (deleteReviewBook === "DeleteFail") {
                 res.status(300).send();
             } else {
                 res.status(250).json({
@@ -103,7 +93,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            throw(err.message);
+            console.error(err);
             res.status(500).send();
         }
     }
@@ -114,8 +104,6 @@ export default class DeleteControllers {
             const deleteFaq = await this.service.deleteFaq(id, userId);
 
             if (!deleteFaq) {
-                res.status(251).send();
-            } else if (deleteFaq === "DeleteFail") {
                 res.status(300).send();
             } else {
                 res.status(250).json({
@@ -123,7 +111,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            throw(err.message);
+            console.error(err);
             res.status(500).send();
         }
     }
@@ -134,8 +122,6 @@ export default class DeleteControllers {
             const deleteComment = await this.service.deleteComment(id, userId);
 
             if (!deleteComment) {
-                res.status(251).send();
-            } else if (deleteComment === "DeleteFail") {
                 res.status(300).send();
             } else {
                 res.status(250).json({
@@ -143,7 +129,7 @@ export default class DeleteControllers {
                 });
             }
         } catch (err) {
-            throw(err.message);
+            console.error(err);
             res.status(500).send();
         }
     }
