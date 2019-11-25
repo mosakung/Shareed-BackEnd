@@ -231,6 +231,37 @@ you can check the api work by using GET `localhost:3000/ping`
   
     **parameter**: `Main Picture` | `Subject ID` | `Subject Name` | `Title Name` | `Written by` | `Register here` | `Edition` | `Tag` | `Link To Library` | `Description` | `Picture`\
     **respone body**: -
+    ```json
+    
+    {
+    "Cover": "c",
+    "Title": "t",
+    "WrittenBy": "w",
+    "Edition": "e",
+    "Link": "l",
+    "Des": "d",
+    "BookName": "B",
+    "tag": [
+        {
+            "TagDetail": "one"
+        },
+        {
+            "TagDetail": "two"
+        },
+        {
+            "TagDetail": "three"
+        }
+    ],
+    "content": [
+        {
+            "Picture": "onePic.jpg"
+        },
+        {
+            "Picture": "twoPic.jpg"
+        }
+    ]
+    }
+    ```
   
 </details>
 <details>
