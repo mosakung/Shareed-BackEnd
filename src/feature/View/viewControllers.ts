@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import viewService from './viewServices';
+import chalk from 'chalk';
 
 export default class ViewControllers {
     private service: viewService;
@@ -13,12 +14,13 @@ export default class ViewControllers {
             const postID = req.params.postID;
             const result = await this.service.getShareNoteAll(postID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             res.status(250).send(result);
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -28,6 +30,7 @@ export default class ViewControllers {
         try {
             const result = await this.service.getShareNote(postID,userID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             else if (result == ''){
@@ -36,7 +39,7 @@ export default class ViewControllers {
             else res.status(250).send(result);        
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -46,12 +49,13 @@ export default class ViewControllers {
             const postID = req.params.postID;
             const result = await this.service.getShareEventAll(postID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             res.status(250).send(result);
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -61,6 +65,7 @@ export default class ViewControllers {
         try {
             const result = await this.service.getShareEvent(postID,userID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             else if (result == ''){
@@ -69,7 +74,7 @@ export default class ViewControllers {
             else res.status(250).send(result);       
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -79,12 +84,13 @@ export default class ViewControllers {
             const postID = req.params.postID;
             const result = await this.service.getReviewSubjectAll(postID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             res.status(250).send(result);
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -94,6 +100,7 @@ export default class ViewControllers {
         try {
             const result = await this.service.getReviewSubject(postID,userID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             else if (result == ''){
@@ -102,7 +109,7 @@ export default class ViewControllers {
             else res.status(250).send(result);
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -112,12 +119,13 @@ export default class ViewControllers {
             const postID = req.params.postID;
             const result = await this.service.getReviewTutorAll(postID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             res.status(250).send(result);
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -127,6 +135,7 @@ export default class ViewControllers {
         try {
             const result = await this.service.getReviewTutor(postID,userID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             else if (result == ''){
@@ -135,7 +144,7 @@ export default class ViewControllers {
             else res.status(250).send(result);
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -145,12 +154,13 @@ export default class ViewControllers {
             const page = req.params.page;
             const result = await this.service.getReviewBookAll(page);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             res.status(250).send(result);
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -160,6 +170,7 @@ export default class ViewControllers {
         try {
             const result = await this.service.getReviewBook(postID,userID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             else if (result == ''){
@@ -168,7 +179,7 @@ export default class ViewControllers {
             else {res.status(250).send(result);}
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -178,12 +189,13 @@ export default class ViewControllers {
             const postID = req.params.postID;
             const result = await this.service.getFaqAll(postID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             res.status(250).send(result);
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }
@@ -193,6 +205,7 @@ export default class ViewControllers {
         try {
             const result = await this.service.getFaq(postID,userID);
             if (!result) {
+                console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
             }
             else if (result == ''){
@@ -201,7 +214,7 @@ export default class ViewControllers {
             else {res.status(250).send(result);}
         }
         catch (err) {
-            console.error('Error:', err.message);
+            console.error('\n' + chalk.red('Error:', err.message));
             res.status(500).send();
         }
     }

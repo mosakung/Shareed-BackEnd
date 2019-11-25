@@ -1,11 +1,14 @@
 import EditService from './editServices';
 import { Request, Response } from 'express';
+import chalk from 'chalk';
 
 export default class EditControllers {
     private service: EditService;
+    private log: any;
 
     constructor(service: EditService) {
         this.service = service;
+        this.log = console;
     }
 
     async editShareNote (req: Request, res: Response) {
@@ -16,6 +19,7 @@ export default class EditControllers {
             const editShareNote = await this.service.editShareNote(postId, userId, body);
 
             if (!editShareNote) {
+                this.log.log('\n' + chalk.yellow('!editShareNote'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -24,7 +28,7 @@ export default class EditControllers {
                 });
             }
         } catch (err) {
-            console.error(err);
+            this.log.error('\n' + chalk.red(err));
             res.status(500).send();
         }
     }
@@ -37,6 +41,7 @@ export default class EditControllers {
             const editShareEvent = await this.service.editShareEvent(postId, userId, body);
 
             if (!editShareEvent) {
+                this.log.log('\n' + chalk.yellow('!editShareEvent'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -45,7 +50,7 @@ export default class EditControllers {
                 });
             }
         } catch (err) {
-            console.error(err);
+            this.log.error('\n' + chalk.red(err));
             res.status(500).send();
         }
     }
@@ -58,6 +63,7 @@ export default class EditControllers {
             const editReviewSubject = await this.service.editReviewSubject(postId, userId, body);
 
             if (!editReviewSubject) {
+                this.log.log('\n' + chalk.yellow('!editReviewSubject'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -66,7 +72,7 @@ export default class EditControllers {
                 });
             }
         } catch (err) {
-            console.error(err);
+            this.log.error('\n' + chalk.red(err));
             res.status(500).send();
         }
     }
@@ -79,6 +85,7 @@ export default class EditControllers {
             const editReviewTutor = await this.service.editReviewTutor(postId, userId, body);
 
             if (!editReviewTutor) {
+                this.log.log('\n' + chalk.yellow('!editReviewTutor'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -87,7 +94,7 @@ export default class EditControllers {
                 });
             }
         } catch (err) {
-            console.error(err);
+            this.log.error('\n' + chalk.red(err));
             res.status(500).send();
         }
     }
@@ -100,6 +107,7 @@ export default class EditControllers {
             const editReviewBook = await this.service.editReviewBook(postId, userId, body);
 
             if (!editReviewBook) {
+                this.log.log('\n' + chalk.yellow('!editReviewBook'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -109,7 +117,7 @@ export default class EditControllers {
             }
 
         } catch (err) {
-            console.error(err);
+            this.log.error('\n' + chalk.red(err));
             res.status(500).send();
         }
     }
@@ -122,6 +130,7 @@ export default class EditControllers {
             const editFaq = await this.service.editFaq(postId, userId, body);
 
             if (!editFaq) {
+                this.log.log('\n' + chalk.yellow('!editFaq'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -131,7 +140,7 @@ export default class EditControllers {
             }
 
         } catch (err) {
-            console.error(err);
+            this.log.error('\n' + chalk.red(err));
             res.status(500).send();
         }
     }
@@ -144,6 +153,7 @@ export default class EditControllers {
             const editComment = await this.service.editComment(postId, userId, body);
 
             if (!editComment) {
+                this.log.log('\n' + chalk.yellow('!editComment'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -153,7 +163,7 @@ export default class EditControllers {
             }
 
         } catch (err) {
-            console.error(err);
+            this.log.error('\n' + chalk.red(err));
             res.status(500).send();
         }
     }
