@@ -18,7 +18,7 @@ you can check the api work by using GET `localhost:3000/ping`
   
   **Access** | respone status `250`
   
-  **Server not respone** | respone status `251`
+  **Server not respone** | respone status `300`
   
   **Error catch** | respone status `500`
 
