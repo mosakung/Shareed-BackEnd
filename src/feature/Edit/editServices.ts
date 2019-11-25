@@ -352,9 +352,9 @@ export default class EditService {
         }
     }
 
-    async editComment(postId: string, userId: string, body: any) {
+    async editComment(commentId: string, userId: string, body: any) {
         try {
-            let owner: {} = await this.repo.fetchOwnerComment(postId);
+            let owner: {} = await this.repo.fetchOwnerComment(commentId);
 
             if (<any>owner[0].userId == userId) {
                 let bodyComment: {} = await this.paser.split(body, 'comment');
@@ -363,7 +363,7 @@ export default class EditService {
 
                 let parameterToSql: Array<any> = [
                     (<any>bodyComment).Detail,
-                    postId
+                    commentId
                 ]
 
                 await this.repo.editComment(parameterToSql);

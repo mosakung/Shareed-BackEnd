@@ -17,9 +17,7 @@ routerShareEvent.post('/', (req: any, res: any) => {
     //create share note
 })
 
-routerShareEvent.put('/:id', (req: any, res: any) => {
-    //update share note
-})
+routerShareEvent.put('/:postId/:userId', binding.getEditControllers().editShareEvent);
 
 routerShareEvent.post('/:id', binding.getDeleteControllers().deleteShareEvent);
 

@@ -17,9 +17,7 @@ routerReviewTutor.post('/', (req: any, res: any) => {
     //create share note
 })
 
-routerReviewTutor.put('/:id', (req: any, res: any) => {
-    //update share note
-})
+routerReviewTutor.put('/:postId/:userId', binding.getEditControllers().editReviewTutor);
 
 routerReviewTutor.post('/:id', binding.getDeleteControllers().deleteReviewTutor);
 
