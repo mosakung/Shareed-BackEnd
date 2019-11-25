@@ -14,7 +14,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlShareNote(), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -22,7 +22,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlShareEvent(), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -30,7 +30,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlReviewSubject(), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -38,7 +38,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlReviewTutor(), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -46,7 +46,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlReviewBook(), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -54,7 +54,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlFaq(), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -62,7 +62,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlComment(), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -70,7 +70,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlOwner(postType), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -78,7 +78,7 @@ export default class DeleteRepository {
         try {
             return await this.db.query(this.sql.getSqlOwnerComment(), [postId]);
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 

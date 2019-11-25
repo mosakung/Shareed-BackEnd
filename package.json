@@ -11,7 +11,7 @@
     "start-debug": "npm run build && cross-env NODE_ENV=DEV DEBUG=* node dist/src/app",
     "realtime": "cross-env NODE_ENV=DEV nodemon dist/src/app",
     "build-test": "tsc src/testCode",
-    "test-code": "npm run build-test  && cross-env NODE_ENV=DEV node src/testCode" 
+    "test-code": "npm run build-test  && cross-env NODE_ENV=DEV node src/testCode"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/joi": "^16.1.7",
     "@types/debug": "^4.1.5",
     "@types/node": "^12.12.6",
     "body-parser": "^1.19.0",

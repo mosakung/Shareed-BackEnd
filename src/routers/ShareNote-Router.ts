@@ -13,9 +13,7 @@ routerShareNote.post('/', (req: any, res: any) => {
     //create share note
 })
 
-routerShareNote.put('/:id', (req: any, res: any) => {
-    //update share note
-})
+routerShareNote.put('/:postId/:userId', binding.getEditControllers().editShareNote);
 
 routerShareNote.post('/:id', binding.getDeleteControllers().deleteShareNote);
 

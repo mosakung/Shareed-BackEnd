@@ -19,7 +19,7 @@ export default class DeleteServices {
             }
 
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -35,7 +35,7 @@ export default class DeleteServices {
             }
 
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -51,7 +51,7 @@ export default class DeleteServices {
             }
 
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -67,7 +67,7 @@ export default class DeleteServices {
             }
 
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -82,7 +82,7 @@ export default class DeleteServices {
                 return 'DeleteFail';
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -97,7 +97,7 @@ export default class DeleteServices {
                 return 'DeleteFail';
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
@@ -111,7 +111,7 @@ export default class DeleteServices {
                 return 'DeleteFail';
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw(err.message);
         }
     }
 
