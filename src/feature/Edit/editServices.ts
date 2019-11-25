@@ -43,7 +43,7 @@ export default class EditService {
                     await this.repo.createPicture((<any>newPicture[i]).Picture, postId);
                 }
             } else {
-                throw new Error('compare picture if else error | comparePicture | edit service');
+                throw new Error('compare picture if else error | function: comparePicture | file name: editServices');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -78,7 +78,7 @@ export default class EditService {
                 for (let i: number = lengthOriginal; i < lengthNew; i++) {
                     await this.repo.createTag(postId, (<any>newTag[i]).TagDetail);
                 }
-            } else throw new Error('compare tag if else error | compareTag | edit service')
+            } else throw new Error('compare tag if else error | function: compareTag | file name: editServices')
 
         } catch (err) {
             throw new Error(err.message);
@@ -123,7 +123,7 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | editShareNote | edit service');
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: editShareNote | file name: editServices');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -168,7 +168,7 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | editShareEvent | edit service');
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: editShareEvent | file name: editServices');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -213,7 +213,7 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | editReviewSubject | edit service');
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: editReviewSubject | file name: editServices');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -258,7 +258,7 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | editReviewTutor | edit service');
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: editReviewTutor | file name: editServices');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -304,7 +304,7 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | editReviewBook | edit service');
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: editReviewBook | file name: editServices');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -345,7 +345,7 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | editFaq | edit service');
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: editFaq | file name: editServices');
             }
         } catch (err) {
             throw new Error(err.message);
@@ -370,7 +370,7 @@ export default class EditService {
 
                 return true;
             } else {
-                throw new Error('onwer not match | editComment | edit service');
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: editComment | file name: editServices');
             }
         } catch (err) {
             throw new Error(err.message);

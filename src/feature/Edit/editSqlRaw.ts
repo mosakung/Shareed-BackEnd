@@ -56,7 +56,7 @@ export default class SqlEdit {
         else if (postType === "d") return this.sqlEditShareEvent;
         else if (postType === "e") return this.sqlEditShareNote;
         else if (postType === "f") return this.sqlEditFaq;
-        else throw new Error("post type not found (" + postType + ") | getSqlEdit | editSqlRaw");
+        else throw new Error("post type not found (" + postType + ") | function: getSqlEdit | file name: editSqlRaw");
     }
 
     getSqlComment() {
@@ -70,7 +70,7 @@ export default class SqlEdit {
         else if (postType === "d") return this.sqlEditOnwerShareEvent;
         else if (postType === "e") return this.sqlEditOnwerShareNote;
         else if (postType === "f") return this.sqlEditOnwerFaq;
-        else throw new Error("post type not found (" + postType + ") | getSqlOwner | editSqlRaw");
+        else throw new Error("post type not found (" + postType + ") | function: getSqlOwner | file name: editSqlRaw");
     }
 
     getSqlOwnerComment() {
@@ -82,7 +82,7 @@ export default class SqlEdit {
         else if (typeMode === 'create') return this.sqlCreatePicture;
         else if (typeMode === 'edit') return this.sqlEditPicture;
         else if (typeMode === 'delete') return this.sqlDeletePicture;
-        else throw new Error('mode not found (' + typeMode + ') | getSqlPicture | editSqlRaw');
+        else throw new Error('mode not found (' + typeMode + ') | function: getSqlPicture | file name: editSqlRaw');
     }
 
     getSqlTag(typeMode: string) {
@@ -90,6 +90,6 @@ export default class SqlEdit {
         else if (typeMode === 'create') return this.sqlCreateTag;
         else if (typeMode === 'edit') return this.sqlEditTag;
         else if (typeMode === 'delete') return this.sqlDeleteTag;
-        else throw new Error('mode not found (' + typeMode + ') | getSqlTag | editSqlRaw');
+        else throw new Error('mode not found (' + typeMode + ') | function: getSqlTag | file name: editSqlRaw');
     }
 }

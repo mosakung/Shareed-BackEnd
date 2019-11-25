@@ -81,7 +81,7 @@ export default class EditPaser {
                 }
                 return objectArray;
             } else {
-                throw new Error('require split not found this mode | EditPaser');
+                throw new Error('require split not found this mode | function: split | file name: editPaser');
             }
         } catch (err) {
             throw new Error(err.message);
