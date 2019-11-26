@@ -54,4 +54,9 @@ export default class createRepository{
         try { return await this.db.query(this.sql.createCommnentPost(), [data]); }
         catch (err) { console.error(err.message); }
     }
+
+    getPostId = async (postType:string)=>{
+        try { return await this.db.query(this.sql.getRecentlyPostId(),[postType]) ;}
+        catch (err) { console.error(err.message); }
+    }
 }

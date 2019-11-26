@@ -1,8 +1,8 @@
 export default class createParser {
 
-    parserShareNote = (data: Object, userID: string) => {
+    parserShareNote = async (data: Object, userID: string ,postId: string) => {
         return {
-            shareNoteId: data[0].shareNoteId,
+            shareNoteId: postId,
             cover: data[0].cover,
             subjectName: data[0].subjectName,
             section: data[0].section,
@@ -13,9 +13,9 @@ export default class createParser {
         }
     }
 
-    parserShareEvent = (data: Object, userID: string) => {
+    parserShareEvent = async (data: Object, userID: string ,postId: string) => {
         return {
-            shareEventId: data[0].shareEventId,
+            shareEventId: postId,
             cover: data[0].cover,
             register: data[0].register,
             location: data[0].location,
@@ -26,9 +26,9 @@ export default class createParser {
         }
     }
 
-    parserReviewSubject = (data: Object, userID: string) => {
+    parserReviewSubject = async (data: Object, userID: string ,postId: string) => {
         return {
-            reviewSubjectId: data[0].reviewSubjectId,
+            reviewSubjectId: postId,
             subjectId: data[0].subjectId,
             subjectName: data[0].subjectName,
             instructorName: data[0].instructorName,
@@ -39,9 +39,9 @@ export default class createParser {
         }
     }
 
-    parserReviewTutor = (data: Object, userID: string) => {
+    parserReviewTutor = async (data: Object, userID: string ,postId: string) => {
         return {
-            reviewTutorId: data[0].reviewTutorId,
+            reviewTutorId: postId,
             tutorName: data[0].tutorName,
             academy: data[0].academy,
             subjectTeacher: data[0].subjectTeacher,
@@ -52,9 +52,9 @@ export default class createParser {
         }
     }
 
-    parserReviewBook = (data: Object, userID) => {
+    parserReviewBook = async (data: Object, userID ,postId: string) => {
         return {
-            reviewBookId: data[0].reviewBookId,
+            reviewBookId: postId,
             cover: data[0].cover,
             title: data[0].title,
             writtenBy: data[0].writtenBy,
@@ -66,16 +66,16 @@ export default class createParser {
         }
     }
 
-    parserFaq = (data: Object, userID: string) => {
+    parserFaq = async (data: Object, userID: string ,postId: string) => {
         return {
-            faqId: data[0].faqId,
+            faqId: postId,
             title: data[0].title,
             description: data[0].description,
             userId: userID
         }
     }
 
-    parserTagPost = (data: any, postId: string) => {
+    parserTagPost = async (data: any, postId: string) => {
         const tagall = new Array();
         for (let i = 0; i < data.tag.length; i++) {
             tagall.push([data.tag[i].TagDetail, postId]);
@@ -83,7 +83,7 @@ export default class createParser {
         return tagall;
     }
 
-    parserContent = (data: any, postId: string) => {
+    parserContent = async (data: any, postId: string) => {
         const contentAll = new Array();
         for (let i = 0; i < data.content.length; i++) {
             contentAll.push([data.content[i].Picture, postId]);
@@ -91,7 +91,7 @@ export default class createParser {
         return contentAll;
     }
 
-    parserComment = (data: any, postId: string, userID: string) => {
+    parserComment = async (data: any, postId: string, userID: string) => {
         return {
             details: data.Detail,
             postId: postId,

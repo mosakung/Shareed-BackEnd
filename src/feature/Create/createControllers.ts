@@ -11,7 +11,7 @@ export default class createControllers {
 
     createShareNote = async (req: Request, res: Response) => {
         try {
-            const result = await this.services.createShareNote(req.body);
+            const result = await this.services.createShareNote(req.body,req.params.userId);
             if(!result) {res.status(300).send('');}
             res.status(250).send('create complete');
         }
@@ -20,7 +20,5 @@ export default class createControllers {
             res.status(251).send();
         }
     }
-
-
 
 }

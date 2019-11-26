@@ -9,6 +9,7 @@ export default class createSql {
     private createContent: string;
     private createTagPost: string;
     private createComment: string;
+    private getPostId: string;
 
     constructor() {
         this.createReviewBook = '';
@@ -22,6 +23,7 @@ export default class createSql {
         this.createComment = '';
         this.createTagPost = '';
         this.createComment = '';
+        this.getPostId = '';
     }
 
     createPost = (typePost: string) => {
@@ -39,4 +41,6 @@ export default class createSql {
     createTag = () => { return this.createTagPost; }
 
     createCommnentPost = () =>{ return this.createComment; }
+
+    getRecentlyPostId = () => { return this.getPostId; }
 }

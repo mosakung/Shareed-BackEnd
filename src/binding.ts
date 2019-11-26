@@ -13,6 +13,13 @@ import DeleteRepository from './feature/Delete/deleteRepository';
 import DeleteServices from './feature/Delete/deleteServices';
 import SqlDelete from './feature/Delete/deleteSqlRaw';
 
+import CreateControllers from './feature/Create/createControllers';
+import CreateRepository from './feature/Create/createRepository';
+import CreateServices from './feature/Create/createServices';
+import CreateParser from './feature/Create/createParser';
+import CreateSql from './feature/Create/createSql';
+import Validation from '../joi/validation';
+
 const databaseOut:database = new database();
 
 export default class Binding {
@@ -20,9 +27,9 @@ export default class Binding {
 
     private viewControllers: ViewControllers;
     private deleteControllers: DeleteControllers;
+    private createControllers: CreateControllers;
 
     constructor () {
-
         const viewSql : ViewSql = new ViewSql();
         const viewParser: ViewParser = new ViewParser();
         const viewRepository: ViewRepository = new ViewRepository(this.db,viewSql);
@@ -34,6 +41,13 @@ export default class Binding {
         const deleteServices : DeleteServices = new DeleteServices(deleteRepository);
         this.deleteControllers = new DeleteControllers(deleteServices);
 
+        const createSql : CreateSql = new CreateSql();
+        const createParser : CreateParser = new CreateParser();
+        const validation : Validation = new Validation();
+        const createRepository : CreateRepository = new CreateRepository(this.db,createSql);
+        const createServices : CreateServices = new CreateServices(createRepository,validation,createParser);
+        this.createControllers = new CreateControllers(createServices);
+
     }
 
     getViewControllers() {
@@ -44,5 +58,8 @@ export default class Binding {
         return this.deleteControllers;
     }
 
+    getCreateControllers(){
+        return this.createControllers;
+    }
     
 }
