@@ -1,101 +1,115 @@
 export default class createParser {
 
-    parserShareNote = async (data: Object, userID: string ,postId: string) => {
+    parserShareNote = async (data: any, userID: string ,postID: string) => {
         return {
-            shareNoteId: postId,
-            cover: data[0].cover,
-            subjectName: data[0].subjectName,
-            section: data[0].section,
-            instructorName: data[0].instructorName,
-            semeter: data[0].semeter,
-            title: data[0].title,
-            userId: userID
+            ShareNoteID: postID,
+            Cover: data.Cover,
+            Subject_Name: data.Subject_Name,
+            Section: data.Section,
+            Instructor_Name: data.Instructor_Name,
+            Semeter: data.Semeter,
+            Title: data.Title,
+            UserID: userID
         }
     }
 
-    parserShareEvent = async (data: Object, userID: string ,postId: string) => {
+    parserShareEvent = async (data: any, userID: string ,postID: string) => {
         return {
-            shareEventId: postId,
-            cover: data[0].cover,
-            register: data[0].register,
-            location: data[0].location,
-            condition: data[0].condition,
-            describe: data[0].describe,
-            title: data[0].title,
-            userId: userID
+            ShareEventID: postID,
+            Cover: data.Cover,
+            Resgister: data.Resgister,
+            Location: data.Location,
+            Condi: data.Condi,
+            Describ: data.Describ,
+            Title: data.Title,
+            UserID: userID
         }
     }
 
-    parserReviewSubject = async (data: Object, userID: string ,postId: string) => {
+    parserReviewSubject = async (data: any, userID: string ,postID: string) => {
         return {
-            reviewSubjectId: postId,
-            subjectId: data[0].subjectId,
-            subjectName: data[0].subjectName,
-            instructorName: data[0].instructorName,
-            description: data[0].description,
-            title: data[0].title,
-            section: data[0].section,
-            userId: userID
+            ReviewSubjectID: postID,
+            SubjectID: data.subjectId,
+            SubjectName: data.subjectName,
+            Instructor_Name: data.instructorName,
+            Des: data.description,
+            Title: data.title,
+            Section: data.section,
+            UserID: userID
         }
     }
 
-    parserReviewTutor = async (data: Object, userID: string ,postId: string) => {
+    parserReviewTutor = async (data: any, userID: string ,postID: string) => {
         return {
-            reviewTutorId: postId,
-            tutorName: data[0].tutorName,
-            academy: data[0].academy,
-            subjectTeacher: data[0].subjectTeacher,
-            description: data[0].description,
-            contact: data[0].contactLink,
-            title: data[0].title,
-            userId: userID
+            ReviewTutorID: postID,
+            TutorName: data.tutorName,
+            Academy: data.academy,
+            Subject_Teach: data.subjectTeacher,
+            Des: data.description,
+            ContactLink: data.contactLink,
+            Title: data.title,
+            UserID: userID
         }
     }
 
-    parserReviewBook = async (data: Object, userID ,postId: string) => {
+    parserReviewBook = async (data: any, userID ,postID: string) => {
         return {
-            reviewBookId: postId,
-            cover: data[0].cover,
-            title: data[0].title,
-            writtenBy: data[0].writtenBy,
-            edition: data[0].edition,
-            link: data[0].link,
-            description: data[0].description,
-            bookName: data[0].bookName,
-            userId: userID
+            ReviewBookID: postID,
+            Cover: data.cover,
+            Title: data.title,
+            WrittenBy: data.writtenBy,
+            Edition: data.edition,
+            Link: data.link,
+            Des: data.description,
+            BookName: data.bookName,
+            UserID: userID
         }
     }
 
-    parserFaq = async (data: Object, userID: string ,postId: string) => {
+    parserFaq = async (data: any, userID: string ,postID: string) => {
         return {
-            faqId: postId,
-            title: data[0].title,
-            description: data[0].description,
-            userId: userID
+            FAQID: postID,
+            title: data.title,
+            description: data.description,
+            UserID: userID
         }
     }
 
-    parserTagPost = async (data: any, postId: string) => {
+    parserTagPost = async (data: any, postID: string) => {
         const tagall = new Array();
         for (let i = 0; i < data.tag.length; i++) {
-            tagall.push([data.tag[i].TagDetail, postId]);
+            tagall.push([data.tag[i].TagDetail, postID]);
         }
         return tagall;
     }
 
-    parserContent = async (data: any, postId: string) => {
+    parserTagSchema = async (data: any) => {
+        return {
+            TagDetail: data[0],
+            PostID: data[1]
+        }
+    }
+
+    parserContentSchema = async (data: any) => {
+        return {
+            Picture: data[0],
+            PostID: data[1]
+        }
+    }
+
+    parserContent = async (data: any, postID: string) => {
         const contentAll = new Array();
         for (let i = 0; i < data.content.length; i++) {
-            contentAll.push([data.content[i].Picture, postId]);
+            contentAll.push([data.content[i].Picture, postID]);
         }
         return contentAll;
     }
 
-    parserComment = async (data: any, postId: string, userID: string) => {
+    parserComment = async (data: any, postID: string, userID: string) => {
         return {
-            details: data.Detail,
-            postId: postId,
-            userId: userID
+            Detail: data.Detail,
+            PostID: postID,
+            UserID: userID
         }
     }
 }

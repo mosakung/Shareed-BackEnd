@@ -17,23 +17,21 @@ export default class createSql {
     private getFaqId: string;
 
     constructor() {
-        this.createReviewBook = '';
-        this.createReviewSubject = '';
-        this.createReviewTutor = '';
-        this.createShareEvent = '';
+        this.createReviewBook = 'INSERT INTO `reviewbook`(`ReviewBookID`, `Cover`, `Title`, `WrittenBy`, `Edition`, `Link`, `Des`, `BookName`, `UserID`) VALUES (?,?,?,?,?,?,?,?,?)';
+        this.createReviewSubject = 'INSERT INTO `reviewsubject`(`ReviewSubjectID`, `SubjectID`, `SubjectName`, `Instructor_Name`, `Des`, `Title`, `Section`, `UserID`) VALUES (?,?,?,?,?,?,?,?)';
+        this.createReviewTutor = 'INSERT INTO `reviewtutor`(`ReviewTutorID`, `TutorName`, `Academy`, `Subject_Teach`, `Des`, `ContactLink`, `Title`, `Cover`, `UserID`) VALUES (?,?,?,?,?,?,?,?,?)';
+        this.createShareEvent = 'INSERT INTO `shareevent`(`ShareEventID`, `Cover`, `Register`, `Location`, `Condi`, `Describ`, `Title`, `UserID`) VALUES (?,?,?,?,?,?,?,?)';
         this.createShareNote = 'INSERT INTO `sharenote`(`ShareNoteID`, `Cover`, `Subject_Name`, `Section`, `Instructor_Name`, `Semeter`, `Title`, `UserID`) VALUES (?,?,?,?,?,?,?,?)';
-        this.createFaq = '';
-        this.createContent = '';
-        this.createTagPost = '';
-        this.createComment = '';
-        this.createTagPost = '';
-        this.createComment = '';
+        this.createFaq = 'INSERT INTO `faq`(`FAQID`, `title`, `description`, `UserID`) VALUES (?,?,?,?)';
+        this.createContent = 'INSERT INTO `picture`(`Picture`, `PostID`) VALUES (?)';
+        this.createTagPost = 'INSERT INTO `tagpost`(`TagDetail`, `PostID`) VALUES (?)';
+        this.createComment = 'INSERT INTO `comment_detail`(`Detail`, `PostID`, `UserID`) VALUES (?,?,?)';
         this.getReviewBookId = 'SELECT ReviewBookID FROM `reviewbook` ORDER By ReviewBookID DESC LIMIT 1';
-        this.getReviewSubjectId = '';
-        this.getReviewTutorId = '';
-        this.getShareEventId = '';
-        this.getShareNoteId = '';
-        this.getFaqId = '';
+        this.getReviewSubjectId = 'SELECT ReviewSubjectID FROM `reviewsubject` ORDER By ReviewSubjectID DESC LIMIT 1';
+        this.getReviewTutorId = 'SELECT ReviewTutorID FROM `reviewtutor` ORDER By ShareEventID DESC LIMIT 1';
+        this.getShareEventId = 'SELECT ShareEventID FROM `shareevent` ORDER By ShareEventID DESC LIMIT 1';
+        this.getShareNoteId = 'SELECT ShareNoteID FROM `sharenote` ORDER By ShareNoteID DESC LIMIT 1';
+        this.getFaqId = 'SELECT FAQID FROM `faq` ORDER By FAQID DESC LIMIT 1';
     }
 
     createPost = (typePost: string) => {
