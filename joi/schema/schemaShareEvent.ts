@@ -1,10 +1,10 @@
-import Joi from '@hapi/joi';
+import Joi from 'joi';
 
 export default class SchemaShareEvent {
     private schema: Object;
 
     constructor() {
-        this.schema = Joi.Object().keys({
+        this.schema = Joi.object().keys({
             ShareEventID: Joi.string().min(0).max(20),
             Cover: Joi.string().min(0).max(50),
             Resgister: Joi.string().min(0).max(50),

@@ -1,10 +1,10 @@
-import Joi from '@hapi/joi';
+import Joi from 'joi';
 
 export default class SchemaShareNote {
     private schema: Object;
 
     constructor() {
-        this.schema = Joi.Object().keys({
+        this.schema = Joi.object().keys({
             ShareNoteID: Joi.string().min(0).max(20),
             Cover: Joi.string().min(0).max(50),
             Subject_Name: Joi.string().min(0).max(50),
