@@ -15,11 +15,11 @@ export default class DeleteServices {
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteShareNote(postId);
             } else {
-                return 'DeleteFail';
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: deleteShareNote | file name: deleteServices');
             }
 
         } catch (err) {
-            console.error('Error', err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -31,11 +31,11 @@ export default class DeleteServices {
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteShareEvent(postId);
             } else {
-                return 'DeleteFail';
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: deleteShareEvent | file name: deleteServices');
             }
 
         } catch (err) {
-            console.error('Error', err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -47,11 +47,11 @@ export default class DeleteServices {
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteReviewSubject(postId);
             } else {
-                return 'DeleteFail';
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: deleteReviewSubject | file name: deleteServices');
             }
 
         } catch (err) {
-            console.error('Error', err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -63,11 +63,11 @@ export default class DeleteServices {
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteReviewTutor(postId);
             } else {
-                return 'DeleteFail';
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: deleteReviewTutor | file name: deleteServices');
             }
 
         } catch (err) {
-            console.error('Error', err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -79,10 +79,10 @@ export default class DeleteServices {
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteReviewBook(postId);
             } else {
-                return 'DeleteFail';
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: deleteReviewBook | file name: deleteServices');
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -94,10 +94,10 @@ export default class DeleteServices {
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteFaq(postId);
             } else {
-                return 'DeleteFail';
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: deleteFaq | file name: deleteServices');
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw new Error(err.message);
         }
     }
 
@@ -108,10 +108,10 @@ export default class DeleteServices {
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteComment(postId);
             } else {
-                return 'DeleteFail';
+                throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: deleteComment | file name: deleteServices');
             }
         } catch (err) {
-            console.error('Error', err.message);
+            throw new Error(err.message);
         }
     }
 

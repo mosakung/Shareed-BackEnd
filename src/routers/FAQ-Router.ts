@@ -13,9 +13,7 @@ routerFAQ.post('/', (req: any, res: any) => {
     //create share note
 })
 
-routerFAQ.put('/:id', (req: any, res: any) => {
-    //update share note
-})
+routerFAQ.put('/:postId/:userId', binding.getEditControllers().editFaq);
 
 routerFAQ.post('/:id', binding.getDeleteControllers().deleteFaq);
 
