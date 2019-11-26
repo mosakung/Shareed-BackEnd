@@ -23,7 +23,7 @@ export default class ViewServices {
             }
             else return result;
         }
-        catch (err) { throw(err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getShareNoteAll = async (pageGet: number) => {
@@ -32,7 +32,7 @@ export default class ViewServices {
             const page = await this.repo.viewPage('sharenote');
             return await this.parser.parserPostAll(result, page);
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getShareEvent = async (postID: string, userID: string) => {
@@ -47,7 +47,7 @@ export default class ViewServices {
             }
             else return result;
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getShareEventAll = async (pageGet: number) => {
@@ -56,7 +56,7 @@ export default class ViewServices {
             const page = await this.repo.viewPage('shareevent');
             return await this.parser.parserPostAll(result, page);
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getReviewSubject = async (postID: string, userID: string) => {
@@ -71,7 +71,7 @@ export default class ViewServices {
             }
             else return result;
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getReviewSubjectAll = async (pageGet: number) => {
@@ -80,7 +80,7 @@ export default class ViewServices {
             const page = await this.repo.viewPage('reviewsubject');
             return await this.parser.parserPostAll(result, page);
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getReviewTutor = async (postID: string, userID: string) => {
@@ -95,7 +95,7 @@ export default class ViewServices {
             }
             else return result;
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getReviewTutorAll = async (pageGet: number) => {
@@ -104,7 +104,7 @@ export default class ViewServices {
             const page = await this.repo.viewPage('reviewtutor');
             return await this.parser.parserPostAll(result, page);
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getReviewBook = async (postID: string, userID: string) => {
@@ -119,7 +119,7 @@ export default class ViewServices {
             }
             else return result;
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getReviewBookAll = async (pageGet: number) => {
@@ -128,7 +128,7 @@ export default class ViewServices {
             const page = await this.repo.viewPage('reviewbook');
             return await this.parser.parserPostAll(result, page);
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getFaq = async (postID: string, userID: string) => {
@@ -142,7 +142,7 @@ export default class ViewServices {
             }
             else return result;
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     getFaqAll = async (pageGet: number) => {
@@ -151,7 +151,7 @@ export default class ViewServices {
             const page = await this.repo.viewPage('faq');
             return await this.parser.parserPostAll(result, page);
         }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     checkOwner = async (postID: string, userID: string) => {
