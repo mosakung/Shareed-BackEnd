@@ -21,7 +21,7 @@ export default class SqlDelete {
         this.sqlDeleteReviewTutor = 'DELETE FROM `reviewtutor` WHERE `ReviewTutorID` = ?';
         this.sqlDeleteReviewBook = 'DELETE FROM `reviewbook` WHERE `ReviewBookID` = ?';
         this.sqlDeleteFaq = 'DELETE FROM `faq` WHERE `FAQID` = ?';
-        this.sqlDeleteComment = 'DELETE FROM `commment_detail` WHERE `CommentID` = ?';
+        this.sqlDeleteComment = 'DELETE FROM `comment_detail` WHERE `CommentID` = ?';
         this.sqlDeleteOnwerShareNote = 'SELECT UserID as userId FROM `sharenote` WHERE `ShareNoteID` = ?';
         this.sqlDeleteOnwerShareEvent = 'SELECT UserID as userId FROM `shareevent` WHERE `ShareEventID` = ?';
         this.sqlDeleteOnwerReviewSubject = 'SELECT UserID as userId FROM `reviewsubject` WHERE `ReviewSubjectID` = ?';
