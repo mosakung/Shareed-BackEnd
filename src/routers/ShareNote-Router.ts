@@ -15,6 +15,6 @@ routerShareNote.post('/', (req: any, res: any) => {
 
 routerShareNote.put('/:postId/:userId', binding.getEditControllers().editShareNote);
 
-routerShareNote.post('/:id', binding.getDeleteControllers().deleteShareNote);
+routerShareNote.delete('/:id/:userId', binding.getDeleteControllers().deleteShareNote);
 
 export default routerShareNote;

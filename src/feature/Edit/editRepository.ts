@@ -20,7 +20,7 @@ export default class EditRepository {
 
     editComment = async (body: Array<any>) => {
         try {
-            return await this.db.query(this.sql.getSqlComment,body);
+            return await this.db.query(this.sql.getSqlComment(),body);
         } catch (err) {
             throw new Error(err.message);
         }
@@ -34,9 +34,9 @@ export default class EditRepository {
         }
     }
 
-    fetchOwnerComment = async (commentId: string) => {
+    fetchOwnerComment = async (commentId: number) => {
         try {
-            return await this.db.query(this.sql.getSqlOwnerComment,[commentId]);
+            return await this.db.query(this.sql.getSqlOwnerComment(),[commentId]);
         } catch (err) {
             throw new Error(err.message);
         }

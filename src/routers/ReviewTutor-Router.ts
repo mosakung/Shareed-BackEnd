@@ -15,6 +15,6 @@ routerReviewTutor.post('/', (req: any, res: any) => {
 
 routerReviewTutor.put('/:postId/:userId', binding.getEditControllers().editReviewTutor);
 
-routerReviewTutor.post('/:id', binding.getDeleteControllers().deleteReviewTutor);
+routerReviewTutor.delete('/:id/:userId', binding.getDeleteControllers().deleteReviewTutor);
 
 export default routerReviewTutor;

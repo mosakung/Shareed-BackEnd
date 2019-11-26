@@ -38,7 +38,7 @@ export default class SqlEdit {
         this.sqlEditOnwerReviewTutor = 'SELECT UserID as userId FROM `reviewtutor` WHERE `ReviewTutorID` = ?';
         this.sqlEditOnwerReviewBook = 'SELECT UserID as userId FROM `reviewbook` WHERE `ReviewBookID` = ?';
         this.sqlEditOnwerFaq = 'SELECT UserID as userId FROM `faq` WHERE `FAQID` = ?';
-        this.sqlEditOnwerCommnet = 'SELECT UserID as userId FROM `comment_detail` WHERE `CommentID` = ?';
+        this.sqlEditOnwerCommnet = 'SELECT `UserID` as userId FROM `comment_detail` WHERE `CommentID` = ?';
         this.sqlFetchPicture = 'SELECT `Picture` as picture, `PictureID` as id FROM `picture` WHERE `PostID` = ?';
         this.sqlCreatePicture = 'INSERT INTO `picture`(`Picture`, `PostID`) VALUES (?,?)';
         this.sqlEditPicture = 'UPDATE `picture` SET `Picture` = ? WHERE `PictureID` = ?';
@@ -73,7 +73,7 @@ export default class SqlEdit {
         else throw new Error("post type not found (" + postType + ") | function: getSqlOwner | file name: editSqlRaw");
     }
 
-    getSqlOwnerComment() {
+    getSqlOwnerComment() : string {
         return this.sqlEditOnwerCommnet;
     }
 

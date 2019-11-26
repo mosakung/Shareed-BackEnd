@@ -147,10 +147,10 @@ export default class EditControllers {
 
     editComment = async (req: Request, res: Response) => {
         try {
-            let { postId, userId }: { postId: string, userId: string } = req.params;
+            let { commentId, userId }: { commentId: number, userId: string } = req.params;
             let body: {} = req.body;
 
-            const editComment = await this.service.editComment(postId, userId, body);
+            const editComment = await this.service.editComment(commentId, userId, body);
 
             if (!editComment) {
                 this.log.log('\n' + chalk.yellow('!editComment'));

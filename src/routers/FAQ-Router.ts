@@ -15,6 +15,6 @@ routerFAQ.post('/', (req: any, res: any) => {
 
 routerFAQ.put('/:postId/:userId', binding.getEditControllers().editFaq);
 
-routerFAQ.post('/:id', binding.getDeleteControllers().deleteFaq);
+routerFAQ.delete('/:id/:userId', binding.getDeleteControllers().deleteFaq);
 
 export default routerFAQ;

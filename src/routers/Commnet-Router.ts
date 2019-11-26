@@ -13,8 +13,8 @@ routerComment.post('/:postId', (req: any, res: any) => {
     //create share note
 })
 
-routerComment.put('/:postId/:userId', binding.getEditControllers().editComment);
+routerComment.put('/:commentId/:userId', binding.getEditControllers().editComment);
 
-routerComment.post('/:postId/:commentId', binding.getDeleteControllers().deleteComment);
+routerComment.delete('/:id/:userId', binding.getDeleteControllers().deleteComment);
 
 export default routerComment;

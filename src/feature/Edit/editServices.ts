@@ -352,7 +352,7 @@ export default class EditService {
         }
     }
 
-    async editComment(commentId: string, userId: string, body: any) {
+    async editComment(commentId: number, userId: string, body: any) {
         try {
             let owner: {} = await this.repo.fetchOwnerComment(commentId);
 

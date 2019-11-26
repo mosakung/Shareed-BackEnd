@@ -15,6 +15,6 @@ routerReviewSubject.post('/', (req: any, res: any) => {
 
 routerReviewSubject.put('/:postId/:userId', binding.getEditControllers().editReviewSubject);
 
-routerReviewSubject.post('/:id', binding.getDeleteControllers().deleteReviewSubject);
+routerReviewSubject.delete('/:id/:userId', binding.getDeleteControllers().deleteReviewSubject);
 
 export default routerReviewSubject;

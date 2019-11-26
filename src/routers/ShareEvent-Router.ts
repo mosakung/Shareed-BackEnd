@@ -15,6 +15,6 @@ routerShareEvent.post('/', (req: any, res: any) => {
 
 routerShareEvent.put('/:postId/:userId', binding.getEditControllers().editShareEvent);
 
-routerShareEvent.post('/:id', binding.getDeleteControllers().deleteShareEvent);
+routerShareEvent.delete('/:id/:userId', binding.getDeleteControllers().deleteShareEvent);
 
 export default routerShareEvent;

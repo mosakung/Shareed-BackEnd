@@ -5,7 +5,7 @@ export default class SchemaComment {
 
     constructor() {
         this.schema = Joi.object().keys({
-            CommentID: Joi.string().min(0).max(20),
+            CommentID: Joi.number().integer().min(0).max(20),
             Detail: Joi.string().min(0).max(200),
             PostID: Joi.string().min(0).max(20),
             UserID: Joi.string().min(0).max(20)
