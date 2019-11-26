@@ -22,7 +22,13 @@ import EditSevices from './feature/Edit/editServices';
 import EditSqlRaw from './feature/Edit/editSqlRaw';
 import EditPaser from './/feature/Edit/editParser'
 
-const databaseOut: database = new database();
+import CreateControllers from './feature/Create/createControllers';
+import CreateRepository from './feature/Create/createRepository';
+import CreateServices from './feature/Create/createServices';
+import CreateParser from './feature/Create/createParser';
+import CreateSql from './feature/Create/createSql';
+
+const databaseOut:database = new database();
 
 export default class Binding {
     private db: database;
@@ -31,11 +37,12 @@ export default class Binding {
     private viewControllers: ViewControllers;
     private deleteControllers: DeleteControllers;
     private editControllers: EditControllers;
+    private createControllers: CreateControllers;
 
-    constructor() {
+    constructor () {
+
         this.db = databaseOut;
         this.joi = new Validation();
-
         const viewSql : ViewSql = new ViewSql();
         const viewParser: ViewParser = new ViewParser();
         const viewRepository: ViewRepository = new ViewRepository(this.db,viewSql);
@@ -52,6 +59,12 @@ export default class Binding {
         const editPaser: EditPaser = new EditPaser();
         const editService: EditSevices = new EditSevices(editRepository, editPaser, this.joi);
         this.editControllers = new EditControllers(editService);
+        const createSql : CreateSql = new CreateSql();
+        const createParser : CreateParser = new CreateParser();
+        const createRepository : CreateRepository = new CreateRepository(this.db,createSql);
+        const createServices : CreateServices = new CreateServices(createRepository,this.joi,createParser);
+        this.createControllers = new CreateControllers(createServices);
+
     }
 
     getViewControllers() {
@@ -66,4 +79,8 @@ export default class Binding {
         return this.editControllers;
     }
 
+    getCreateControllers(){
+        return this.createControllers;
+    }
+    
 }

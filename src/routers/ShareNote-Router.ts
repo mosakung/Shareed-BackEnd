@@ -9,9 +9,7 @@ routerShareNote.get('/:page',  binding.getViewControllers().getShareNote)
 
 routerShareNote.get('/:postID/:userID',  binding.getViewControllers().getShareNoteID)
 
-routerShareNote.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerShareNote.post('/:userId', binding.getCreateControllers().createShareNote)
 
 routerShareNote.put('/:postId/:userId', binding.getEditControllers().editShareNote);
 

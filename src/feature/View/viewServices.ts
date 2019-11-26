@@ -19,7 +19,7 @@ export default class ViewServices {
                 const content = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return this.parser.parserShareNote(result, owner, content, tagPost, comment);
+                return await this.parser.parserShareNote(result, owner, content, tagPost, comment);
             }
             else return result;
         }
@@ -30,7 +30,7 @@ export default class ViewServices {
         try {
             const result = await this.repo.viewShareNoteAll('e', 5 * (pageGet - 1), (5 * pageGet) - 1);
             const page = await this.repo.viewPage('sharenote');
-            return this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page);
         }
         catch (err) { throw (err.message); }
     }
@@ -43,7 +43,7 @@ export default class ViewServices {
                 const content = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return this.parser.parserShareEvent(result, owner, content, tagPost, comment);
+                return await this.parser.parserShareEvent(result, owner, content, tagPost, comment);
             }
             else return result;
         }
@@ -54,7 +54,7 @@ export default class ViewServices {
         try {
             const result = await this.repo.viewShareEventAll('d', 5 * (pageGet - 1), (5 * pageGet) - 1);
             const page = await this.repo.viewPage('shareevent');
-            return this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page);
         }
         catch (err) { throw (err.message); }
     }
@@ -67,7 +67,7 @@ export default class ViewServices {
                 const content = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return this.parser.parserReviewSubject(result, owner, content, tagPost, comment);
+                return await this.parser.parserReviewSubject(result, owner, content, tagPost, comment);
             }
             else return result;
         }
@@ -78,7 +78,7 @@ export default class ViewServices {
         try {
             const result = await this.repo.viewReviewSubjectAll('b', 5 * (pageGet - 1), (5 * pageGet) - 1);
             const page = await this.repo.viewPage('reviewsubject');
-            return this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page);
         }
         catch (err) { throw (err.message); }
     }
@@ -91,7 +91,7 @@ export default class ViewServices {
                 const content = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return this.parser.parserReviewTutor(result, owner, content, tagPost, comment);
+                return await this.parser.parserReviewTutor(result, owner, content, tagPost, comment);
             }
             else return result;
         }
@@ -102,7 +102,7 @@ export default class ViewServices {
         try {
             const result = await this.repo.viewReviewTutorAll('c', 5 * (pageGet - 1), (5 * pageGet) - 1);
             const page = await this.repo.viewPage('reviewtutor');
-            return this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page);
         }
         catch (err) { throw (err.message); }
     }
@@ -115,7 +115,7 @@ export default class ViewServices {
                 const content: any = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return this.parser.parserReviewBook(result, owner, content, tagPost, comment);
+                return await this.parser.parserReviewBook(result, owner, content, tagPost, comment);
             }
             else return result;
         }
@@ -126,7 +126,7 @@ export default class ViewServices {
         try {
             const result = await this.repo.viewReviewBookAll('a', 5 * (pageGet - 1), (5 * pageGet) - 1);
             const page = await this.repo.viewPage('reviewbook');
-            return this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page);
         }
         catch (err) { throw (err.message); }
     }
@@ -138,7 +138,7 @@ export default class ViewServices {
                 const owner: boolean = await this.checkOwner(result[0].UserID, userID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return this.parser.parserFaq(result, owner, tagPost, comment);
+                return await this.parser.parserFaq(result, owner, tagPost, comment);
             }
             else return result;
         }
@@ -149,7 +149,7 @@ export default class ViewServices {
         try {
             const result = await this.repo.viewFaqAll('f', 5 * (pageGet - 1), (5 * pageGet) - 1);
             const page = await this.repo.viewPage('faq');
-            return this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page);
         }
         catch (err) { throw (err.message); }
     }

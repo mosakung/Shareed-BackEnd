@@ -1,30 +1,6 @@
 export default class viewParser {
 
-    getContent = (contentData: any) => {
-        var contentAll = new Array();
-        for (var i = 0; i < Object.keys(contentData).length; i++) {
-            contentAll.push(contentData[i]);
-        }
-        return contentAll;
-    }
-
-    getTag = (tagPost: object) =>{
-        var tagAll = new Array();
-        for( var i = 0 ; i < Object.keys(tagPost).length; i++){
-            tagAll.push(tagPost[i]);
-        }
-        return tagAll;
-    }
-
-    getComment = (comment: object) =>{
-        var commentAll = new Array();
-        for( var i = 0 ; i < Object.keys(comment).length; i++){
-            commentAll.push(comment[i]);
-        }
-        return commentAll;
-    }
-
-    parserShareNote = (data: any, owner: boolean, contentData: any, tagPost ,comment) => {
+    parserShareNote = async (data: any, owner: boolean, contentData: any, tagPost ,comment) : Promise<Object> => {
         return {
             shareNoteId: data[0].shareNoteID,
             cover: data[0].Cover,
@@ -35,14 +11,14 @@ export default class viewParser {
             title: data[0].Title,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
-            content: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            content: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
 
-    parserShareEvent = (data: any, owner: boolean, contentData: any, tagPost,comment)=>{
+    parserShareEvent = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
         return {
             shareEventId: data[0].ShareEventID,
             cover: data[0].Cover,
@@ -53,14 +29,14 @@ export default class viewParser {
             title: data[0].Title,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
-            content: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            content: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
 
-    parserReviewSubject = (data: any, owner: boolean, contentData: any, tagPost,comment)=>{
+    parserReviewSubject = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
         return {
             reviewSubjectId: data[0].ReviewSubjectID,
             subjectId: data[0].SubjectID,
@@ -71,14 +47,14 @@ export default class viewParser {
             section: data[0].Section,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
-            content: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            content: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
 
-    parserReviewTutor = (data: any, owner: boolean, contentData: any, tagPost,comment)=>{
+    parserReviewTutor = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
         return {
             reviewTutorId: data[0].ReviewTutorID,
             tutorName: data[0].TutorName,
@@ -89,14 +65,14 @@ export default class viewParser {
             title: data[0].Title,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
-            contect: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            contect: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
 
-    parserReviewBook = (data: any, owner: boolean, contentData: any, tagPost,comment) => {
+    parserReviewBook = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> => {
         return {
             reviewBookId: data[0].ReviewBookID,
             cover: data[0].Cover,
@@ -108,27 +84,27 @@ export default class viewParser {
             bookName: data[0].BookName,
             userId: data[0].UserID,
             dateTime: data[0].date_time,
-            content: this.getContent(contentData),
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            content: contentData,
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
 
-    parserFaq = (data: any, owner: boolean, tagPost,comment)=> {
+    parserFaq = async (data: any, owner: boolean, tagPost,comment): Promise<object> => {
         return{
             faqId: data[0].FAQID,
             title: data[0].title,
             description: data[0].description,
             userId: data[0].UserID,
             dateTime: data[0].date_Time,
-            tag: this.getTag(tagPost),
-            comment: this.getComment(comment),
+            tag: tagPost,
+            comment: comment,
             isOwner: owner
         }
     }
 
-    parserPostAll = (data:any , page: number) : object => {
+    parserPostAll = async (data:any , page: number) : Promise<Object> => {
         return {
             data: data,
             pageAll: Math.ceil(page[0].countId/5)
