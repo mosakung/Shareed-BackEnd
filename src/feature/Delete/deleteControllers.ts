@@ -26,7 +26,7 @@ export default class DeleteControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -45,7 +45,7 @@ export default class DeleteControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -64,7 +64,7 @@ export default class DeleteControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -83,7 +83,7 @@ export default class DeleteControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -102,7 +102,7 @@ export default class DeleteControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -121,7 +121,7 @@ export default class DeleteControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -140,7 +140,7 @@ export default class DeleteControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 }

@@ -29,7 +29,7 @@ export default class EditControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -51,7 +51,7 @@ export default class EditControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -73,7 +73,7 @@ export default class EditControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -95,7 +95,7 @@ export default class EditControllers {
             }
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -118,7 +118,7 @@ export default class EditControllers {
 
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -141,7 +141,7 @@ export default class EditControllers {
 
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -164,7 +164,7 @@ export default class EditControllers {
 
         } catch (err) {
             this.log.error('\n' + chalk.red(err));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 }

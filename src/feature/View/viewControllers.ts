@@ -21,7 +21,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -40,7 +40,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -56,7 +56,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -75,7 +75,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -91,7 +91,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -110,7 +110,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -126,7 +126,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -145,7 +145,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -161,7 +161,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -180,7 +180,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -196,7 +196,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
 
@@ -215,7 +215,7 @@ export default class ViewControllers {
         }
         catch (err) {
             console.error('\n' + chalk.red('Error:', err.message));
-            res.status(500).send();
+            res.status(500).send(err.message);
         }
     }
     

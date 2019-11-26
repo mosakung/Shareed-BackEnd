@@ -11,6 +11,8 @@ export default class DeleteServices {
         try {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
+            
+            if(owner) throw Error('not found this data from (' + postId + ')');
 
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteShareNote(postId);
@@ -27,6 +29,8 @@ export default class DeleteServices {
         try {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
+            
+            if(owner) throw Error('not found this data from (' + postId + ')');
 
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteShareEvent(postId);
@@ -43,6 +47,8 @@ export default class DeleteServices {
         try {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
+            
+            if(owner) throw Error('not found this data from (' + postId + ')');
 
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteReviewSubject(postId);
@@ -60,6 +66,8 @@ export default class DeleteServices {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
 
+            if(owner) throw Error('not found this data from (' + postId + ')');
+
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteReviewTutor(postId);
             } else {
@@ -75,6 +83,8 @@ export default class DeleteServices {
         try {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
+            
+            if(owner) throw Error('not found this data from (' + postId + ')');
 
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteReviewBook(postId);
@@ -91,6 +101,8 @@ export default class DeleteServices {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.deleteOwner(postId, postType);
 
+            if(owner) throw Error('not found this data from (' + postId + ')');
+
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteFaq(postId);
             } else {
@@ -104,6 +116,8 @@ export default class DeleteServices {
     deleteComment = async (postId: string, userId: string) => {
         try {
             let owner: {} = await this.repo.deleteOwnerComment(postId);
+            
+            if(owner) throw Error('not found this data from (' + postId + ')');
 
             if ((<any>owner[0]).userId == userId) {
                 return await this.repo.deleteComment(postId);
