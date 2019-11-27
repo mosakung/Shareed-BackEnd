@@ -1,6 +1,6 @@
 export default class viewParser {
 
-    parserShareNote = async (data: any, owner: boolean, contentData: any, tagPost ,comment) : Promise<Object> => {
+    parserShareNote = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
         return {
             shareNoteId: data[0].shareNoteID,
             cover: data[0].Cover,
@@ -18,7 +18,7 @@ export default class viewParser {
         }
     }
 
-    parserShareEvent = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
+    parserShareEvent = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
         return {
             shareEventId: data[0].ShareEventID,
             cover: data[0].Cover,
@@ -36,7 +36,7 @@ export default class viewParser {
         }
     }
 
-    parserReviewSubject = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
+    parserReviewSubject = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
         return {
             reviewSubjectId: data[0].ReviewSubjectID,
             subjectId: data[0].SubjectID,
@@ -54,7 +54,7 @@ export default class viewParser {
         }
     }
 
-    parserReviewTutor = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> =>{
+    parserReviewTutor = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
         return {
             reviewTutorId: data[0].ReviewTutorID,
             tutorName: data[0].TutorName,
@@ -72,7 +72,7 @@ export default class viewParser {
         }
     }
 
-    parserReviewBook = async (data: any, owner: boolean, contentData: any, tagPost,comment) : Promise<Object> => {
+    parserReviewBook = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
         return {
             reviewBookId: data[0].ReviewBookID,
             cover: data[0].Cover,
@@ -91,8 +91,8 @@ export default class viewParser {
         }
     }
 
-    parserFaq = async (data: any, owner: boolean, tagPost,comment): Promise<object> => {
-        return{
+    parserFaq = async (data: any, owner: boolean, tagPost, comment): Promise<object> => {
+        return {
             faqId: data[0].FAQID,
             title: data[0].title,
             description: data[0].description,
@@ -104,12 +104,13 @@ export default class viewParser {
         }
     }
 
-    parserPostAll = async (data:any , page: number) : Promise<Object> => {
+    parserPostAll = async (data: any, page: number, tagAll: any): Promise<Object> => {
         return {
             data: data,
-            pageAll: Math.ceil(page[0].countId/5)
+            pageAll: Math.ceil(page[0].countId / 5),
+            tag: tagAll
         }
     }
 
-    
+
 }

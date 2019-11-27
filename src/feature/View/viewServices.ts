@@ -29,8 +29,12 @@ export default class ViewServices {
     getShareNoteAll = async (pageGet: number) => {
         try {
             const result = await this.repo.viewShareNoteAll('e', 5 * (pageGet - 1), (5 * pageGet) - 1);
+            let tagPost = new Array();
+            for (let i = 0; i < Object.keys(result).length; i++) {
+                tagPost.push(await this.repo.getPostTag(result[i].ShareNoteID));
+            }
             const page = await this.repo.viewPage('sharenote');
-            return await this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page,tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -53,8 +57,12 @@ export default class ViewServices {
     getShareEventAll = async (pageGet: number) => {
         try {
             const result = await this.repo.viewShareEventAll('d', 5 * (pageGet - 1), (5 * pageGet) - 1);
+            let tagPost = new Array();
+            for (let i = 0; i < Object.keys(result).length; i++) {
+                tagPost.push(await this.repo.getPostTag(result[i].ShareEventID));
+            }
             const page = await this.repo.viewPage('shareevent');
-            return await this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page,tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -77,8 +85,12 @@ export default class ViewServices {
     getReviewSubjectAll = async (pageGet: number) => {
         try {
             const result = await this.repo.viewReviewSubjectAll('b', 5 * (pageGet - 1), (5 * pageGet) - 1);
+            let tagPost = new Array();
+            for (let i = 0; i < Object.keys(result).length; i++) {
+                tagPost.push(await this.repo.getPostTag(result[i].ReviewSubjectID));
+            }
             const page = await this.repo.viewPage('reviewsubject');
-            return await this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page,tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -101,8 +113,12 @@ export default class ViewServices {
     getReviewTutorAll = async (pageGet: number) => {
         try {
             const result = await this.repo.viewReviewTutorAll('c', 5 * (pageGet - 1), (5 * pageGet) - 1);
+            let tagPost = new Array();
+            for (let i = 0; i < Object.keys(result).length; i++) {
+                tagPost.push(await this.repo.getPostTag(result[i].ReviewTutorID));
+            }
             const page = await this.repo.viewPage('reviewtutor');
-            return await this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page,tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -125,8 +141,12 @@ export default class ViewServices {
     getReviewBookAll = async (pageGet: number) => {
         try {
             const result = await this.repo.viewReviewBookAll('a', 5 * (pageGet - 1), (5 * pageGet) - 1);
+            let tagPost = new Array();
+            for (let i = 0; i < Object.keys(result).length; i++) {
+                tagPost.push(await this.repo.getPostTag(result[i].ReviewBookID));
+            }
             const page = await this.repo.viewPage('reviewbook');
-            return await this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page, tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -148,8 +168,12 @@ export default class ViewServices {
     getFaqAll = async (pageGet: number) => {
         try {
             const result = await this.repo.viewFaqAll('f', 5 * (pageGet - 1), (5 * pageGet) - 1);
+            let tagPost = new Array();
+            for (let i = 0; i < Object.keys(result).length; i++) {
+                tagPost.push(await this.repo.getPostTag(result[i].FAQID));
+            }
             const page = await this.repo.viewPage('faq');
-            return await this.parser.parserPostAll(result, page);
+            return await this.parser.parserPostAll(result, page,tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }

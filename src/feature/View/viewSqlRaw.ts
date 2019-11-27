@@ -19,12 +19,12 @@ export default class viewSqlRaw {
 
 
     constructor() {
-        this.getAllReviewBook = "select Cover,Title,date_time from `reviewbook` ORDER BY ReviewBookID LIMIT ?,?";
-        this.getAllReviewSubject = "select SubjectID,Title,Date_Time from `reviewsubject ORDER BY ReviewSubjectID LIMIT ?,?";
-        this.getAllReviewTutor = "select Cover,Title,date_time from `reviewtutor ORDER BY ReviewTutorID LIMIT ?,?";
-        this.getAllShareEvent = "select Cover,Title,Data_Time from `shareevent` ORDER BY ShareEventID LIMIT ?,?";
-        this.getAllShareNote = "select Cover,Subject_Name,Date_Time from `sharenote` ORDER BY ShareNoteID LIMIT ?,?";
-        this.getFaq = "select * from `faq`";
+        this.getAllReviewBook = "select ReviewBookID,Cover,Title,date_time from `reviewbook` ORDER BY ReviewBookID LIMIT ?,?";
+        this.getAllReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time from `reviewsubject` ORDER BY ReviewSubjectID LIMIT ?,?";
+        this.getAllReviewTutor = "select ReviewTutorID,Cover,Title,date_time from `reviewtutor` ORDER BY ReviewTutorID LIMIT ?,?";
+        this.getAllShareEvent = "select ShareEventID,Cover,Title,Data_Time from `shareevent` ORDER BY ShareEventID LIMIT ?,?";
+        this.getAllShareNote = "select ShareNoteID,Cover,Subject_Name,Date_Time from `sharenote` ORDER BY ShareNoteID LIMIT ?,?";
+        this.getAllFaq = "select FAQID,title,description,date_time from `faq` ORDER BY FAQID LIMIT ?,?"
         this.getReviewBook = "select * from `reviewbook` where ReviewBookID = ?";
         this.getReviewSubject = "select * from `reviewsubject` where ReviewSubjectID = ?";
         this.getReviewTutor = "select * from `reviewtutor` where ReviewtutorID = ?";
