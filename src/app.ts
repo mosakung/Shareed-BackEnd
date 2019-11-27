@@ -3,6 +3,7 @@ import responseTime from 'response-time';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import chalk from 'chalk';
+import cors from 'cors';
 
 //Set Class
 const app = express();
@@ -11,6 +12,8 @@ const app = express();
 app.use(express.json());
 
 app.use(helmet());
+
+app.use(cors());
 
 if (app.get('env') === 'DEV') {
     app.use(responseTime((req, res, time) => {
