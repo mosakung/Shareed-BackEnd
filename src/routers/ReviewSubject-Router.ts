@@ -9,9 +9,7 @@ routerReviewSubject.get('/:page',  binding.getViewControllers().getReviewSubject
 
 routerReviewSubject.get('/:postID/:userID',  binding.getViewControllers().getReviewSubjectID)
 
-routerReviewSubject.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerReviewSubject.post('/:userId', binding.getCreateControllers().createReviewSubject)
 
 routerReviewSubject.put('/:postId/:userId', binding.getEditControllers().editReviewSubject);
 

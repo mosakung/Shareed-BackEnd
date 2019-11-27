@@ -9,9 +9,7 @@ routerShareEvent.get('/:page',  binding.getViewControllers().getShareEvent)
 
 routerShareEvent.get('/:postID/:userID',  binding.getViewControllers().getShareEventID)
 
-routerShareEvent.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerShareEvent.post('/:userId', binding.getCreateControllers().createShareEvent)
 
 routerShareEvent.put('/:postId/:userId', binding.getEditControllers().editShareEvent);
 

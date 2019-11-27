@@ -9,9 +9,7 @@ routerReviewTutor.get('/:page', binding.getViewControllers().getReviewTutor)
 
 routerReviewTutor.get('/:postID/:userID',  binding.getViewControllers().getReviewTutorID)
 
-routerReviewTutor.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerReviewTutor.post('/:userId', binding.getCreateControllers().createReviewTutor)
 
 routerReviewTutor.put('/:postId/:userId', binding.getEditControllers().editReviewTutor);
 

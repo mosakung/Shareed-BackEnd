@@ -9,9 +9,7 @@ routerFAQ.get('/:page', binding.getViewControllers().getFaq)
 
 routerFAQ.get('/:postID/:userID',  binding.getViewControllers().getFaqID)
 
-routerFAQ.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerFAQ.post('/:userId', binding.getCreateControllers().createFaq)
 
 routerFAQ.put('/:postId/:userId', binding.getEditControllers().editFaq);
 

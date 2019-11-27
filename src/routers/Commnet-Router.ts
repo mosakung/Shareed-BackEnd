@@ -5,9 +5,7 @@ const routerComment = express.Router();
 
 const binding : Binding = new Binding();
 
-routerComment.post('/:postId', (req: any, res: any) => {
-    //create share note
-})
+routerComment.post('/:postID/:userId', binding.getCreateControllers().createComment)
 
 routerComment.put('/:commentId/:userId', binding.getEditControllers().editComment);
 

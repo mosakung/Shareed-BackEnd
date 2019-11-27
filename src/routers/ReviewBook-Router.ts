@@ -7,9 +7,9 @@ const binding : Binding = new Binding();
 
 routerReviewBook.get('/:page', binding.getViewControllers().getReviewBook);
 
-routerReviewBook.get('/:id/:userId', binding.getViewControllers().getReviewBookID);
+routerReviewBook.get('/:postID/:userID', binding.getViewControllers().getReviewBookID);
 
-routerReviewBook.post('/',);
+routerReviewBook.post('/:userId', binding.getCreateControllers().createReviewBook);
 
 routerReviewBook.put('/:postId/:userId', binding.getEditControllers().editReviewBook);
 
