@@ -5,10 +5,6 @@ const routerComment = express.Router();
 
 const binding : Binding = new Binding();
 
-routerComment.get('/:postId/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
-
 routerComment.post('/:postId', (req: any, res: any) => {
     //create share note
 })
