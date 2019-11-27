@@ -11,8 +11,8 @@ export default class ViewControllers {
 
     getShareNote = async (req: Request, res: Response) => {
         try {
-            const postID = req.params.postID;
-            const result = await this.service.getShareNoteAll(postID);
+            const page = req.params.page;
+            const result = await this.service.getShareNoteAll(page);
             if (!result) {
                 console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
@@ -46,8 +46,8 @@ export default class ViewControllers {
 
     getShareEvent = async (req: Request, res: Response) => {
         try {
-            const postID = req.params.postID;
-            const result = await this.service.getShareEventAll(postID);
+            const page = req.params.page;
+            const result = await this.service.getShareEventAll(page);
             if (!result) {
                 console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
@@ -81,8 +81,8 @@ export default class ViewControllers {
 
     getReviewSubject = async (req: Request, res: Response) => {
         try {
-            const postID = req.params.postID;
-            const result = await this.service.getReviewSubjectAll(postID);
+            const page = req.params.page;
+            const result = await this.service.getReviewSubjectAll(page);
             if (!result) {
                 console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
@@ -116,8 +116,8 @@ export default class ViewControllers {
 
     getReviewTutor = async (req: Request, res: Response) => {
         try {
-            const postID = req.params.postID;
-            const result = await this.service.getReviewTutorAll(postID);
+            const page = req.params.page;
+            const result = await this.service.getReviewTutorAll(page);
             if (!result) {
                 console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
@@ -186,8 +186,8 @@ export default class ViewControllers {
 
     getFaq = async (req: Request, res: Response) => {
         try {
-            const postID = req.params.postID;
-            const result = await this.service.getFaqAll(postID);
+            const page = req.params.page;
+            const result = await this.service.getFaqAll(page);
             if (!result) {
                 console.log('\n' + chalk.yellow('!result'));
                 res.status(251).send();
