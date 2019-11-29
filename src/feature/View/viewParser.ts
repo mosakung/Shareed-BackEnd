@@ -118,5 +118,16 @@ export default class viewParser {
         }
     }
 
+    parserRecentlyPost = async (reviewBook: any, reviewSubject: any, reviewTutor: any, shareEvent: any, shareNote: any, faq: any) => {
+        return {
+            reviewBook: reviewBook,
+            reviewSubject: reviewSubject,
+            reviewTutor: reviewTutor,
+            shareEvent: shareEvent,
+            shareNote: shareNote,
+            faq: faq
+        }
+    }
+
 
 }

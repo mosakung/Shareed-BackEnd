@@ -75,6 +75,11 @@ export default class ViewRepository {
         catch (err) { throw new Error(err.message); }
     }
 
+    getRecentlyPost = async (typePost: string, userId: string) => {
+        try { return await this.db.query(this.sql.getRecentlyQueryPost(typePost), [userId]); }
+        catch (err) { throw new Error(err.message); }
+    }
+
     getPostContent = async (postID: string) => {
         try { return await this.db.query(this.sql.getPostContent(), [postID]); }
         catch (err) { throw new Error(err.message); }

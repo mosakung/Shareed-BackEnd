@@ -34,7 +34,7 @@ export default class ViewServices {
                 tagPost.push(await this.repo.getPostTag(result[i].ShareNoteID));
             }
             const page = await this.repo.viewPage('sharenote');
-            return await this.parser.parserPostAll(result, page,tagPost);
+            return await this.parser.parserPostAll(result, page, tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -62,7 +62,7 @@ export default class ViewServices {
                 tagPost.push(await this.repo.getPostTag(result[i].ShareEventID));
             }
             const page = await this.repo.viewPage('shareevent');
-            return await this.parser.parserPostAll(result, page,tagPost);
+            return await this.parser.parserPostAll(result, page, tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -90,7 +90,7 @@ export default class ViewServices {
                 tagPost.push(await this.repo.getPostTag(result[i].ReviewSubjectID));
             }
             const page = await this.repo.viewPage('reviewsubject');
-            return await this.parser.parserPostAll(result, page,tagPost);
+            return await this.parser.parserPostAll(result, page, tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -118,7 +118,7 @@ export default class ViewServices {
                 tagPost.push(await this.repo.getPostTag(result[i].ReviewTutorID));
             }
             const page = await this.repo.viewPage('reviewtutor');
-            return await this.parser.parserPostAll(result, page,tagPost);
+            return await this.parser.parserPostAll(result, page, tagPost);
         }
         catch (err) { throw new Error(err.message); }
     }
@@ -153,7 +153,7 @@ export default class ViewServices {
 
     getFaq = async (postID: string, userID: string) => {
         try {
-            const result = await this.repo.viewReviewBook(postID, this.checkTypePost(postID));
+            const result = await this.repo.viewFaq(postID, this.checkTypePost(postID));
             if (result != '') {
                 const owner: boolean = await this.checkOwner(result[0].UserID, userID);
                 const tagPost = await this.repo.getPostTag(postID);
@@ -173,7 +173,20 @@ export default class ViewServices {
                 tagPost.push(await this.repo.getPostTag(result[i].FAQID));
             }
             const page = await this.repo.viewPage('faq');
-            return await this.parser.parserPostAll(result, page,tagPost);
+            return await this.parser.parserPostAll(result, page, tagPost);
+        }
+        catch (err) { throw new Error(err.message); }
+    }
+
+    getRecentlyPost = async (userId: string) => {
+        try {
+            const resultBook = await this.repo.getRecentlyPost('a', userId);
+            const resultNote = await this.repo.getRecentlyPost('e', userId);
+            const resultSubject = await this.repo.getRecentlyPost('b', userId);
+            const resultTutor = await this.repo.getRecentlyPost('c', userId);
+            const resultEvent = await this.repo.getRecentlyPost('d', userId);
+            const resultFaq = await this.repo.getRecentlyPost('f', userId);
+            return await this.parser.parserRecentlyPost(resultBook, resultSubject, resultTutor, resultEvent, resultNote, resultFaq);
         }
         catch (err) { throw new Error(err.message); }
     }
