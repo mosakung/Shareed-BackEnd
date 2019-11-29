@@ -19,18 +19,18 @@ export default class viewSqlRaw {
 
 
     constructor() {
-        this.getAllReviewBook = "select ReviewBookID,Cover,Title,date_time from `reviewbook` ORDER BY ReviewBookID LIMIT ?,?";
-        this.getAllReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time from `reviewsubject` ORDER BY ReviewSubjectID LIMIT ?,?";
-        this.getAllReviewTutor = "select ReviewTutorID,Cover,Title,date_time from `reviewtutor` ORDER BY ReviewTutorID LIMIT ?,?";
-        this.getAllShareEvent = "select ShareEventID,Cover,Title,Data_Time from `shareevent` ORDER BY ShareEventID LIMIT ?,?";
-        this.getAllShareNote = "select ShareNoteID,Cover,Subject_Name,Date_Time from `sharenote` ORDER BY ShareNoteID LIMIT ?,?";
-        this.getAllFaq = "select FAQID,title,description,date_time from `faq` ORDER BY FAQID LIMIT ?,?"
-        this.getReviewBook = "select * from `reviewbook` where ReviewBookID = ?";
-        this.getReviewSubject = "select * from `reviewsubject` where ReviewSubjectID = ?";
-        this.getReviewTutor = "select * from `reviewtutor` where ReviewtutorID = ?";
-        this.getShareEvent = "select * from `shareevent` where ShareEventID = ?";
-        this.getShareNote = "select * from `sharenote` where ShareNoteID = ?";
-        this.getFaq = "select * from `faq` where FAQID = ?";
+        this.getAllReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,uesr u  where r.UserID = u.UserID ORDER BY ReviewBookID LIMIT ?,?";
+        this.getAllReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time, u.Username from reviewsubject r, user u ORDER BY where r.UserID = u.UserID ReviewSubjectID LIMIT ?,?";
+        this.getAllReviewTutor = "select ReviewTutorID,Cover,Title,date_time, u.Username from reviewtutor r ,user u where f.UserID = u.UserID ORDER BY ReviewTutorID LIMIT ?,?";
+        this.getAllShareEvent = "select ShareEventID,Cover,Title,Data_Time, u.Username from shareevent e , user u  where e.UserID = u.UserID ORDER BY ShareEventID LIMIT ?,?";
+        this.getAllShareNote = "select ShareNoteID,Cover,Subject_Name,Date_Time,Title, u.Username from sharenote s , user u where s.UserID = u.UserID ORDER BY ShareNoteID LIMIT ?,?";
+        this.getAllFaq = "select FAQID,title,description,date_time, u.Username from faq f , user u where f.UserID = u.UserID ORDER BY FAQID LIMIT ?,?"
+        this.getReviewBook = "select r.*, u.Username from reviewbook r, user u where r.UserID = u.UserID AND ReviewBookID = ? ";
+        this.getReviewSubject = "select r.*, u.Username from reviewsubject r, user u where r.UserID = u.UserID AND ReviewSubjectID = ?";
+        this.getReviewTutor = "select r.*, u.Username from reviewtutor r ,user u where r.UserID = u.UserID AND ReviewtutorID = ?";
+        this.getShareEvent = "select r.*, u.Username from shareevent s ,user u where s.UserID = u.UserID AND ShareEventID = ?";
+        this.getShareNote = "select r.*, u.Username from sharenote s, user u where s.UserID = u.UserID AND ShareNoteID = ?";
+        this.getFaq = "select f.*,u.Username from faq f where f.UserID = u.UserID AND FAQID = ?";
         this.getContent = "SELECT * FROM `picture` WHERE PostID = ?";
         this.getTagPost = "select * from `tagpost` where PostID = ?";
         this.countPost = "select COUNT(*) as countId from ";
