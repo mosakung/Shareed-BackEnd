@@ -69,6 +69,7 @@ export default class viewParser {
             description: data[0].Des,
             contact: data[0].ContactLink,
             title: data[0].Title,
+            cover: data[0].Cover,
             userId: data[0].UserID,
             dateTime: data[0].Date_Time,
             Username: data[0].Username,
