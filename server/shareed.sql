@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2019 at 07:46 AM
+-- Generation Time: Nov 30, 2019 at 06:42 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -53,10 +53,10 @@ INSERT INTO `comment_detail` (`CommentID`, `Detail`, `PostID`, `UserID`, `Date_T
 --
 
 CREATE TABLE `faq` (
-  `FAQID` varchar(20) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `description` mediumtext NOT NULL,
-  `UserID` varchar(20) NOT NULL,
+  `FAQID` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `UserID` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `date_Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -106,7 +106,21 @@ INSERT INTO `picture` (`PictureID`, `Picture`, `PostID`) VALUES
 (1, 'img_test2.jpg', 'a1000000001'),
 (2, 'img_con2.jpg', 'a1000000001'),
 (3, 'img_test3.jpg', 'a1000000001'),
-(4, 'img_con1.jpg', 'a1000000001');
+(4, 'img_con1.jpg', 'a1000000001'),
+(5, 'test', 'd1000000002'),
+(6, 'oneP22ic.jpg', 'd1000000005'),
+(7, 'oneP22ic.jpg', 'd1000000006'),
+(8, 'oneP22ic.jpg', 'd1000000009'),
+(9, 'oneP22ic.jpg', 'd1000000010'),
+(10, 'oneP22ic.jpg', 'd1000000011'),
+(11, 'ic.jpg', 'd1000000006'),
+(12, 'ic.jpg', 'd1000000007'),
+(13, 'ic.jpg', 'd1000000007'),
+(14, 'ic.jpg', 'd1000000007'),
+(15, 'i.jpg', 'd1000000009'),
+(16, 'i.jpg', 'e1000000002'),
+(17, 'i.jpg', 'e1000000003'),
+(18, 'i.jpg', 'e1000000004');
 
 -- --------------------------------------------------------
 
@@ -230,6 +244,16 @@ CREATE TABLE `sharenote` (
   `Date_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `sharenote`
+--
+
+INSERT INTO `sharenote` (`ShareNoteID`, `Cover`, `Subject_Name`, `Section`, `Instructor_Name`, `Semeter`, `Title`, `UserID`, `Date_Time`) VALUES
+('e1000000001', 'po.jpg', 'as', 2, 'asd', 1, 'reviewbook2', '100000001', '2019-11-27 19:13:52'),
+('e1000000002', 'covernote.jpg', 'notetes', 1, 't2', 1, 's22', '100000001', '2019-11-27 19:15:25'),
+('e1000000003', 'covernote.jpg', 'notetes', 1, 't2', 1, 's22', '100000001', '2019-11-27 19:19:46'),
+('e1000000004', 'covernote.jpg', 'notetes', 1, 't2', 1, 's22', '100000001', '2019-11-27 19:19:47');
+
 -- --------------------------------------------------------
 
 --
@@ -248,7 +272,10 @@ CREATE TABLE `tagpost` (
 
 INSERT INTO `tagpost` (`TagID`, `TagDetail`, `PostID`) VALUES
 (2, 'math', 'a1000000001'),
-(3, 'thai', 'a1000000001');
+(3, 'thai', 'a1000000001'),
+(13, 'oe', 'e1000000002'),
+(14, 'oe', 'e1000000003'),
+(15, 'oe', 'e1000000004');
 
 -- --------------------------------------------------------
 
@@ -373,13 +400,13 @@ ALTER TABLE `comment_detail`
 -- AUTO_INCREMENT for table `picture`
 --
 ALTER TABLE `picture`
-  MODIFY `PictureID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `PictureID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tagpost`
 --
 ALTER TABLE `tagpost`
-  MODIFY `TagID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `TagID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
