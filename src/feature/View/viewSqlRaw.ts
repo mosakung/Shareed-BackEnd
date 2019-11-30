@@ -21,7 +21,7 @@ export default class viewSqlRaw {
     private getRecenlyShareEvent: string
     private getRecenlyShareNote: string;
     private getRecenlyFaq: string;
-
+    private countComment: string;
 
 
     constructor() {
@@ -39,6 +39,7 @@ export default class viewSqlRaw {
         this.getFaq = "select f.*,u.Username from faq f where f.UserID = u.UserID AND FAQID = ?";
         this.getContent = "SELECT * FROM `picture` WHERE PostID = ?";
         this.getTagPost = "select * from `tagpost` where PostID = ?";
+        this.countComment = 'select count(*) as count from comment_detail WHERE PostID = ?';
         this.countPost = "select COUNT(*) as countId from ";
         this.getComment = "select * from `comment_detail` where PostID = ?";
         this.getRecenlyReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,user u  where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time LIMIT 0,2";
@@ -109,6 +110,7 @@ export default class viewSqlRaw {
 
     getCountPost = () => { return this.countPost; }
 
+    getCountComment = () => {return this.countComment;}
 
 
 }

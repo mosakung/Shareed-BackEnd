@@ -1,6 +1,6 @@
 export default class viewParser {
 
-    parserShareNote = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
+    parserShareNote = async (data: any, owner: boolean, contentData: any, tagPost, comment, countComment): Promise<Object> => {
         return {
             shareNoteId: data[0].shareNoteID,
             cover: data[0].Cover,
@@ -15,11 +15,12 @@ export default class viewParser {
             content: contentData,
             tag: tagPost,
             comment: comment,
+            countComment: countComment[0].count,
             isOwner: owner
         }
     }
 
-    parserShareEvent = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
+    parserShareEvent = async (data: any, owner: boolean, contentData: any, tagPost, comment, countComment): Promise<Object> => {
         return {
             shareEventId: data[0].ShareEventID,
             cover: data[0].Cover,
@@ -34,11 +35,12 @@ export default class viewParser {
             content: contentData,
             tag: tagPost,
             comment: comment,
+            countComment: countComment[0].count,
             isOwner: owner
         }
     }
 
-    parserReviewSubject = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
+    parserReviewSubject = async (data: any, owner: boolean, contentData: any, tagPost, comment, countComment): Promise<Object> => {
         return {
             reviewSubjectId: data[0].ReviewSubjectID,
             subjectId: data[0].SubjectID,
@@ -53,11 +55,12 @@ export default class viewParser {
             content: contentData,
             tag: tagPost,
             comment: comment,
+            countComment: countComment[0].count,
             isOwner: owner
         }
     }
 
-    parserReviewTutor = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
+    parserReviewTutor = async (data: any, owner: boolean, contentData: any, tagPost, comment, countComment): Promise<Object> => {
         return {
             reviewTutorId: data[0].ReviewTutorID,
             tutorName: data[0].TutorName,
@@ -72,11 +75,12 @@ export default class viewParser {
             contect: contentData,
             tag: tagPost,
             comment: comment,
+            countComment: countComment[0].count,
             isOwner: owner
         }
     }
 
-    parserReviewBook = async (data: any, owner: boolean, contentData: any, tagPost, comment): Promise<Object> => {
+    parserReviewBook = async (data: any, owner: boolean, contentData: any, tagPost, comment, countComment): Promise<Object> => {
         return {
             reviewBookId: data[0].ReviewBookID,
             cover: data[0].Cover,
@@ -92,11 +96,12 @@ export default class viewParser {
             content: contentData,
             tag: tagPost,
             comment: comment,
+            countComment: countComment[0].count,
             isOwner: owner
         }
     }
 
-    parserFaq = async (data: any, owner: boolean, tagPost, comment): Promise<object> => {
+    parserFaq = async (data: any, owner: boolean, tagPost, comment, countComment): Promise<object> => {
         return {
             faqId: data[0].FAQID,
             title: data[0].title,
@@ -106,6 +111,7 @@ export default class viewParser {
             Username: data[0].Username,
             tag: tagPost,
             comment: comment,
+            countComment: countComment[0].count,
             isOwner: owner
         }
     }

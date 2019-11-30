@@ -19,7 +19,8 @@ export default class ViewServices {
                 const content = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return await this.parser.parserShareNote(result, owner, content, tagPost, comment);
+                const countComment = await this.repo.getCountComment(postID);
+                return await this.parser.parserShareNote(result, owner, content, tagPost, comment, countComment);
             }
             else return result;
         }
@@ -47,7 +48,8 @@ export default class ViewServices {
                 const content = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return await this.parser.parserShareEvent(result, owner, content, tagPost, comment);
+                const countComment = await this.repo.getCountComment(postID);
+                return await this.parser.parserShareEvent(result, owner, content, tagPost, comment, countComment);
             }
             else return result;
         }
@@ -75,7 +77,8 @@ export default class ViewServices {
                 const content = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return await this.parser.parserReviewSubject(result, owner, content, tagPost, comment);
+                const countComment = await this.repo.getCountComment(postID);
+                return await this.parser.parserReviewSubject(result, owner, content, tagPost, comment, countComment);
             }
             else return result;
         }
@@ -103,7 +106,8 @@ export default class ViewServices {
                 const content = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return await this.parser.parserReviewTutor(result, owner, content, tagPost, comment);
+                const countComment = await this.repo.getCountComment(postID);
+                return await this.parser.parserReviewTutor(result, owner, content, tagPost, comment, countComment);
             }
             else return result;
         }
@@ -131,7 +135,8 @@ export default class ViewServices {
                 const content: any = await this.repo.getPostContent(postID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return await this.parser.parserReviewBook(result, owner, content, tagPost, comment);
+                const countComment = await this.repo.getCountComment(postID);
+                return await this.parser.parserReviewBook(result, owner, content, tagPost, comment, countComment);
             }
             else return result;
         }
@@ -158,7 +163,8 @@ export default class ViewServices {
                 const owner: boolean = await this.checkOwner(result[0].UserID, userID);
                 const tagPost = await this.repo.getPostTag(postID);
                 const comment = await this.repo.getComment(postID);
-                return await this.parser.parserFaq(result, owner, tagPost, comment);
+                const countComment = await this.repo.getCountComment(postID);
+                return await this.parser.parserFaq(result, owner, tagPost, comment, countComment);
             }
             else return result;
         }

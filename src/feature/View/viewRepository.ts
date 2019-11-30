@@ -95,5 +95,9 @@ export default class ViewRepository {
         catch (err) { throw new Error(err.message); }
     }
 
+    getCountComment = async (postID: string)=> {
+        try { return await this.db.query(this.sql.getCountComment(), [postID]); }
+        catch (err) { throw new Error(err.message); }
+    }
 }
 
