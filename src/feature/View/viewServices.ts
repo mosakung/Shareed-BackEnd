@@ -162,9 +162,10 @@ export default class ViewServices {
             if (result != '') {
                 const owner: boolean = await this.checkOwner(result[0].UserID, userID);
                 const tagPost = await this.repo.getPostTag(postID);
+                const content: any = await this.repo.getPostContent(postID);
                 const comment = await this.repo.getComment(postID);
                 const countComment = await this.repo.getCountComment(postID);
-                return await this.parser.parserFaq(result, owner, tagPost, comment, countComment);
+                return await this.parser.parserFaq(result, owner, tagPost, comment, countComment,content);
             }
             else return result;
         }

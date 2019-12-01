@@ -30,7 +30,7 @@ export default class viewParser {
             describe: data[0].Describ,
             title: data[0].Title,
             userId: data[0].UserID,
-            dateTime: data[0].Date_Time,
+            dateTime: data[0].Data_Time,
             Username: data[0].Username,
             content: contentData,
             tag: tagPost,
@@ -102,7 +102,7 @@ export default class viewParser {
         }
     }
 
-    parserFaq = async (data: any, owner: boolean, tagPost, comment, countComment): Promise<object> => {
+    parserFaq = async (data: any, owner: boolean, tagPost, comment, countComment, content): Promise<object> => {
         return {
             faqId: data[0].FAQID,
             title: data[0].title,
@@ -112,6 +112,7 @@ export default class viewParser {
             Username: data[0].Username,
             tag: tagPost,
             comment: comment,
+            content: content,
             countComment: countComment[0].count,
             isOwner: owner
         }
