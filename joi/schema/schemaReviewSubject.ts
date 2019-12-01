@@ -11,7 +11,7 @@ export default class SchemaReviewSubject {
             Instructor_Name: Joi.string().min(0).max(50),
             Des: Joi.string().min(0).max(200),
             Title: Joi.string().min(0).max(50),
-            Section: Joi.number().integer().min(0).max(3),
+            Section: Joi.number().integer(),
             UserID: Joi.string().min(0).max(20)
         })
     }

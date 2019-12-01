@@ -23,8 +23,8 @@ export default class createSql {
         this.createShareEvent = 'INSERT INTO `shareevent`(`ShareEventID`, `Cover`, `Register`, `Location`, `Condi`, `Describ`, `Title`, `UserID`) VALUES (?,?,?,?,?,?,?,?)';
         this.createShareNote = 'INSERT INTO `sharenote`(`ShareNoteID`, `Cover`, `Subject_Name`, `Section`, `Instructor_Name`, `Semeter`, `Title`, `UserID`) VALUES (?,?,?,?,?,?,?,?)';
         this.createFaq = 'INSERT INTO `faq`(`FAQID`, `title`, `description`, `UserID`) VALUES (?,?,?,?)';
-        this.createContent = 'INSERT INTO `picture`(`Picture`, `PostID`) VALUES (?)';
-        this.createTagPost = 'INSERT INTO `tagpost`(`TagDetail`, `PostID`) VALUES (?)';
+        this.createContent = 'INSERT INTO `picture`(`Picture`, `PostID`) VALUES (?,?)';
+        this.createTagPost = 'INSERT INTO `tagpost`(`TagDetail`, `PostID`) VALUES (?,?)';
         this.createComment = 'INSERT INTO `comment_detail`(`Detail`, `PostID`, `UserID`) VALUES (?,?,?)';
         this.getReviewBookId = 'SELECT ReviewBookID FROM `reviewbook` ORDER By ReviewBookID DESC LIMIT 1';
         this.getReviewSubjectId = 'SELECT ReviewSubjectID FROM `reviewsubject` ORDER By ReviewSubjectID DESC LIMIT 1';

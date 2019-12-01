@@ -18,6 +18,7 @@ export default class createServices {
             let query = await this.repo.getPostId('e');
             let postId = await this.getPostId(query[0].ShareNoteID);
             let parserShareNote: Object = await this.parser.parserShareNote(data, userId, postId);
+
             await this.validation.validate(parserShareNote, 'sharenote');
             await this.repo.createShareNote(parserShareNote);
 
@@ -25,13 +26,17 @@ export default class createServices {
             for (let i = 0; i < Object.keys(parserContent).length; i++) {
                 await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture');
             }
-            await this.repo.createPostContent(parserContent);
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.repo.createPostContent(parserContent[i]);
+            }
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
             for (let i = 0; i < Object.keys(parserTag).length; i++) {
                 await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
-            await this.repo.createPostTag(parserTag);
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.repo.createPostTag(parserTag[i]);
+            }
             return true;
         }
         catch (err) { throw new Error(err.message); }
@@ -47,15 +52,19 @@ export default class createServices {
 
             let parserContent: Object = await this.parser.parserContent(data, postId);
             for (let i = 0; i < Object.keys(parserContent).length; i++) {
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture');
             }
-            await this.repo.createPostContent(parserContent);
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.repo.createPostContent(parserContent[i]);
+            }
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
             for (let i = 0; i < Object.keys(parserTag).length; i++) {
                 await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
-            await this.repo.createPostTag(parserTag);
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.repo.createPostTag(parserTag[i]);
+            }
             return true;
         }
         catch (err) { throw new Error("Error Services"); }
@@ -71,16 +80,19 @@ export default class createServices {
 
             let parserContent: Object = await this.parser.parserContent(data, postId);
             for (let i = 0; i < Object.keys(parserContent).length; i++) {
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture');
             }
-            await this.repo.createPostContent(parserContent);
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.repo.createPostContent(parserContent[i]);
+            }
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
-
             for (let i = 0; i < Object.keys(parserTag).length; i++) {
                 await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
-            await this.repo.createPostTag(parserTag);
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.repo.createPostTag(parserTag[i]);
+            }
             return true;
         }
         catch (err) { throw new Error("Error Services"); }
@@ -96,15 +108,19 @@ export default class createServices {
 
             let parserContent: Object = await this.parser.parserContent(data, postId);
             for (let i = 0; i < Object.keys(parserContent).length; i++) {
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture');
             }
-            await this.repo.createPostContent(parserContent);
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.repo.createPostContent(parserContent[i]);
+            }
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
             for (let i = 0; i < Object.keys(parserTag).length; i++) {
                 await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
-            await this.repo.createPostTag(parserTag);
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.repo.createPostTag(parserTag[i]);
+            }
             return true;
         }
         catch (err) { throw new Error("Error Services"); }
@@ -120,15 +136,19 @@ export default class createServices {
 
             let parserContent: Object = await this.parser.parserContent(data, postId);
             for (let i = 0; i < Object.keys(parserContent).length; i++) {
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture');
             }
-            await this.repo.createPostContent(parserContent);
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.repo.createPostContent(parserContent[i]);
+            }
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
             for (let i = 0; i < Object.keys(parserTag).length; i++) {
                 await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
-            await this.repo.createPostTag(parserTag);
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.repo.createPostTag(parserTag[i]);
+            }
             return true;
         }
         catch (err) { throw new Error("Error Services"); }
@@ -144,15 +164,19 @@ export default class createServices {
 
             let parserContent: Object = await this.parser.parserContent(data, postId);
             for (let i = 0; i < Object.keys(parserContent).length; i++) {
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture');
             }
-            await this.repo.createPostContent(parserContent);
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.repo.createPostContent(parserContent[i]);
+            }
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
             for (let i = 0; i < Object.keys(parserTag).length; i++) {
                 await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
-            await this.repo.createPostTag(parserTag);
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.repo.createPostTag(parserTag[i]);
+            }
             return true;
         }
         catch (err) { throw new Error("Error Services"); }
