@@ -33,7 +33,7 @@ export default class createParser {
             SubjectName: data.subjectName,
             Instructor_Name: data.instructorName,
             Des: data.description,
-            Title: data.title,
+            Title: data.Title,
             Section: data.section,
             UserID: userID
         }
