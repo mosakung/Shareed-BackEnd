@@ -34,14 +34,14 @@ export default class viewSqlRaw {
         this.getReviewBook = "select r.*, u.Username from reviewbook r, user u where r.UserID = u.UserID AND ReviewBookID = ? ";
         this.getReviewSubject = "select r.*, u.Username from reviewsubject r, user u where r.UserID = u.UserID AND ReviewSubjectID = ?";
         this.getReviewTutor = "select r.*, u.Username from reviewtutor r ,user u where r.UserID = u.UserID AND ReviewtutorID = ?";
-        this.getShareEvent = "select r.*, u.Username from shareevent s ,user u where s.UserID = u.UserID AND ShareEventID = ?";
-        this.getShareNote = "select r.*, u.Username from sharenote s, user u where s.UserID = u.UserID AND ShareNoteID = ?";
+        this.getShareEvent = "select s.*, u.Username from shareevent s ,user u where s.UserID = u.UserID AND ShareEventID = ?";
+        this.getShareNote = "select s.*, u.Username from sharenote s, user u where s.UserID = u.UserID AND ShareNoteID = ?";
         this.getFaq = "select f.*,u.Username from faq f where f.UserID = u.UserID AND FAQID = ?";
         this.getContent = "SELECT * FROM `picture` WHERE PostID = ?";
         this.getTagPost = "select * from `tagpost` where PostID = ?";
         this.countComment = 'select count(*) as count from comment_detail WHERE PostID = ?';
         this.countPost = "select COUNT(*) as countId from ";
-        this.getComment = "select * from `comment_detail` where PostID = ?";
+        this.getComment = "select c.*,u.Username from comment_detail c , user u where c.UserID = u.UserID AND c.PostID = ?";
         this.getRecenlyReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,user u  where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time LIMIT 0,2";
         this.getRecenlyReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time, u.Username from reviewsubject r, user u  where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time LIMIT 0,2";
         this.getRecenlyReviewTutor = "select ReviewTutorID,Cover,Title,date_time, u.Username from reviewtutor r ,user u where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time LIMIT 0,2";
