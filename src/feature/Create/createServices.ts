@@ -132,7 +132,7 @@ export default class createServices {
             let postId = await this.getPostId(query[0].ReviewSubjectID);
             let parserReviewSubject: Object = await this.parser.parserReviewSubject(data, userId, postId);
             await this.validation.validate(parserReviewSubject, 'reviewsubject');
-            await this.repo.createReviewTutor(parserReviewSubject);
+            await this.repo.createReviewSubject(parserReviewSubject);
 
             let parserContent: Object = await this.parser.parserContent(data, postId);
             for (let i = 0; i < Object.keys(parserContent).length; i++) {
