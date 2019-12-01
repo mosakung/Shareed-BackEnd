@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2019 at 06:42 AM
+-- Generation Time: Dec 01, 2019 at 09:02 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -59,6 +59,13 @@ CREATE TABLE `faq` (
   `UserID` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `date_Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `faq`
+--
+
+INSERT INTO `faq` (`FAQID`, `title`, `description`, `UserID`, `date_Time`) VALUES
+('f100000001', 'akarapon what do you mean?', 'akaskskskdkdkskkdkskdkdksjdksjskdlfkjdlsdjdk', '100000001', '2019-11-30 20:56:38');
 
 -- --------------------------------------------------------
 
@@ -120,7 +127,14 @@ INSERT INTO `picture` (`PictureID`, `Picture`, `PostID`) VALUES
 (15, 'i.jpg', 'd1000000009'),
 (16, 'i.jpg', 'e1000000002'),
 (17, 'i.jpg', 'e1000000003'),
-(18, 'i.jpg', 'e1000000004');
+(18, 'i.jpg', 'e1000000004'),
+(19, 'i.jpg', 'd100000002'),
+(20, 'test', 'a1000000010'),
+(21, 'test', 'a1000000011'),
+(22, 'test', 'a1000000012'),
+(23, 'test', 'a1000000013'),
+(24, 'test', 'a1000000014'),
+(25, 'test', 'a1000000015');
 
 -- --------------------------------------------------------
 
@@ -149,7 +163,7 @@ CREATE TABLE `reviewbook` (
   `Title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `WrittenBy` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Edition` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
-  `Link` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `Link` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Des` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `BookName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `UserID` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -162,7 +176,20 @@ CREATE TABLE `reviewbook` (
 
 INSERT INTO `reviewbook` (`ReviewBookID`, `Cover`, `Title`, `WrittenBy`, `Edition`, `Link`, `Des`, `BookName`, `UserID`, `date_time`) VALUES
 ('a1000000001', 'img_tests.jpg', 'reviewbooktest', 'ty', '1', 'none', 'test book for project!!!! ภาษาไทยก็มาน้ะ', 'คนกับงานใครตายก่อนกัน', '100000001', '2019-11-16 15:24:26'),
-('a1000000002', 'img_test2.jpg', 'reviewbook2', 'ty', '2', 'test.com', 'test test tesss', 'post', '100000001', '2019-11-23 05:32:03');
+('a1000000002', 'img_test2.jpg', 'reviewbook2', 'ty', '2', 'test.com', 'test test tesss', 'post', '100000001', '2019-11-23 05:32:03'),
+('a1000000003', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:24:39'),
+('a1000000004', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:26:58'),
+('a1000000005', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:29:42'),
+('a1000000006', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:30:58'),
+('a1000000007', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:35:20'),
+('a1000000008', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:36:16'),
+('a1000000009', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:37:08'),
+('a1000000010', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:37:51'),
+('a1000000011', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:39:09'),
+('a1000000012', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:41:16'),
+('a1000000013', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:41:23'),
+('a1000000014', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:42:29'),
+('a1000000015', 'test', 'posttest', 'test', 'tset', 'link', 'desss', 'tyuhlkjll', '100000001', '2019-12-01 04:43:43');
 
 -- --------------------------------------------------------
 
@@ -181,6 +208,13 @@ CREATE TABLE `reviewsubject` (
   `UserID` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `Date_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `reviewsubject`
+--
+
+INSERT INTO `reviewsubject` (`ReviewSubjectID`, `SubjectID`, `SubjectName`, `Instructor_Name`, `Des`, `Title`, `Section`, `UserID`, `Date_Time`) VALUES
+('b100000001', 'CPE 101', 'coppp', 'test tea', '123123', 'asdasdas', 1, '100000001', '2019-11-30 12:30:37');
 
 -- --------------------------------------------------------
 
@@ -225,6 +259,14 @@ CREATE TABLE `shareevent` (
   `UserID` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `Data_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `shareevent`
+--
+
+INSERT INTO `shareevent` (`ShareEventID`, `Cover`, `Register`, `Location`, `Condi`, `Describ`, `Title`, `UserID`, `Data_Time`) VALUES
+('d100000001', 'po.jpg', 'sas', 'asd', 'sad', 'sadasd', 'sdad', '100000001', '2019-11-30 12:18:52'),
+('d100000002', 'covernote.jpg', 'notetes', '1', 't2', '1', 's22', '100000001', '2019-11-30 12:18:57');
 
 -- --------------------------------------------------------
 
@@ -275,7 +317,10 @@ INSERT INTO `tagpost` (`TagID`, `TagDetail`, `PostID`) VALUES
 (3, 'thai', 'a1000000001'),
 (13, 'oe', 'e1000000002'),
 (14, 'oe', 'e1000000003'),
-(15, 'oe', 'e1000000004');
+(15, 'oe', 'e1000000004'),
+(16, 'oe', 'd100000002'),
+(17, 'test', 'a1000000012'),
+(18, 'test', 'a1000000015');
 
 -- --------------------------------------------------------
 
@@ -400,13 +445,13 @@ ALTER TABLE `comment_detail`
 -- AUTO_INCREMENT for table `picture`
 --
 ALTER TABLE `picture`
-  MODIFY `PictureID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `PictureID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tagpost`
 --
 ALTER TABLE `tagpost`
-  MODIFY `TagID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `TagID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
