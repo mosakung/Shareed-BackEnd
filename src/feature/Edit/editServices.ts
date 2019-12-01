@@ -13,7 +13,7 @@ export default class EditService {
         this.joi = joi;
     }
 
-    async comparePicture(originalPicture: Object, newPicture: Object, postId: string) {
+    comparePicture = async(originalPicture: Object, newPicture: Object, postId: string) => {
         try {
             let lengthOriginal: number = Object.keys(originalPicture).length;
             let lengthNew: number = Object.keys(newPicture).length;
@@ -50,7 +50,7 @@ export default class EditService {
         }
     }
 
-    async compareTag(originalTag: Object, newTag: Object, postId: string) {
+    compareTag = async (originalTag: Object, newTag: Object, postId: string) => {
         try {
             let lengthOriginal: number = Object.keys(originalTag).length;
             let lengthNew: number = Object.keys(newTag).length;
@@ -85,7 +85,7 @@ export default class EditService {
         }
     }
 
-    async editShareNote(postId: string, userId: string, body: any) {
+    editShareNote = async(postId: string, userId: string, body: any) => {
         try {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.fetchOwner(postId, postType);
@@ -126,11 +126,12 @@ export default class EditService {
                 throw new Error('onwer not match this (req: ' + userId + ' original: ' + owner + ') | function: editShareNote | file name: editServices');
             }
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
 
-    async editShareEvent(postId: string, userId: string, body: any) {
+    editShareEvent = async (postId: string, userId: string, body: any) => {
         try {
             let postType: string = postId.substring(0, 1);
             let owner: {} = await this.repo.fetchOwner(postId, postType);
@@ -352,7 +353,7 @@ export default class EditService {
         }
     }
 
-    async editComment(commentId: number, userId: string, body: any) {
+    editComment = async (commentId: number, userId: string, body: any) => {
         try {
             let owner: {} = await this.repo.fetchOwnerComment(commentId);
 

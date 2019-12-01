@@ -6,20 +6,13 @@ export default class SqlDelete {
     private sqlDeleteReviewBook: string;
     private sqlDeleteFaq: string;
     private sqlDeleteComment: string;
-    private sqlDeleteOnwerShareNote: string
-    private sqlDeleteOnwerShareEvent: string
-    private sqlDeleteOnwerReviewSubject: string
-    private sqlDeleteOnwerReviewTutor: string
-    private sqlDeleteOnwerReviewBook: string
-    private sqlDeleteOnwerFaq: string
-    private sqlDeleteOnwerCommnet: string
-    private sqlCheckdShareNote: string
-    private sqlCheckShareEvent: string
-    private sqlCheckReviewSubject: string
-    private sqlCheckReviewTutor: string
-    private sqlCheckReviewBook: string
-    private sqlCheckFaq: string
-    private sqlCheckComment: string
+    private sqlDeleteOnwerShareNote: string;
+    private sqlDeleteOnwerShareEvent: string;
+    private sqlDeleteOnwerReviewSubject: string;
+    private sqlDeleteOnwerReviewTutor: string;
+    private sqlDeleteOnwerReviewBook: string;
+    private sqlDeleteOnwerFaq: string;
+    private sqlDeleteOnwerCommnet: string;
 
     constructor() {
         this.sqlDeleteShareNote = 'DELETE FROM `sharenote` WHERE `ShareNoteID` = ?';

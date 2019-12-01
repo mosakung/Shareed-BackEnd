@@ -4,14 +4,12 @@ import chalk from 'chalk';
 
 export default class EditControllers {
     private service: EditService;
-    private log: any;
 
     constructor(service: EditService) {
         this.service = service;
-        this.log = console;
     }
 
-    async editShareNote (req: Request, res: Response) {
+    editShareNote = async (req: Request, res: Response) => {
         try {
             let { postId, userId }: { postId: string, userId: string } = req.params;
             let body: {} = req.body;
@@ -19,7 +17,7 @@ export default class EditControllers {
             const editShareNote = await this.service.editShareNote(postId, userId, body);
 
             if (!editShareNote) {
-                this.log.log('\n' + chalk.yellow('!editShareNote'));
+                console.log('\n' + chalk.yellow('!editShareNote'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -28,12 +26,12 @@ export default class EditControllers {
                 });
             }
         } catch (err) {
-            this.log.error('\n' + chalk.red(err));
+            console.error('\n' + chalk.red(err));
             res.status(500).send(err.message);
         }
     }
 
-    async editShareEvent (req: Request, res: Response) {
+    editShareEvent = async (req: Request, res: Response) => {
         try {
             let { postId, userId }: { postId: string, userId: string } = req.params;
             let body: {} = req.body;
@@ -41,7 +39,7 @@ export default class EditControllers {
             const editShareEvent = await this.service.editShareEvent(postId, userId, body);
 
             if (!editShareEvent) {
-                this.log.log('\n' + chalk.yellow('!editShareEvent'));
+                console.log('\n' + chalk.yellow('!editShareEvent'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -50,12 +48,12 @@ export default class EditControllers {
                 });
             }
         } catch (err) {
-            this.log.error('\n' + chalk.red(err));
+            console.error('\n' + chalk.red(err));
             res.status(500).send(err.message);
         }
     }
 
-    async editReviewSubject (req: Request, res: Response) {
+     editReviewSubject = async (req: Request, res: Response) => {
         try {
             let { postId, userId }: { postId: string, userId: string } = req.params;
             let body: {} = req.body;
@@ -63,7 +61,7 @@ export default class EditControllers {
             const editReviewSubject = await this.service.editReviewSubject(postId, userId, body);
 
             if (!editReviewSubject) {
-                this.log.log('\n' + chalk.yellow('!editReviewSubject'));
+                console.log('\n' + chalk.yellow('!editReviewSubject'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -72,12 +70,12 @@ export default class EditControllers {
                 });
             }
         } catch (err) {
-            this.log.error('\n' + chalk.red(err));
+            console.error('\n' + chalk.red(err));
             res.status(500).send(err.message);
         }
     }
 
-    async editReviewTutor (req: Request, res: Response) {
+     editReviewTutor = async (req: Request, res: Response) => {
         try {
             let { postId, userId }: { postId: string, userId: string } = req.params;
             let body: {} = req.body;
@@ -85,7 +83,7 @@ export default class EditControllers {
             const editReviewTutor = await this.service.editReviewTutor(postId, userId, body);
 
             if (!editReviewTutor) {
-                this.log.log('\n' + chalk.yellow('!editReviewTutor'));
+                console.log('\n' + chalk.yellow('!editReviewTutor'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -94,7 +92,7 @@ export default class EditControllers {
                 });
             }
         } catch (err) {
-            this.log.error('\n' + chalk.red(err));
+            console.error('\n' + chalk.red(err));
             res.status(500).send(err.message);
         }
     }
@@ -107,7 +105,7 @@ export default class EditControllers {
             const editReviewBook = await this.service.editReviewBook(postId, userId, body);
 
             if (!editReviewBook) {
-                this.log.log('\n' + chalk.yellow('!editReviewBook'));
+                console.log('\n' + chalk.yellow('!editReviewBook'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -117,7 +115,7 @@ export default class EditControllers {
             }
 
         } catch (err) {
-            this.log.error('\n' + chalk.red(err));
+            console.error('\n' + chalk.red(err));
             res.status(500).send(err.message);
         }
     }
@@ -130,7 +128,7 @@ export default class EditControllers {
             const editFaq = await this.service.editFaq(postId, userId, body);
 
             if (!editFaq) {
-                this.log.log('\n' + chalk.yellow('!editFaq'));
+                console.log('\n' + chalk.yellow('!editFaq'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -140,7 +138,7 @@ export default class EditControllers {
             }
 
         } catch (err) {
-            this.log.error('\n' + chalk.red(err));
+            console.error('\n' + chalk.red(err));
             res.status(500).send(err.message);
         }
     }
@@ -153,7 +151,7 @@ export default class EditControllers {
             const editComment = await this.service.editComment(commentId, userId, body);
 
             if (!editComment) {
-                this.log.log('\n' + chalk.yellow('!editComment'));
+                console.log('\n' + chalk.yellow('!editComment'));
                 res.status(300).send();
             }else {
                 res.status(250).json({
@@ -163,7 +161,7 @@ export default class EditControllers {
             }
 
         } catch (err) {
-            this.log.error('\n' + chalk.red(err));
+            console.error('\n' + chalk.red(err));
             res.status(500).send(err.message);
         }
     }

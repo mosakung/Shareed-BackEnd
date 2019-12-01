@@ -14,6 +14,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlEdit(typePost), body);
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -30,6 +31,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlOwner(postType), [postId]);
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -46,6 +48,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlPicture('fetch'), [postId]);
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -54,6 +57,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlPicture('create'), [newPicture, postId]);
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -62,6 +66,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlPicture('edit'), [newPicture, pictureId])
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -70,6 +75,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlPicture('delete'), [pictureId]);
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -78,6 +84,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlTag('fetch'), [postId]);
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -86,6 +93,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlTag('create'), [tagDetail, postId]);
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -94,6 +102,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlTag('edit'), [tagDetail, tagId])
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
@@ -102,6 +111,7 @@ export default class EditRepository {
         try {
             return await this.db.query(this.sql.getSqlTag('delete'), [tagId]);
         } catch (err) {
+            console.error(err.message);
             throw new Error(err.message);
         }
     }
