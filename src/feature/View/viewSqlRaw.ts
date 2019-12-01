@@ -25,7 +25,7 @@ export default class viewSqlRaw {
 
 
     constructor() {
-        this.getAllReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,uesr u  where r.UserID = u.UserID ORDER BY ReviewBookID LIMIT ?,?";
+        this.getAllReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,user u  where r.UserID = u.UserID ORDER BY ReviewBookID LIMIT ?,?";
         this.getAllReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time, u.Username from reviewsubject r, user u  where r.UserID = u.UserID ORDER BY ReviewSubjectID LIMIT ?,?";
         this.getAllReviewTutor = "select ReviewTutorID,Cover,Title,date_time, u.Username from reviewtutor r ,user u where r.UserID = u.UserID ORDER BY ReviewTutorID LIMIT ?,?";
         this.getAllShareEvent = "select ShareEventID,Cover,Title,Data_Time, u.Username from shareevent e , user u  where e.UserID = u.UserID ORDER BY ShareEventID LIMIT ?,?";

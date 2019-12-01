@@ -20,21 +20,21 @@ export default class createServices {
             let parserShareNote: Object = await this.parser.parserShareNote(data, userId, postId);
             await this.validation.validate(parserShareNote, 'sharenote');
             await this.repo.createShareNote(parserShareNote);
-            
+
             let parserContent: Object = await this.parser.parserContent(data, postId);
-            for(let i = 0 ; i < Object.keys(parserContent).length; i++){
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]),'picture');
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture');
             }
             await this.repo.createPostContent(parserContent);
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
-            for(let i = 0 ; i < Object.keys(parserTag).length; i++){
-                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]),'tag')
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
             await this.repo.createPostTag(parserTag);
             return true;
         }
-        catch (err) {  throw new Error(err.message); }
+        catch (err) { throw new Error(err.message); }
     }
 
     createShareEvent = async (data: Object, userId: string) => {
@@ -44,16 +44,16 @@ export default class createServices {
             let parserShareEvent: Object = await this.parser.parserShareEvent(data, userId, postId);
             await this.validation.validate(parserShareEvent, 'shareevent');
             await this.repo.createShareEvent(parserShareEvent);
-            
+
             let parserContent: Object = await this.parser.parserContent(data, postId);
-            for(let i = 0 ; i < Object.keys(parserContent).length; i++){
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]),'picture')
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
             }
             await this.repo.createPostContent(parserContent);
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
-            for(let i = 0 ; i < Object.keys(parserTag).length; i++){
-                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]),'tag')
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
             await this.repo.createPostTag(parserTag);
             return true;
@@ -68,16 +68,17 @@ export default class createServices {
             let parserReviewBook: Object = await this.parser.parserReviewBook(data, userId, postId);
             await this.validation.validate(parserReviewBook, 'reviewbook');
             await this.repo.createReviewBook(parserReviewBook);
-            
+
             let parserContent: Object = await this.parser.parserContent(data, postId);
-            for(let i = 0 ; i < Object.keys(parserContent).length; i++){
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]),'picture')
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
             }
             await this.repo.createPostContent(parserContent);
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
-            for(let i = 0 ; i < Object.keys(parserTag).length; i++){
-                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]),'tag')
+
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
             await this.repo.createPostTag(parserTag);
             return true;
@@ -92,16 +93,16 @@ export default class createServices {
             let parserReviewTutor: Object = await this.parser.parserReviewTutor(data, userId, postId);
             await this.validation.validate(parserReviewTutor, 'reviewtutor');
             await this.repo.createReviewTutor(parserReviewTutor);
-            
+
             let parserContent: Object = await this.parser.parserContent(data, postId);
-            for(let i = 0 ; i < Object.keys(parserContent).length; i++){
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]),'picture')
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
             }
             await this.repo.createPostContent(parserContent);
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
-            for(let i = 0 ; i < Object.keys(parserTag).length; i++){
-                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]),'tag')
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
             await this.repo.createPostTag(parserTag);
             return true;
@@ -116,16 +117,16 @@ export default class createServices {
             let parserReviewSubject: Object = await this.parser.parserReviewSubject(data, userId, postId);
             await this.validation.validate(parserReviewSubject, 'reviewsubject');
             await this.repo.createReviewTutor(parserReviewSubject);
-            
+
             let parserContent: Object = await this.parser.parserContent(data, postId);
-            for(let i = 0 ; i < Object.keys(parserContent).length; i++){
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]),'picture')
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
             }
             await this.repo.createPostContent(parserContent);
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
-            for(let i = 0 ; i < Object.keys(parserTag).length; i++){
-                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]),'tag')
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
             await this.repo.createPostTag(parserTag);
             return true;
@@ -140,16 +141,16 @@ export default class createServices {
             let parserFaq: Object = await this.parser.parserFaq(data, userId, postId);
             await this.validation.validate(parserFaq, 'faq');
             await this.repo.createFaq(parserFaq);
-            
+
             let parserContent: Object = await this.parser.parserContent(data, postId);
-            for(let i = 0 ; i < Object.keys(parserContent).length; i++){
-                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]),'picture')
+            for (let i = 0; i < Object.keys(parserContent).length; i++) {
+                await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture')
             }
             await this.repo.createPostContent(parserContent);
 
             let parserTag: Object = await this.parser.parserTagPost(data, postId);
-            for(let i = 0 ; i < Object.keys(parserTag).length; i++){
-                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]),'tag')
+            for (let i = 0; i < Object.keys(parserTag).length; i++) {
+                await this.validation.validate(await this.parser.parserTagSchema(parserTag[i]), 'tag')
             }
             await this.repo.createPostTag(parserTag);
             return true;

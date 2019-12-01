@@ -80,7 +80,7 @@ export default class createParser {
         for (let i = 0; i < data.tag.length; i++) {
             tagall.push([data.tag[i].TagDetail, postID]);
         }
-        return tagall;
+            return tagall;
     }
 
     parserTagSchema = async (data: any) => {

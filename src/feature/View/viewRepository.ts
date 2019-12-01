@@ -57,7 +57,7 @@ export default class ViewRepository {
 
     viewReviewBookAll = async (typePost: string, firstOrder: number, secondOrder: number) => {
         try { return await this.db.query(this.sql.getAllQueryPost(typePost), [firstOrder, secondOrder]); }
-        catch (err) { throw (err.message); }
+        catch (err) { throw new Error (err.message); }
     }
 
     viewPage = async (typePost: string): Promise<any> => {
