@@ -141,7 +141,7 @@ export default class EditService {
                 let tagShareEvent: {} = await this.paser.split(body, 'tag');
                 let pictureShareEvent: {} = await this.paser.split(body, 'picture');
 
-                await this.joi.validate(bodyShareEvent, 'sharenote');
+                await this.joi.validate(bodyShareEvent, 'shareevent');
                 for (let i: number = 0; i < Object.keys(tagShareEvent).length; i++) {
                     await this.joi.validate(tagShareEvent[i], 'tag');
                 }
@@ -186,7 +186,7 @@ export default class EditService {
                 let tagReviewSubject: {} = await this.paser.split(body, 'tag');
                 let pictureReviewSubject: {} = await this.paser.split(body, 'picture');
 
-                await this.joi.validate(bodyReviewSubject, 'reviewbook');
+                await this.joi.validate(bodyReviewSubject, 'reviewsubject');
                 for (let i: number = 0; i < Object.keys(tagReviewSubject).length; i++) {
                     await this.joi.validate(tagReviewSubject[i], 'tag');
                 }
@@ -231,7 +231,7 @@ export default class EditService {
                 let tagReviewTutor: {} = await this.paser.split(body, 'tag');
                 let pictureReviewTutor: {} = await this.paser.split(body, 'picture');
 
-                await this.joi.validate(bodyReviewTutor, 'reviewbook');
+                await this.joi.validate(bodyReviewTutor, 'reviewtutor');
                 for (let i: number = 0; i < Object.keys(tagReviewTutor).length; i++) {
                     await this.joi.validate(tagReviewTutor[i], 'tag');
                 }
@@ -322,7 +322,7 @@ export default class EditService {
                 let tagFaq: {} = await this.paser.split(body, 'tag');
                 let pictureFaq: {} = await this.paser.split(body, 'picture');
 
-                await this.joi.validate(bodyFaq, 'reviewbook');
+                await this.joi.validate(bodyFaq, 'faq');
                 for (let i: number = 0; i < Object.keys(tagFaq).length; i++) {
                     await this.joi.validate(tagFaq[i], 'tag');
                 }
