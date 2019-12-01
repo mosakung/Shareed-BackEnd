@@ -36,7 +36,7 @@ export default class viewSqlRaw {
         this.getReviewTutor = "select r.*, u.Username from reviewtutor r ,user u where r.UserID = u.UserID AND ReviewtutorID = ?";
         this.getShareEvent = "select s.*, u.Username from shareevent s ,user u where s.UserID = u.UserID AND ShareEventID = ?";
         this.getShareNote = "select s.*, u.Username from sharenote s, user u where s.UserID = u.UserID AND ShareNoteID = ?";
-        this.getFaq = "select f.*,u.Username from faq f where f.UserID = u.UserID AND FAQID = ?";
+        this.getFaq = "select f.*,u.Username from faq f, user u where f.UserID = u.UserID AND FAQID = ?";
         this.getContent = "SELECT * FROM `picture` WHERE PostID = ?";
         this.getTagPost = "select * from `tagpost` where PostID = ?";
         this.countComment = 'select count(*) as count from comment_detail WHERE PostID = ?';
