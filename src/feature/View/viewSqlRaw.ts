@@ -25,12 +25,12 @@ export default class viewSqlRaw {
 
 
     constructor() {
-        this.getAllReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,user u  where r.UserID = u.UserID ORDER BY ReviewBookID LIMIT ?,?";
-        this.getAllReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time, u.Username from reviewsubject r, user u  where r.UserID = u.UserID ORDER BY ReviewSubjectID LIMIT ?,?";
-        this.getAllReviewTutor = "select ReviewTutorID,Cover,Title,date_time, u.Username from reviewtutor r ,user u where r.UserID = u.UserID ORDER BY ReviewTutorID LIMIT ?,?";
-        this.getAllShareEvent = "select ShareEventID,Cover,Title,Data_Time, u.Username from shareevent e , user u  where e.UserID = u.UserID ORDER BY ShareEventID LIMIT ?,?";
-        this.getAllShareNote = "select ShareNoteID,Cover,Subject_Name,Date_Time,Title, u.Username from sharenote s , user u where s.UserID = u.UserID ORDER BY ShareNoteID LIMIT ?,?";
-        this.getAllFaq = "select FAQID,title,description,date_time, u.Username from faq f , user u where f.UserID = u.UserID ORDER BY FAQID LIMIT ?,?"
+        this.getAllReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,user u  where r.UserID = u.UserID ORDER BY ReviewBookID DESC LIMIT ?,?";
+        this.getAllReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time, u.Username from reviewsubject r, user u  where r.UserID = u.UserID ORDER BY ReviewSubjectID DESC LIMIT ?,?";
+        this.getAllReviewTutor = "select ReviewTutorID,Cover,Title,date_time, u.Username from reviewtutor r ,user u where r.UserID = u.UserID ORDER BY ReviewTutorID DESC LIMIT ?,?";
+        this.getAllShareEvent = "select ShareEventID,Cover,Title,Data_Time, u.Username from shareevent e , user u  where e.UserID = u.UserID ORDER BY ShareEventID DESC LIMIT ?,?";
+        this.getAllShareNote = "select ShareNoteID,Cover,Subject_Name,Date_Time,Title, u.Username from sharenote s , user u where s.UserID = u.UserID ORDER BY ShareNoteID DESC LIMIT ?,?";
+        this.getAllFaq = "select FAQID,title,description,date_time, u.Username from faq f , user u where f.UserID = u.UserID ORDER BY FAQID DESC LIMIT ?,?"
         this.getReviewBook = "select r.*, u.Username from reviewbook r, user u where r.UserID = u.UserID AND ReviewBookID = ? ";
         this.getReviewSubject = "select r.*, u.Username from reviewsubject r, user u where r.UserID = u.UserID AND ReviewSubjectID = ?";
         this.getReviewTutor = "select r.*, u.Username from reviewtutor r ,user u where r.UserID = u.UserID AND ReviewtutorID = ?";
@@ -42,12 +42,12 @@ export default class viewSqlRaw {
         this.countComment = 'select count(*) as count from comment_detail WHERE PostID = ?';
         this.countPost = "select COUNT(*) as countId from ";
         this.getComment = "select c.*,u.Username from comment_detail c , user u where c.UserID = u.UserID AND c.PostID = ?";
-        this.getRecenlyReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,user u  where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time LIMIT 0,2";
-        this.getRecenlyReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time, u.Username from reviewsubject r, user u  where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time LIMIT 0,2";
-        this.getRecenlyReviewTutor = "select ReviewTutorID,Cover,Title,date_time, u.Username from reviewtutor r ,user u where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time LIMIT 0,2";
-        this.getRecenlyShareEvent = "select ShareEventID,Cover,Title,Data_Time, u.Username from shareevent e , user u  where e.UserID = u.UserID and e.UserID = ? ORDER BY Data_Time LIMIT 0,2";
-        this.getRecenlyShareNote = "select ShareNoteID,Cover,Subject_Name,Date_Time,Title, u.Username from sharenote s , user u where s.UserID = u.UserID  and s.UserID = ? ORDER BY Date_Time LIMIT 0,2";
-        this.getRecenlyFaq = "select FAQID,title,description,date_time, u.Username from faq f , user u where f.UserID = u.UserID and f.UserID = ? ORDER BY date_time LIMIT 0,2"
+        this.getRecenlyReviewBook = "select ReviewBookID,Cover,Title,date_time, u.Username from reviewbook r ,user u  where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time DESC LIMIT 0,3";
+        this.getRecenlyReviewSubject = "select ReviewSubjectID,SubjectID,Title,Date_Time, u.Username from reviewsubject r, user u  where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time DESC LIMIT 0,3";
+        this.getRecenlyReviewTutor = "select ReviewTutorID,Cover,Title,date_time, u.Username from reviewtutor r ,user u where r.UserID = u.UserID and r.UserID = ? ORDER BY date_time DESC LIMIT 0,3";
+        this.getRecenlyShareEvent = "select ShareEventID,Cover,Title,Data_Time, u.Username from shareevent e , user u  where e.UserID = u.UserID and e.UserID = ? ORDER BY Data_Time DESC LIMIT 0,3";
+        this.getRecenlyShareNote = "select ShareNoteID,Cover,Subject_Name,Date_Time,Title, u.Username from sharenote s , user u where s.UserID = u.UserID  and s.UserID = ? ORDER BY Date_Time DESC LIMIT 0,3";
+        this.getRecenlyFaq = "select FAQID,title,description,date_time, u.Username from faq f , user u where f.UserID = u.UserID and f.UserID = ? ORDER BY date_time DESC LIMIT 0,3"
 
     }
 

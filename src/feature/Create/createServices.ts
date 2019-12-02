@@ -77,7 +77,7 @@ export default class createServices {
             let parserReviewBook: Object = await this.parser.parserReviewBook(data, userId, postId);
             await this.validation.validate(parserReviewBook, 'reviewbook');
             await this.repo.createReviewBook(parserReviewBook);
-
+            
             let parserContent: Object = await this.parser.parserContent(data, postId);
             for (let i = 0; i < Object.keys(parserContent).length; i++) {
                 await this.validation.validate(await this.parser.parserContentSchema(parserContent[i]), 'picture');
@@ -102,8 +102,11 @@ export default class createServices {
         try {
             let query = await this.repo.getPostId('c');
             let postId = await this.getPostId(query[0].ReviewTutorID);
+            console.log('1')
             let parserReviewTutor: Object = await this.parser.parserReviewTutor(data, userId, postId);
+            console.log(parserReviewTutor)
             await this.validation.validate(parserReviewTutor, 'reviewtutor');
+            console.log('1')
             await this.repo.createReviewTutor(parserReviewTutor);
 
             let parserContent: Object = await this.parser.parserContent(data, postId);

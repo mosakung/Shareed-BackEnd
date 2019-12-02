@@ -26,7 +26,7 @@ export default class createRepository{
     }
 
     createReviewTutor = async (data:any) => {
-        try { return await this.db.query(this.sql.createPost('c'), [data.ReviewTutorID,data.TutorName,data.Academy,data.Subject_Teach,data.Des,data.ContactLink,data.Title,data.UserID]); }
+        try { return await this.db.query(this.sql.createPost('c'), [data.ReviewTutorID,data.TutorName,data.Academy,data.Subject_Teach,data.Des,data.ContactLink,data.Title,data.Cover,data.UserID]); }
         catch (err) { throw new Error(err.message); }
     }
 

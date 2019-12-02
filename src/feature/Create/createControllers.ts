@@ -47,6 +47,7 @@ export default class createControllers {
 
     createReviewTutor = async (req: Request, res: Response) => {
         try {
+            console.log(req.body);
             const result = await this.services.createReviewTutor(req.body, req.params.userId);
             if (!result) { res.status(300).send(''); }
             res.status(250).send('create complete');

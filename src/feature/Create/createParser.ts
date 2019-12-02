@@ -47,7 +47,8 @@ export default class createParser {
             Subject_Teach: data.subjectTeacher,
             Des: data.description,
             ContactLink: data.contactLink,
-            Title: data.title,
+            Title: data.Title,
+            Cover: data.Cover,
             UserID: userID
         }
     }

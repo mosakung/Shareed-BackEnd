@@ -12,6 +12,7 @@ export default class SchemaReviewTutor {
             Des: Joi.string().min(0).max(200),
             ContactLink: Joi.string().min(0).max(200),
             Title: Joi.string().min(0).max(50),
+            Cover: Joi.string().min(0).max(50),
             UserID: Joi.string().min(0).max(20)
         })
     }

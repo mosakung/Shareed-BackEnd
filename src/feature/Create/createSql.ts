@@ -28,7 +28,7 @@ export default class createSql {
         this.createComment = 'INSERT INTO `comment_detail`(`Detail`, `PostID`, `UserID`) VALUES (?,?,?)';
         this.getReviewBookId = 'SELECT ReviewBookID FROM `reviewbook` ORDER By ReviewBookID DESC LIMIT 1';
         this.getReviewSubjectId = 'SELECT ReviewSubjectID FROM `reviewsubject` ORDER By ReviewSubjectID DESC LIMIT 1';
-        this.getReviewTutorId = 'SELECT ReviewTutorID FROM `reviewtutor` ORDER By ShareEventID DESC LIMIT 1';
+        this.getReviewTutorId = 'SELECT ReviewTutorID FROM `reviewtutor` ORDER By ReviewTutorID DESC LIMIT 1';
         this.getShareEventId = 'SELECT ShareEventID FROM `shareevent` ORDER By ShareEventID DESC LIMIT 1';
         this.getShareNoteId = 'SELECT ShareNoteID FROM `sharenote` ORDER By ShareNoteID DESC LIMIT 1';
         this.getFaqId = 'SELECT FAQID FROM `faq` ORDER By FAQID DESC LIMIT 1';
