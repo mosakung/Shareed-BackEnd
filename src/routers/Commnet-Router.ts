@@ -1,21 +1,14 @@
 import express from 'express';
+import Binding from '../binding';
 
 const routerComment = express.Router();
 
-routerComment.get('/:postId/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
+const binding : Binding = new Binding();
 
-routerComment.post('/:postId', (req: any, res: any) => {
-    //create share note
-})
+routerComment.post('/:postID/:userId', binding.getCreateControllers().createComment)
 
-routerComment.put('/:postId/:commentId', (req: any, res: any) => {
-    //update share note
-})
+routerComment.put('/:commentId/:userId', binding.getEditControllers().editComment);
 
-routerComment.post('/:postId/:commentId', (req: any, res: any) => {
-    //delete share note
-})
+routerComment.delete('/:id/:userId', binding.getDeleteControllers().deleteComment);
 
 export default routerComment;

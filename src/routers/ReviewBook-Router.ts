@@ -5,20 +5,14 @@ const routerReviewBook = express.Router();
 
 const binding : Binding = new Binding();
 
-routerReviewBook.get('/', binding.getViewControllers().getReviewBook);
+routerReviewBook.get('/:page', binding.getViewControllers().getReviewBook);
 
-routerReviewBook.get('/:id/:userId', routerReviewBook.get('/', binding.getViewControllers().getReviewBookID));
+routerReviewBook.get('/:postID/:userID', binding.getViewControllers().getReviewBookID);
 
-routerReviewBook.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerReviewBook.post('/:userId', binding.getCreateControllers().createReviewBook);
 
-routerReviewBook.put('/:id', (req: any, res: any) => {
-    //update share note
-})
+routerReviewBook.put('/:postId/:userId', binding.getEditControllers().editReviewBook);
 
-routerReviewBook.post('/:id', (req: any, res: any) => {
-    //delete share note
-})
+routerReviewBook.delete('/:id/:userId', binding.getDeleteControllers().deleteReviewBook);
 
 export default routerReviewBook;

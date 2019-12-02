@@ -1,25 +1,18 @@
 import express from 'express';
+import Binding from '../binding';
 
 const routerReviewTutor = express.Router();
 
-routerReviewTutor.get('/', (req: any, res: any) => {
-    //fetch All share note
-})
+const binding : Binding = new Binding();
 
-routerReviewTutor.get('/:id/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
+routerReviewTutor.get('/:page', binding.getViewControllers().getReviewTutor)
 
-routerReviewTutor.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerReviewTutor.get('/:postID/:userID',  binding.getViewControllers().getReviewTutorID)
 
-routerReviewTutor.put('/:id', (req: any, res: any) => {
-    //update share note
-})
+routerReviewTutor.post('/:userId', binding.getCreateControllers().createReviewTutor)
 
-routerReviewTutor.post('/:id', (req: any, res: any) => {
-    //delete share note
-})
+routerReviewTutor.put('/:postId/:userId', binding.getEditControllers().editReviewTutor);
+
+routerReviewTutor.delete('/:id/:userId', binding.getDeleteControllers().deleteReviewTutor);
 
 export default routerReviewTutor;

@@ -8,6 +8,7 @@ import routerReviewSubject from './routers/ReviewSubject-Router';
 import routerReviewTutor from './routers/ReviewTutor-Router';
 import routerShareEvent from './routers/ShareEvent-Router';
 import routerShareNote from './routers/ShareNote-Router';
+import routerHomepage from './routers/Homepage-Router';
 
 const routing = express.Router();
 
@@ -28,5 +29,7 @@ routing.use('/review-tutor',routerReviewTutor);
 routing.use('/share-event',routerShareEvent);
 
 routing.use('/share-note',routerShareNote);
+
+routing.use('/homepage-user',routerHomepage);
 
 export default routing;

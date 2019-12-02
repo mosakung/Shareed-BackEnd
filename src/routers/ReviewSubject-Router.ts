@@ -1,25 +1,18 @@
 import express from 'express';
+import Binding from '../binding';
 
 const routerReviewSubject = express.Router();
 
-routerReviewSubject.get('/', (req: any, res: any) => {
-    //fetch All share note
-})
+const binding : Binding = new Binding();
 
-routerReviewSubject.get('/:id/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
+routerReviewSubject.get('/:page',  binding.getViewControllers().getReviewSubject)
 
-routerReviewSubject.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerReviewSubject.get('/:postID/:userID',  binding.getViewControllers().getReviewSubjectID)
 
-routerReviewSubject.put('/:id', (req: any, res: any) => {
-    //update share note
-})
+routerReviewSubject.post('/:userId', binding.getCreateControllers().createReviewSubject)
 
-routerReviewSubject.post('/:id', (req: any, res: any) => {
-    //delete share note
-})
+routerReviewSubject.put('/:postId/:userId', binding.getEditControllers().editReviewSubject);
+
+routerReviewSubject.delete('/:id/:userId', binding.getDeleteControllers().deleteReviewSubject);
 
 export default routerReviewSubject;

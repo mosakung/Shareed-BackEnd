@@ -1,25 +1,18 @@
 import express from 'express';
+import Binding from '../binding';
 
 const routerShareEvent = express.Router();
 
-routerShareEvent.get('/', (req: any, res: any) => {
-    //fetch All share note
-})
+const binding : Binding = new Binding();
 
-routerShareEvent.get('/:id/:userId', (req: any, res: any) => {
-    //fetch share note by id
-})
+routerShareEvent.get('/:page',  binding.getViewControllers().getShareEvent)
 
-routerShareEvent.post('/', (req: any, res: any) => {
-    //create share note
-})
+routerShareEvent.get('/:postID/:userID',  binding.getViewControllers().getShareEventID)
 
-routerShareEvent.put('/:id', (req: any, res: any) => {
-    //update share note
-})
+routerShareEvent.post('/:userId', binding.getCreateControllers().createShareEvent)
 
-routerShareEvent.post('/:id', (req: any, res: any) => {
-    //delete share note
-})
+routerShareEvent.put('/:postId/:userId', binding.getEditControllers().editShareEvent);
+
+routerShareEvent.delete('/:id/:userId', binding.getDeleteControllers().deleteShareEvent);
 
 export default routerShareEvent;

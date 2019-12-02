@@ -18,9 +18,23 @@ you can check the api work by using GET `localhost:3000/ping`
   
   **Access** | respone status `250`
   
-  **Server not respone** | respone status `251`
+  **function !** | respone status `300`
   
   **Error catch** | respone status `500`
+
+### Database Post ID
+
+  **Review Book** | a-number
+
+  **Review Subject** | b-number
+  
+  **Review Tutor** | c-number
+
+  **Share event** | d-number
+
+  **Share Note** | e-number
+
+  **FAQ** | f-number
   
 ### Authenication `disabled`
 
@@ -217,6 +231,37 @@ you can check the api work by using GET `localhost:3000/ping`
   
     **parameter**: `Main Picture` | `Subject ID` | `Subject Name` | `Title Name` | `Written by` | `Register here` | `Edition` | `Tag` | `Link To Library` | `Description` | `Picture`\
     **respone body**: -
+    ```json
+    
+    {
+    "Cover": "c",
+    "Title": "t",
+    "WrittenBy": "w",
+    "Edition": "e",
+    "Link": "l",
+    "Des": "d",
+    "BookName": "B",
+    "tag": [
+        {
+            "TagDetail": "one"
+        },
+        {
+            "TagDetail": "two"
+        },
+        {
+            "TagDetail": "three"
+        }
+    ],
+    "content": [
+        {
+            "Picture": "onePic.jpg"
+        },
+        {
+            "Picture": "twoPic.jpg"
+        }
+    ]
+    }
+    ```
   
 </details>
 <details>
@@ -285,7 +330,7 @@ you can check the api work by using GET `localhost:3000/ping`
   - requirement
   
     **parameter**: -\
-    **respone body**: `Main Picture` | `Title Name` | `Post Date`
+    **respone body**: `Subject ID` | `Title Name` | `Post Date`
   
 </details>
 <details>
@@ -302,7 +347,7 @@ you can check the api work by using GET `localhost:3000/ping`
     
   - requirement
   
-    **parameter**: `Main Picture` | `Title Name` | `Subject ID` | `Subject Name` | `Teach By` | `Section` | `Condition` | `Tag` |  `Description` | `Picture`\
+    **parameter**: `Title Name` | `Subject ID` | `Subject Name` | `Teach By` | `Section` | `Condition` | `Tag` |  `Description` | `Picture`\
     **respone body**: -
   
 </details>
